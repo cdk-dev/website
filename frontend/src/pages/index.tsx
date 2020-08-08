@@ -15,13 +15,13 @@ function Index({}: Props): ReactElement {
               cdk.dev
             </li>
             <li>
-              <a href="https://github.com/cdk-dev" target="_blank" rel="noopener noreferrer">Made with 💚 by cdk.dev Team</a>
+              <a href="https://github.com/cdk-dev" target="_blank" rel="noopener noreferrer">Made with 💚 by cdk.dev Community</a>
             </li>
           </ul>
         </nav>
         <h1 class="text-6xl my-auto mx-auto  md:mx-48 ">
           We're just getting started.<br />
-          <span class="text-teal-400"><a href="https://github.com/cdk-dev/website">You can contribute!</a></span>
+          <span class="text-teal-400"><a href="https://github.com/cdk-dev/base">You can contribute!</a></span>
         </h1>
       </section>
     </>

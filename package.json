@@ -1,0 +1,13 @@
+{
+  "name": "cdk-dev-website",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "scripts": {
+    "build": "lerna run build"
+  },
+  "workspaces": [
+    "frontend"
+  ]
+}

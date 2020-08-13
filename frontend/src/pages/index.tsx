@@ -21,7 +21,8 @@ function Index({}: Props): ReactElement {
         </nav>
         <h1 class="text-6xl my-auto mx-auto  md:mx-48 ">
           We're just getting started.<br />
-          <span class="text-teal-400"><a href="https://github.com/cdk-dev/base">You can contribute!</a></span>
+          <span class="text-teal-400"><a href="https://github.com/cdk-dev/base">You can contribute</a></span>
+          <span class="ml-4">and<span class="text-teal-400"><a class="ml-4" href="https://join.slack.com/t/cdk-dev/shared_invite/zt-gff3dtkw-MsEPa5Id1Aey8HQUDEck1Q">join our Slack</a></span></span>
         </h1>
       </section>
     </>

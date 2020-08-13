@@ -12,7 +12,7 @@ function Index({}: Props): ReactElement {
         <nav>
           <ul class="flex justify-between text-xl py-8 px-8 md:px-48 ">
             <li>
-              cdk.dev
+              cdk.dev - <a href="https://aws.amazon.com/cdk/">AWS CDK</a>, <a href="https:/cdk.tf">Terraform CDK</a> and <a href="https://cdk8s.io">CDK8s</a>
             </li>
             <li>
               <a href="https://github.com/cdk-dev" target="_blank" rel="noopener noreferrer">Made with 💚 by cdk.dev Community</a>

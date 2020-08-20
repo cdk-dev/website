@@ -1,30 +1,40 @@
-import React, { ReactElement, useState } from "react"
+import React, { ReactElement } from "react"
+
+// Components
+import Nav from "../components/Nav"
+import Footer from "../components/Footer"
 
 interface Props {}
 
-function Index({}: Props): ReactElement {
-  const [isMenuOpen, setMenuOpen] = useState(false)
+function Index(props: Props): ReactElement {
   return (
     <>
-      <section
-        class="homescreen m-0 px-4 flex flex-col w-screen justify-center bg-gray-800 h-screen text-gray-100 "
-      >
-        <nav>
-          <ul class="flex justify-between text-xl py-8 px-8 md:px-48 ">
-            <li>
-              cdk.dev - <a href="https://aws.amazon.com/cdk/">AWS CDK</a>, <a href="https://cdk.tf">Terraform CDK</a> and <a href="https://cdk8s.io">CDK8s</a>
-            </li>
-            <li>
-              <a href="https://github.com/cdk-dev" target="_blank" rel="noopener noreferrer">Made with 💚 by cdk.dev Community</a>
-            </li>
-          </ul>
-        </nav>
-        <h1 class="text-6xl my-auto mx-auto  md:mx-48 ">
-          We're just <a href="https://dev.to/skorfmann/cdk-dev-call-for-contributors-4c46">getting started</a>.<br />
-          <span class="text-teal-400"><a href="https://github.com/cdk-dev/base">You can contribute</a></span><br />
-          and<span class="text-teal-400"><a class="ml-4" href="https://join.slack.com/t/cdk-dev/shared_invite/zt-gff3dtkw-MsEPa5Id1Aey8HQUDEck1Q">join our Slack</a></span>
+      <section className="homescreen m-0 px-4 flex flex-col w-screen justify-center bg-gray-800 h-screen text-gray-100 ">
+        <Nav title="Home" />
+
+        <h1 className="text-6xl my-auto mx-auto  md:mx-48 ">
+          We're just{" "}
+          <a href="https://dev.to/skorfmann/cdk-dev-call-for-contributors-4c46">
+            getting started
+          </a>
+          .<br />
+          <span className="text-teal-400">
+            <a href="https://github.com/cdk-dev/base">You can contribute</a>
+          </span>
+          <br />
+          and
+          <span className="text-teal-400">
+            <a
+              className="ml-4"
+              href="https://join.slack.com/t/cdk-dev/shared_invite/zt-gff3dtkw-MsEPa5Id1Aey8HQUDEck1Q"
+            >
+              join our Slack
+            </a>
+          </span>
         </h1>
       </section>
+
+      <Footer />
     </>
   )
 }

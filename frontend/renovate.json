@@ -5,7 +5,5 @@
     "automerge": false
   },
   "bumpVersion": "patch",
-  "extends": [
-    "config:base"
-  ]
+  "extends": ["config:base"]
 }

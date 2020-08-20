@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-typescript-tailwind",
+  "name": "cdk-dev-website-frontend",
   "private": false,
-  "description": "A gatsby starter kit using TypeScript and Tailwind CSS",
+  "description": "The frontend for the cdk.dev website",
   "version": "0.1.247",
-  "author": "Florentin Eckl <ecklf@icloud.com>",
+  "author": "cdk-dev",
   "dependencies": {
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -64,10 +64,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/impulse/gatsby-typescript-tailwind"
+    "url": "https://github.com/cdk-dev/website"
   },
   "bugs": {
-    "url": "https://github.com/impulse/gatsby-typescript-tailwind/issues"
+    "url": "https://github.com/cdk-dev/website/issues"
   },
   "husky": {
     "hooks": {

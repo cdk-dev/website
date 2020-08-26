@@ -20,7 +20,7 @@ function Footer(): ReactElement {
             <a href="https://join.slack.com/t/cdk-dev/shared_invite/zt-gff3dtkw-MsEPa5Id1Aey8HQUDEck1Q">
               Slack
             </a>
-            <a href="https://twitter.com/cdk-dev">Twitter</a>
+            <a href="https://twitter.com/cdkdev_">Twitter</a>
           </div>
 
           <div className="flex flex-col flex-1">

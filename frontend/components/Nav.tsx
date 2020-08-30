@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react"
-import { Link } from "gatsby"
+import Link from "next/link"
 
 export interface NavProps {
   title?: string
@@ -9,10 +9,10 @@ function Nav({ title }: NavProps): ReactElement {
   const pageTitle = title || ""
 
   return (
-    <div className="px-10 flex flex-row justify-between p-4 bg-gray-800 text-gray-100">
+    <div className="h-10 px-10 flex flex-row justify-between p-4 bg-gray-800 text-gray-100">
       <div className="flex flex-row">
         <div className="mr-8">
-          <Link to="/">cdk.dev</Link>
+          <Link href="/">cdk.dev</Link>
         </div>
 
         {pageTitle && (
@@ -26,7 +26,7 @@ function Nav({ title }: NavProps): ReactElement {
       <nav>
         <ul className="flex">
           <li className="mr-4">
-            <Link to="/tools">Tools</Link>
+            <Link href="/tools">Tools</Link>
           </li>
           <li>
             <a href="https://cdkday.com">

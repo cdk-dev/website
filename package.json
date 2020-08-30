@@ -5,7 +5,7 @@
     "lerna": "^3.22.1"
   },
   "scripts": {
-    "build": "lerna run deploy"
+    "deploy": "lerna run deploy"
   },
   "workspaces": [
     "frontend"

@@ -25,6 +25,12 @@ export default () => (
             join our Slack
           </a>
         </span>
+        or
+        <span className="text-teal-400">
+          <a className="ml-4 mr-4"
+              href="https://discord.gg/Y4Yc26p"
+          >Discord</a>
+        </span>
       </h1>
     </section>
   </Layout>

@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react"
-import { Link } from "gatsby"
+import Link from "next/link"
 
 function Footer(): ReactElement {
   return (
@@ -9,8 +9,8 @@ function Footer(): ReactElement {
         <div className="flex flex-row mb-8">
           <div className="flex flex-col flex-1">
             <h3 className="text-gray-600 mb-2">Navigation</h3>
-            <Link to="/">Home</Link>
-            <Link to="/tools">Tools</Link>
+            <Link href="/">Home</Link>
+            <Link href="/tools">Tools</Link>
             <a href="https://www.cdkday.com/">CDK Day 2020</a>
           </div>
 

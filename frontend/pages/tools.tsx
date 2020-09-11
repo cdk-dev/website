@@ -1,8 +1,7 @@
 import React, { ReactElement } from "react"
 
-// Components
 import Nav from "../components/Nav"
-import Footer from "../components/Footer"
+import Layout from "../components/Layout"
 
 interface Props {}
 
@@ -50,10 +49,10 @@ const projects: ProjectProps[] = [
 
 function Tools(props: Props): ReactElement {
   return (
-    <>
+    <Layout>
       <Nav title="Tools" />
 
-      <section className="px-4 flex flex-col w-screen justify-start bg-gray-800 text-gray-100">
+      <section className="flex-grow px-4 flex flex-col w-screen justify-start bg-gray-800 text-gray-100">
         <div className="p-6">
           <h1 className="text-6xl mb-2">CDK Dev Tools</h1>
           <p className="mb-8">
@@ -80,9 +79,7 @@ function Tools(props: Props): ReactElement {
           </a>
         </div>
       </section>
-
-      <Footer />
-    </>
+    </Layout>
   )
 }
 

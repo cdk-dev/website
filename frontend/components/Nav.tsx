@@ -28,6 +28,9 @@ function Nav({ title }: NavProps): ReactElement {
           <li className="mr-4">
             <Link href="/tools">Tools</Link>
           </li>
+          <li className="mr-4">
+            <Link href="/resources">Resources</Link>
+          </li>
           <li>
             <a href="https://cdkday.com">
               CDK Day{" "}

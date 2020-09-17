@@ -181,9 +181,9 @@ const projects: ResourceProps[] = [
         href: `https://github.com/aws-samples/aws-cdk-examples`,
     },
     {
-        title: "AWS CDK Developer Guide",
-        description: "Official AWS CDK Developer Guide",
-        href: `https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html`,
+        title: "CDK Patterns",
+        description: "Collection of CDK Patterns focused on serverless solutions and created with the Well Architected Framework in mind",
+        href: `https://cdkpatterns.com/`,
     },
 ]
 // Language specific resources:
@@ -216,6 +216,11 @@ const pythonresources: ResourceProps[] = [
         title: "Enhanced CI/CD with AWS CDK (Video)",
         description: "AWS Online Tech Talk about CI/CD pipelines in AWS CDK with live demo and example code repo",
         href: `https://youtu.be/1ps0Wh19MHQ`,
+    },
+    {
+        title: "Supercharging Your ECS Applications with the AWS CDK - AWS Online Tech Talks (Video)",
+        description: "AWS Online Tech Talk: Learn how to deploy your containerized applications to ECS using the AWS CDK ",
+        href: `https://youtu.be/NkI5yeMFRK8`,
     },
     {
         title: "AWS CDK Workshop",

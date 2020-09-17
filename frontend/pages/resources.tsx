@@ -163,9 +163,6 @@ function Project({ title, href, description }: ResourceProps): ReactElement {
     )
 }
 
-const cdkDevBase = "https://github.com/cdk-dev"
-
-
 // Getting started:
 const projects: ResourceProps[] = [
     {
@@ -194,7 +191,7 @@ const projects: ResourceProps[] = [
 const typescriptresources: ResourceProps[] = [
     {
         title: "Contribute to the AWS CDK (Video)",
-        description: "Ever wondering how to create a pull request for AWS CDK? In this video, we'll walk you through all the primary steps to submit your first AWS CDK pull request.",
+        description: "Ever wondering how to create a pull request for AWS CDK? In this video, we'll walk you through all the primary steps to submit your first AWS CDK pull request",
         href: `https://youtu.be/OXQSSibrt-A`,
     },
     {
@@ -253,8 +250,7 @@ function Resources(props: Props): ReactElement {
                 <div className="p-6">
                     <h1 className="text-6xl mb-2">CDK Resources</h1>
                     <p className="mb-8">
-                        This is a collection of resources to help during the development of CDK
-                        applications.
+                        This is a collection of resources to help getting started with the AWS CDK. Here you find workshops, tutorials and live coding streams.
           </p>
                     <h1 className="text-4xl mb-2">Getting Started</h1>
 
@@ -265,7 +261,7 @@ function Resources(props: Props): ReactElement {
                         <Project {...project} />
                     ))}
                 </div>
-                    <h1 className="text-4xl mb-2">Resources in your Language</h1>
+                    <h1 className="text-4xl mb-2">Resources per Language</h1>
                 {/* Tabs contains all language specific content */}
                 <>
                     <Tabs color="grey" />

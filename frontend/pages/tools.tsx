@@ -47,8 +47,13 @@ const projects: ProjectProps[] = [
   },
   {
     title: "projen",
-    description: "Define and maintain complex project configuration through code.",
+    description: "Define and maintain complex project configuration through code",
     href: `https://github.com/eladb/projen`,
+  },
+  {
+    title: "jsii-publish",
+    description: "Dockerfile and GitHub action for publishing JSII packages. Package building and publishing to npm, PyPI, NuGet and Maven (GitHub)",
+    href: `https://github.com/udondan/jsii-publish`,
   },
   {
     title: "RocketCDK",

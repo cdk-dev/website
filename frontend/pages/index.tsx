@@ -19,7 +19,7 @@ export default () => (
         and
         <span className="text-teal-400">
           <a
-            className="ml-4"
+            className="ml-4 mr-4"
             href="https://join.slack.com/t/cdk-dev/shared_invite/zt-gff3dtkw-MsEPa5Id1Aey8HQUDEck1Q"
           >
             join our Slack

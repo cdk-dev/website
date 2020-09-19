@@ -3,7 +3,7 @@ import React, { ReactElement } from "react"
 import Nav from "../components/Nav"
 import Layout from "../components/Layout"
 
-interface Props {}
+interface Props { }
 
 interface ProjectProps {
   title: string
@@ -44,6 +44,21 @@ const projects: ProjectProps[] = [
     title: "Create CDK App",
     description: "Create CDK apps from templates",
     href: `${cdkDevBase}/create-cdk-app`,
+  },
+  {
+    title: "projen",
+    description: "Define and maintain complex project configuration through code",
+    href: `https://github.com/eladb/projen`,
+  },
+  {
+    title: "jsii-publish",
+    description: "Dockerfile and GitHub action for publishing JSII packages. Package building and publishing to npm, PyPI, NuGet and Maven (GitHub)",
+    href: `https://github.com/udondan/jsii-publish`,
+  },
+  {
+    title: "RocketCDK",
+    description: "Update versions of your packages and CDK version in one command. Works with TS and Python",
+    href: `https://www.npmjs.com/package/rocketcdk`,
   },
 ]
 

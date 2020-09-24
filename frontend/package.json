@@ -15,6 +15,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@tailwindcss/ui": "^0.6.2",
+    "@tailwindui/react": "^0.1.1",
     "cssnano": "^4.1.10",
     "next": "^9.5.2",
     "react": "^16.13.1",

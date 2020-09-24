@@ -19,12 +19,12 @@ function Footer(): ReactElement {
                     </a>
                   </li>
                   <li className="mt-4">
-                    <a href="#" className="text-base leading-6 text-gray-300 hover:text-white">
+                    <a href="/tools" className="text-base leading-6 text-gray-300 hover:text-white">
                       Tools
                     </a>
                   </li>
                   <li className="mt-4">
-                    <a href="#" className="text-base leading-6 text-gray-300 hover:text-white">
+                    <a href="/resources" className="text-base leading-6 text-gray-300 hover:text-white">
                       Resources
                     </a>
                   </li>

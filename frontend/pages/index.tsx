@@ -1,9 +1,13 @@
 import Nav from "../components/Nav"
+import Hero from "../components/Hero"
+import Logos from "../components/Logos"
 import Layout from "../components/Layout"
 
+
 export default () => (
-  <Layout>
-    <Nav title="Home" />
+  <Layout>    
+    <Hero/>
+    <Logos/>
 
 
     <div className="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">

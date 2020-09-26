@@ -12,14 +12,26 @@ function Logos(): ReactElement {
               <div className="max-w-4xl mx-auto">
                 <div className="rounded-lg bg-white shadow-lg py-8 px-4 grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-3">
                   <div className="col-span-1 m-2 flex justify-center md:col-span-3 lg:col-span-1">
-                    <img className="h-24" src={require('./logos/terraform.svg')} />
+                    <a href="https://cdk.tf">
+                      <img
+                        className="h-24"
+                        src={require("./logos/terraform.svg")}
+                      />
+                    </a>
                   </div>
                   <div className="col-span-1 m-2 flex justify-center md:col-span-2 lg:col-span-1">
-                    <img className="h-24" src={require('./logos/aws.svg')} />
+                    <a href="https://aws.amazon.com/cdk/">
+                      <img className="h-24" src={require("./logos/aws.svg")} />
+                    </a>
                   </div>
 
                   <div className="col-span-1 m-2 flex justify-center md:col-span-3 lg:col-span-1">
-                    <img className="h-24" src={require('./logos/kubernetes.svg')} />
+                    <a href="https://cdk8s.io">
+                      <img
+                        className="h-24"
+                        src={require("./logos/kubernetes.svg")}
+                      />
+                    </a>
                   </div>
                 </div>
               </div>

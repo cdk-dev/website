@@ -16,7 +16,9 @@
   "dependencies": {
     "@tailwindcss/ui": "^0.6.2",
     "@tailwindui/react": "^0.1.1",
+    "apollo-server-micro": "^2.18.1",
     "cssnano": "^4.1.10",
+    "graphql": "^15.3.0",
     "next": "^9.5.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

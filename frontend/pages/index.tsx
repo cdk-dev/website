@@ -1,4 +1,3 @@
-import Nav from "../components/Nav"
 import Hero from "../components/Hero"
 import Logos from "../components/Logos"
 import Layout from "../components/Layout"

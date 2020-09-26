@@ -13,17 +13,9 @@ interface ProjectProps {
 
 function Project({ title, href, description }: ProjectProps): ReactElement {
   return (
+    
     <div className="rounded-lg bg-gray-900 mb-4 p-4 flex-1 m-2 flex flex-col items-start justify-between">
-      <div className="flex-1 mb-8">
-        <h3 className="text-2xl mb-4">{title}</h3>
-        <p>{description}</p>
-      </div>
 
-      <a href={href}>
-        <div className={`rounded-full bg-gray-700 inline-block px-4 py-2`}>
-          View Project
-        </div>
-      </a>
     </div>
   )
 }

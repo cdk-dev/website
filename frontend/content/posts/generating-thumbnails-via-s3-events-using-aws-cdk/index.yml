@@ -1,0 +1,10 @@
+title: "Generating thumbnails via S3 events using aws-cdk"
+excerpt: "Let's see something today that we have all done manually in the past, creating thumbnails for images for profile pic uploads in S3."
+banner: banner.png
+authorIds:
+  - ryan-dsouza
+url: https://dev.to/ryands17/generating-thumbnails-via-s3-events-using-aws-cdk-typescript-l1i
+categories:
+  - AWS-CDK
+  - Typescript
+  - Example

@@ -14,7 +14,6 @@ dayjs.extend(utc) // From Timezone
 dayjs.extend(timezone)
 
 function Post({ post }): ReactElement {
-  console.log({ post })
   return (
     <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
       <div className="flex-shrink-0">

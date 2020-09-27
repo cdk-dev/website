@@ -79,14 +79,14 @@ function Tools({ resources }): ReactElement {
         </header>
         <main>
           <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 text-gray-900">
-            <div className="px-4 py-8 sm:px-0">
+            <div className="px-4 py-6 sm:px-0">
               <p className="mb-8">
                 This is a collection of tools to help during the development of
                 CDK applications.
               </p>
             </div>
 
-            <div className="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
+            <div className="mt-0 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
               {resources.map((resource) => (
                 <Resource key={resource.id} resource={resource} />
               ))}

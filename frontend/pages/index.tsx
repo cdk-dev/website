@@ -57,7 +57,7 @@ function Post({ post }): ReactElement {
               </a>
             </p>
             <div className="flex text-sm leading-5 text-gray-500">
-              added &nbsp;
+              added&nbsp;
               <time dateTime={dayjs(post.createdAt).format("YYYY-MM-DD HH:mm")}>
                 {dayjs(post.createdAt).fromNow()}
               </time>
@@ -120,9 +120,9 @@ export default ({ posts }) => (
 )
 
 export async function getStaticProps() {
-  const { posts } = await queryGraphql(`
+  const { recentPosts } = await queryGraphql(`
     query {
-      posts {
+      recentPosts(limit: 3) {
         title
         excerpt
         url
@@ -138,5 +138,5 @@ export async function getStaticProps() {
       }
     }
   `)
-  return { props: { posts } }
+  return { props: { posts: recentPosts } }
 }

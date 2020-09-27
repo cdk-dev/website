@@ -4,6 +4,7 @@ import { posts, users } from "./data"
 const typeDefs = gql`
   type Query {
     posts: [Post!]!
+    recentPosts(limit: Int = 3): [Post!]!
     users: [User!]!
   }
 
@@ -29,6 +30,13 @@ const resolvers = {
   Query: {
     posts() {
       return posts
+    },
+
+    recentPosts(_parent, args) {
+      const orderedPosts = posts.sort((a, b) => {
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      })
+      return orderedPosts.slice(0, args.limit)
     },
 
     users() {

@@ -4,23 +4,34 @@ import Layout from "../components/Layout"
 import queryGraphql from "../graphql"
 import { ReactElement } from "react"
 
+import dayjs from "dayjs"
+import utc from "dayjs/plugin/utc"
+import timezone from "dayjs/plugin/timezone"
+import relativeTime from "dayjs/plugin/relativeTime"
+
+dayjs.extend(relativeTime) // For fromNow()
+dayjs.extend(utc) // From Timezone
+dayjs.extend(timezone)
+
 function Post({ post }): ReactElement {
+  console.log({ post })
   return (
     <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
       <div className="flex-shrink-0">
-        <img
-          className="h-48 w-full object-cover"
-          src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
-          alt=""
-        />
+        <img className="h-48 w-full object-cover" src={post.image} alt="foo" />
       </div>
       <div className="flex-1 bg-white p-6 flex flex-col justify-between">
         <div className="flex-1">
-          <p className="text-sm leading-5 font-medium text-indigo-600">
-            <a href="#" className="hover:underline">
-              Blog
-            </a>
-          </p>
+          <div>
+            {post.categories.map((category) => (
+              <span
+                key={category}
+                className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium leading-5 bg-indigo-100 text-indigo-800 mr-2"
+              >
+                {category}
+              </span>
+            ))}
+          </div>
           <a href="#" className="block">
             <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
               {post.title}
@@ -47,9 +58,12 @@ function Post({ post }): ReactElement {
               </a>
             </p>
             <div className="flex text-sm leading-5 text-gray-500">
-              <time dateTime="2020-03-16">Mar 16, 2020</time>
+              added &nbsp;
+              <time dateTime={dayjs(post.createdAt).format("YYYY-MM-DD HH:mm")}>
+                {dayjs(post.createdAt).fromNow()}
+              </time>
               <span className="mx-1">&middot;</span>
-              <span>6 min read</span>
+              <span>{post.hostname}</span>
             </div>
           </div>
         </div>
@@ -93,6 +107,10 @@ export async function getStaticProps() {
         title
         excerpt
         url
+        image
+        categories
+        hostname
+        createdAt
       }
     }
   `)

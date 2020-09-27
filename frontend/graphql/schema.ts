@@ -1,10 +1,11 @@
 import { gql, makeExecutableSchema } from "apollo-server-micro"
-import { posts, users } from "./data"
+import { posts, users, resources } from "./data"
 
 const typeDefs = gql`
   type Query {
     posts: [Post!]!
     recentPosts(limit: Int = 3): [Post!]!
+    resources: [Resource!]!
     users: [User!]!
   }
 
@@ -24,6 +25,17 @@ const typeDefs = gql`
     categories: [String!]
     createdAt: String!
   }
+
+  type Resource {
+    id: ID!
+    title: String!
+    teaser: String!
+    url: String!
+    hostname: String!
+    image: String
+    categories: [String!]
+    createdAt: String!
+  }
 `
 
 const resolvers = {
@@ -37,6 +49,10 @@ const resolvers = {
         return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       })
       return orderedPosts.slice(0, args.limit)
+    },
+
+    resources() {
+      return resources
     },
 
     users() {

@@ -1,0 +1,9 @@
+title: RocketCDK
+teaser: Update versions of your packages and CDK version in one command. Works with TS and Python
+url: "https://www.npmjs.com/package/rocketcdk"
+createdAt: "2020-09-17 20:01"
+categories:
+  - AWS CDK
+  - Tools
+  - Typescript
+  - Python

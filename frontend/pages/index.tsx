@@ -62,7 +62,7 @@ function Post({ post }): ReactElement {
                 {dayjs(post.createdAt).fromNow()}
               </time>
               <span className="mx-1">&middot;</span>
-              <span>{post.hostname}</span>
+              <a href={post.url}>{post.hostname}</a>
             </div>
           </div>
         </div>

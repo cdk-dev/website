@@ -4,6 +4,7 @@ banner: banner.png
 authorIds:
   - ryan-dsouza
 url: https://dev.to/ryands17/generating-thumbnails-via-s3-events-using-aws-cdk-typescript-l1i
+createdAt: "2020-09-27 19:00"
 categories:
   - AWS-CDK
   - Typescript

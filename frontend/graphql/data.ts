@@ -19,7 +19,7 @@ export const posts = postFiles.map((filePath) => {
   }`)
 
   post.hostname = new URL(post.url).hostname
-  post.createdAt = new Date(fs.statSync(filePath).birthtime).toISOString()
+  post.createdAt = new Date(post.createdAt).toISOString()
 
   return post
 })
@@ -34,7 +34,7 @@ export const users = authorFiles.map((filePath) => {
   // can't handle it for some reason. See https://github.com/cyrilwanner/next-optimized-images/issues/16#issuecomment-416066832
   user.avatar = require(`../content/users/${user.id}/${user.avatar}`)
 
-  user.createdAt = new Date(fs.statSync(filePath).birthtime).toISOString()
+  user.createdAt = new Date(user.createdAt).toISOString()
 
   return user
 })

@@ -1,14 +1,16 @@
 import { gql, makeExecutableSchema } from "apollo-server-micro"
-import { posts } from "./data"
+import { posts, users } from "./data"
 
 const typeDefs = gql`
   type Query {
     posts: [Post!]!
+    users: [User!]!
   }
 
   type User {
+    id: ID!
     name: String
-    username: String
+    avatar: String
   }
 
   type Post {
@@ -27,6 +29,17 @@ const resolvers = {
   Query: {
     posts() {
       return posts
+    },
+
+    users() {
+      return users
+    },
+  },
+
+  Post: {
+    author(parent) {
+      const authorId = parent.authorIds[0]
+      return users.find((user) => user.id === authorId)
     },
   },
 }

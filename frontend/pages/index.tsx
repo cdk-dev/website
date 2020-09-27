@@ -32,7 +32,7 @@ function Post({ post }): ReactElement {
               </span>
             ))}
           </div>
-          <a href="#" className="block">
+          <a href={post.url} className="block">
             <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
               {post.title}
             </h3>
@@ -43,18 +43,18 @@ function Post({ post }): ReactElement {
         </div>
         <div className="mt-6 flex items-center">
           <div className="flex-shrink-0">
-            <a href="#">
+            <a href={post.url}>
               <img
                 className="h-10 w-10 rounded-full"
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                src={post.author.avatar}
                 alt=""
               />
             </a>
           </div>
           <div className="ml-3">
             <p className="text-sm leading-5 font-medium text-gray-900">
-              <a href="#" className="hover:underline">
-                Roel Aufderhar
+              <a href={post.url} className="hover:underline">
+                {post.author.name}
               </a>
             </p>
             <div className="flex text-sm leading-5 text-gray-500">
@@ -111,6 +111,11 @@ export async function getStaticProps() {
         categories
         hostname
         createdAt
+        author {
+          id
+          name
+          avatar
+        }
       }
     }
   `)

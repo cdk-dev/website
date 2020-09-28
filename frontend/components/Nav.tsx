@@ -17,7 +17,13 @@ function Nav({ title }: NavProps): ReactElement {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex">
-              <div className="flex-shrink-0 flex items-center">cdk.dev</div>
+              <div className="flex-shrink-0 flex items-center">
+                <img
+                  className="h-8 w-auto sm:h-10"
+                  src="/cdkdevlogo.svg"
+                  alt="cdk.dev"
+                />
+              </div>
               <div className="hidden sm:ml-6 sm:flex">
                 <NavLink href="/" linkName="Home" />
                 <NavLink href="/posts" linkName="Posts" />
@@ -110,7 +116,13 @@ function Nav({ title }: NavProps): ReactElement {
                 aria-labelledby="main-menu"
               >
                 <div className="px-5 pt-4 flex items-center justify-between">
-                  <div>cdk.dev</div>
+                  <div>
+                    <img
+                      className="h-8 w-auto"
+                      src="/cdkdevlogo.svg"
+                      alt="cdk.dev"
+                    />
+                  </div>
                   <div className="-mr-2">
                     <button
                       type="button"

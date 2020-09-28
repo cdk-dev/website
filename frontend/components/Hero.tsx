@@ -93,8 +93,12 @@ function Nav({ title }: NavProps): ReactElement {
             <nav className="relative flex items-center justify-between sm:h-10 md:justify-center">
               <div className="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
                 <div className="flex items-center justify-between w-full md:w-auto">
-                  <a href="#" aria-label="Home">
-                    cdk.dev
+                  <a href="/" aria-label="Home">
+                    <img
+                      className="h-8 w-auto sm:h-10"
+                      src="/cdkdevlogo.svg"
+                      alt="cdk.dev"
+                    />
                   </a>
                   <div className="-mr-2 flex items-center md:hidden">
                     <button
@@ -173,7 +177,13 @@ function Nav({ title }: NavProps): ReactElement {
                     aria-labelledby="main-menu"
                   >
                     <div className="px-5 pt-4 flex items-center justify-between">
-                      <div>cdk.dev</div>
+                      <div>
+                        <img
+                          className="h-8 w-auto"
+                          src="/cdkdevlogo.svg"
+                          alt="cdk.dev"
+                        />
+                      </div>
                       <div className="-mr-2">
                         <button
                           type="button"

@@ -48,13 +48,6 @@ function Resource({ resource }): ReactElement {
         <div className="mt-6 flex items-center">
           <div className="">
             <div className="flex text-sm leading-5 text-gray-500">
-              added&nbsp;
-              <time
-                dateTime={dayjs(resource.createdAt).format("YYYY-MM-DD HH:mm")}
-              >
-                {dayjs(resource.createdAt).fromNow()}
-              </time>
-              <span className="mx-1">&middot;</span>
               <a href={resource.url}>{resource.hostname}</a>
             </div>
           </div>

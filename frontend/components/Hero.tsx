@@ -124,10 +124,10 @@ function Nav({ title }: NavProps): ReactElement {
               </div>
               <div className="hidden md:flex md:space-x-10">
                 <a
-                  href="/tools"
+                  href="/posts"
                   className="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >
-                  Tools
+                  Posts
                 </a>
                 <a
                   href="/resources"
@@ -199,11 +199,11 @@ function Nav({ title }: NavProps): ReactElement {
                     </div>
                     <div className="px-2 pt-2 pb-3">
                       <a
-                        href="/tools"
+                        href="/posts"
                         className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                         role="menuitem"
                       >
-                        Tools
+                        Posts
                       </a>
                       <a
                         href="/resources"

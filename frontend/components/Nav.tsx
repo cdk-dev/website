@@ -20,7 +20,7 @@ function Nav({ title }: NavProps): ReactElement {
               <div className="flex-shrink-0 flex items-center">cdk.dev</div>
               <div className="hidden sm:ml-6 sm:flex">
                 <NavLink href="/" linkName="Home" />
-                <NavLink href="/tools" linkName="Tools" />
+                <NavLink href="/posts" linkName="Posts" />
                 <NavLink href="/resources" linkName="Resources" />
                 <NavLink href="https://github.com/cdk-dev" linkName="Github" />
                 <NavLink href="https://cdkday.com" linkName="CDK Day" />
@@ -143,11 +143,11 @@ function Nav({ title }: NavProps): ReactElement {
                     Home
                   </a>
                   <a
-                    href="/tools"
+                    href="/posts"
                     className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                     role="menuitem"
                   >
-                    Tools
+                    Posts
                   </a>
                   <a
                     href="/resources"

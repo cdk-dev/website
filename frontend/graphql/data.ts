@@ -16,11 +16,16 @@ export const posts = postFiles.map((filePath) => {
   const post = yaml.safeLoad(fs.readFileSync(filePath))
   const folder = path.parse(filePath)
 
-  // This can't be a fully dynamic require, since the optimize image plugin (webpack, to be specific)
-  // can't handle it for some reason. See https://github.com/cyrilwanner/next-optimized-images/issues/16#issuecomment-416066832
-  post.image = require(`../content/posts/${path.basename(folder.dir)}/${
-    post.banner
-  }`)
+  if (post.banner) {
+    // This can't be a fully dynamic require, since the optimize image plugin (webpack, to be specific)
+    // can't handle it for some reason. See https://github.com/cyrilwanner/next-optimized-images/issues/16#issuecomment-416066832
+    post.image = require(`../content/posts/${path.basename(folder.dir)}/${
+      post.banner
+    }`)
+  } else {
+    const pattern = GeoPattern.generate(post.title)
+    post.image = pattern.toDataUri()
+  }
 
   post.hostname = new URL(post.url).hostname
   post.createdAt = new Date(post.createdAt).toISOString()

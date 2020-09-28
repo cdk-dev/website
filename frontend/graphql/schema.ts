@@ -41,7 +41,9 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     posts() {
-      return posts
+      return posts.sort((a, b) => {
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      })
     },
 
     recentPosts(_parent, args) {

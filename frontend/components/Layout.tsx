@@ -1,6 +1,9 @@
 import React, { ReactElement } from "react"
 import Footer from "./Footer"
 import Head from "next/head"
+import getConfig from "next/config"
+
+const { publicRuntimeConfig } = getConfig()
 
 export default ({ children, url }): ReactElement => (
   <>
@@ -37,7 +40,10 @@ export default ({ children, url }): ReactElement => (
         name="og:description"
         content="The community driven hub around the Cloud Development Kit (CDK) ecosystem. This site brings together all the latest blogs, videos, and educational content. Connect with the community of AWS CDK, CDK for Kubernetes (cdk8s) and CDK for Terraform (cdktf)."
       />
-      <meta name="og:image" content={`${url}/og.png`}></meta>
+      <meta
+        name="og:image"
+        content={`${publicRuntimeConfig.deployUrl}/og.png`}
+      ></meta>
     </Head>
     <div className="min-h-screen bg-white">
       {children}
@@ -45,9 +51,3 @@ export default ({ children, url }): ReactElement => (
     </div>
   </>
 )
-
-export async function getStaticProps() {
-  return {
-    props: { url: process.env.DEPLOY_PRIME_URL || "http://localhost:3000" },
-  }
-}

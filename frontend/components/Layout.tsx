@@ -5,7 +5,7 @@ import getConfig from "next/config"
 
 const { publicRuntimeConfig } = getConfig()
 
-export default ({ children, url }): ReactElement => (
+export default ({ children }): ReactElement => (
   <>
     <Head>
       <title>cdk.dev</title>

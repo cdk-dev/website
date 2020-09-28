@@ -5,7 +5,7 @@ import getConfig from "next/config"
 
 const { publicRuntimeConfig } = getConfig()
 
-export default ({ children }): ReactElement => (
+const Layout = ({ children }): ReactElement =>(
   <>
     <Head>
       <title>cdk.dev</title>
@@ -51,3 +51,4 @@ export default ({ children }): ReactElement => (
     </div>
   </>
 )
+export default Layout;

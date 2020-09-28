@@ -5,11 +5,10 @@ import queryGraphql from "../graphql"
 import CreateContent from "../components/CreateContent"
 import Post from "../components/Post"
 
-export default ({ posts }) => (
+const Index = ({ posts }) => (
   <Layout>
     <Hero />
     <Logos />
-
     <div className="relative bg-gray-50 pt-16 pb-4 px-4 sm:px-6 lg:pt-24 lg:pb-6 lg:px-8">
       <div className="absolute inset-0">
         <div className="bg-white h-1/3 sm:h-2/3"></div>
@@ -56,3 +55,4 @@ export async function getStaticProps() {
   `)
   return { props: { posts: recentPosts } }
 }
+export default Index;

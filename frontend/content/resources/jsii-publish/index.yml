@@ -1,0 +1,11 @@
+title: jsii Publish
+teaser: Dockerfile and GitHub action for publishing JSII packages. Package building and publishing to npm, PyPI, NuGet and Maven (GitHub)
+url: "https://github.com/udondan/jsii-publish"
+createdAt: "2020-09-17 20:02"
+categories:
+  - jsii
+  - Tools
+  - Typescript
+  - Python
+  - Java
+  - C#

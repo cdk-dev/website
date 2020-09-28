@@ -1,37 +1,58 @@
-import Nav from "../components/Nav"
+import Hero from "../components/Hero"
+import Logos from "../components/Logos"
 import Layout from "../components/Layout"
+import queryGraphql from "../graphql"
+import CreateContent from "../components/CreateContent"
+import Post from "../components/Post"
 
-export default () => (
+export default ({ posts }) => (
   <Layout>
-    <section className="flex-grow homescreen m-0 px-4 flex flex-col w-screen justify-center bg-gray-800 text-gray-100 ">
-      <Nav title="Home" />
+    <Hero />
+    <Logos />
 
-      <h1 className="text-6xl my-auto mx-auto  md:mx-48 ">
-        We're just{" "}
-        <a href="https://dev.to/skorfmann/cdk-dev-call-for-contributors-4c46">
-          getting started
-        </a>
-        .<br />
-        <span className="text-teal-400">
-          <a href="https://github.com/cdk-dev/base">You can contribute</a>
-        </span>
-        <br />
-        and
-        <span className="text-teal-400">
-          <a
-            className="ml-4 mr-4"
-            href="https://join.slack.com/t/cdk-dev/shared_invite/zt-gff3dtkw-MsEPa5Id1Aey8HQUDEck1Q"
-          >
-            join our Slack
-          </a>
-        </span>
-        or
-        <span className="text-teal-400">
-          <a className="ml-4 mr-4"
-              href="https://discord.gg/HU33gMV"
-          >Discord</a>
-        </span>
-      </h1>
-    </section>
+    <div className="relative bg-gray-50 pt-16 pb-4 px-4 sm:px-6 lg:pt-24 lg:pb-6 lg:px-8">
+      <div className="absolute inset-0">
+        <div className="bg-white h-1/3 sm:h-2/3"></div>
+      </div>
+      <div className="relative max-w-7xl mx-auto">
+        <div className="text-center">
+          <h2 className="text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
+            Recent Community Blog Posts
+          </h2>
+          <p className="mt-3 max-w-2xl mx-auto text-xl leading-7 text-gray-500 sm:mt-4">
+            What's been talked about in the CDK ecosytem
+          </p>
+        </div>
+        <div className="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
+          {posts.map((post) => (
+            <Post key={post.title} post={post} />
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <CreateContent />
   </Layout>
 )
+
+export async function getStaticProps() {
+  const { recentPosts } = await queryGraphql(`
+    query {
+      recentPosts(limit: 3) {
+        title
+        excerpt
+        url
+        image
+        categories
+        hostname
+        createdAt
+        author {
+          id
+          name
+          avatar
+        }
+      }
+    }
+  `)
+  return { props: { posts: recentPosts } }
+}

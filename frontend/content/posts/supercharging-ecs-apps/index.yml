@@ -1,0 +1,11 @@
+title: "Supercharging Your ECS Applications with the AWS CDK"
+excerpt: "AWS Online Tech Talk: Learn how to deploy your containerized applications to ECS using the AWS CDK"
+authorIds:
+  - adam-keller
+url: https://youtu.be/NkI5yeMFRK8
+createdAt: "2020-09-18 19:00"
+categories:
+  - AWS-CDK
+  - Video
+  - Python
+  - ECS

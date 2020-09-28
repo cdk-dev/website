@@ -1,0 +1,11 @@
+title: AWS CDK Workshop
+teaser: Beginner AWS CDK workshop that build a serverless solution step-by-step. Supports all languages
+url: "https://cdkworkshop.com"
+createdAt: "2020-09-17 18:00"
+categories:
+  - AWS CDK
+  - Workshop
+  - Typescript
+  - Python
+  - Java
+  - C#

@@ -18,11 +18,13 @@ function Nav({ title }: NavProps): ReactElement {
           <div className="flex justify-between h-16">
             <div className="flex">
               <div className="flex-shrink-0 flex items-center">
-                <img
-                  className="h-8 w-auto sm:h-10"
-                  src="/cdkdevlogo.svg"
-                  alt="cdk.dev"
-                />
+                <a href="/" aria-label="Home">
+                  <img
+                    className="h-8 w-auto sm:h-10"
+                    src="/cdkdevlogo.svg"
+                    alt="cdk.dev"
+                  />
+                </a>
               </div>
               <div className="hidden sm:ml-6 sm:flex">
                 <NavLink href="/" linkName="Home" />

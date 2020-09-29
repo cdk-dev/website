@@ -1,0 +1,11 @@
+title: "RDS SQL Server - Native Backup and Restore in CDK"
+excerpt: "Today we are going to build a popular solution that uses S3 to host your SQL backup file and import this into your new RDS database."
+banner: rds.jpg
+authorIds:
+  - edwin-radtke
+url: https://edwin.hashnode.dev/rds-sql-server-native-backup-and-restore-in-cdk
+createdAt: "2020-09-20 19:00"
+categories:
+  - AWS-CDK
+  - Typescript
+  - RDS

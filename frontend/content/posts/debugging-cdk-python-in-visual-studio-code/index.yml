@@ -1,0 +1,10 @@
+title: "Debugging a CDK Python project in Visual Studio Code"
+excerpt: "Learn how to setup debugging for CDK python projects in Visual Studio Code."
+authorIds:
+  - kah-tang
+url: https://www.sentiatechblog.com/debugging-a-cdk-python-project-in-visual-studio-code
+createdAt: "2020-09-29 12:00"
+categories:
+  - AWS-CDK
+  - Python
+  - Visual Studio Code

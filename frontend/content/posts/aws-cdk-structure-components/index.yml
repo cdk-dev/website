@@ -1,0 +1,12 @@
+title: "A better way to structure AWS CDK projects around Nested Stacks"
+excerpt: "Work around CloudFormation limitation using NestedStack, and at the same time, keeping the logic of the component!."
+banner: header.png
+authorIds:
+  - rzamana
+url: https://www.sentiatechblog.com/aws-cdk-structure-components
+createdAt: "2020-02-26 12:00"
+categories:
+  - AWS-CDK
+  - Python
+  - CloudFormation
+  - NestedStack

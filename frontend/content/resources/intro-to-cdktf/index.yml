@@ -1,0 +1,9 @@
+title: Introduction to CDK for Terraform - by Hashicorp
+teaser: Beginner workshop to start your Terraform CDK journey. Deploy an application on AWS. Supports Typescript and Python
+url: "https://learn.hashicorp.com/tutorials/terraform/cdktf"
+createdAt: "2020-09-17 20:01"
+categories:
+  - cdktf
+  - Tools
+  - Typescript
+  - Python

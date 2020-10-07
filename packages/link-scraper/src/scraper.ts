@@ -1,7 +1,6 @@
 import * as crypto from 'crypto';
 import * as fs from 'fs';
 import * as path from 'path';
-import { ChromiumBrowser } from 'playwright';
 
 const readabilityJsStr = fs.readFileSync(
   require.resolve('@mozilla/readability/Readability.js'),
@@ -61,7 +60,7 @@ interface ScreenshotResult {
 }
 
 export const screenshot = async (
-  browser: ChromiumBrowser,
+  browser: any,
   url: string,
   viewPort: ViewPort = { width: 1280, height: 800 },
 ): Promise<ScreenshotResult> => {
@@ -92,7 +91,7 @@ export const screenshot = async (
   };
 };
 
-export const scraper = async (browser: ChromiumBrowser, url: string): Promise<WebsiteData> => {
+export const scraper = async (browser: any, url: string): Promise<WebsiteData> => {
   const context = await browser.newContext({
     userAgent: 'cdk.dev - chromium',
   });

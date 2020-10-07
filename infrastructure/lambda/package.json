@@ -1,0 +1,16 @@
+{
+  "name": "lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "playwright.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "link-scraper": "file:../../packages/link-scraper",
+    "typescript": "^4.0.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

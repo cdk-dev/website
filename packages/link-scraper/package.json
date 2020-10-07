@@ -11,7 +11,7 @@
     "release": "yarn --silent no-changes || (yarn bump && git push --follow-tags origin master)",
     "compile": "tsc",
     "watch": "tsc -w",
-    "build": "yarn test && yarn compile && yarn run package",
+    "build": "yarn compile && yarn run package",
     "package": "rm -fr dist && mkdir -p dist/js && yarn pack && mv *.tgz dist/js/",
     "test": "rm -fr lib/ && jest --passWithNoTests --updateSnapshot && yarn eslint",
     "test:watch": "jest --watch",
@@ -42,7 +42,9 @@
   "peerDependencies": {},
   "dependencies": {
     "@mozilla/readability": "^0.3.0",
-    "playwright": "^1.4.2"
+    "playwright": "^1.4.2",
+    "playwright-aws-lambda": "^0.6.0",
+    "playwright-core": "^1.4.2"
   },
   "bundledDependencies": [],
   "keywords": [],

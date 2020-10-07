@@ -27,8 +27,10 @@ export class AppsynccdkStack extends cdk.Stack {
     // defines an AWS Lambda resource
     const playwrightLambda = new lambda.Function(this, 'PlaywrightLambdaHandler', {
       runtime: lambda.Runtime.NODEJS_12_X,      // execution environment
-      code: lambda.Code.fromAsset('lambda'),  // code loaded from the "lambda" directory
-      handler: 'playwright.handler',                // file is "loyalty", function is "handler"
+      code: lambda.Code.fromAsset('lambda'),    // code loaded from the "lambda" directory
+      handler: 'playwright.handler',            // file is "loyalty", function is "handler"
+      timeout: cdk.Duration.minutes(5),
+      memorySize: 2048
     });
 
     /**

@@ -1,7 +1,8 @@
 {
   "packages": [
     "packages/*",
-    "frontend"
+    "frontend",
+    "infrastructure"
   ],
   "npmClient": "yarn",
   "useWorkspaces": true,

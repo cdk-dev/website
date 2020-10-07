@@ -1,0 +1,7 @@
+type Loyalty {
+    level: String
+}
+
+type Query {
+    getLoyaltyLevel(id: String): Loyalty
+}

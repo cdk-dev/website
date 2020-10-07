@@ -9,6 +9,7 @@
   },
   "workspaces": [
     "frontend",
+    "infrastructure",
     "packages/*"
   ]
 }

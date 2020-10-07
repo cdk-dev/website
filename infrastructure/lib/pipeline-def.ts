@@ -13,7 +13,6 @@ export class CdkpipelinesPipelineStack extends Stack {
 
         const sourceArtifact = new codepipeline.Artifact();
         const cloudAssemblyArtifact = new codepipeline.Artifact();
-
         const pipeline = new CdkPipeline(this, 'Pipeline', {
             // The pipeline name
             pipelineName: 'AppSyncPipeline',
@@ -24,24 +23,25 @@ export class CdkpipelinesPipelineStack extends Stack {
                 actionName: 'GitHub',
                 output: sourceArtifact,
                 oauthToken: SecretValue.secretsManager('github-token'),
-                owner: 'EdwinRad',
-                repo: 'appsynccdkdev',
-                branch: 'main'
+                owner: 'cdk-dev',
+                repo: 'website',
+                branch: 'streamline-content'
             }),
 
             // How it will be built and synthesized
-            synthAction: SimpleSynthAction.standardNpmSynth({
+
+            synthAction: SimpleSynthAction.standardYarnSynth({
                 sourceArtifact,
                 cloudAssemblyArtifact,
 
                 // We need a build step to compile the TypeScript Lambda
-                buildCommand: 'npm run build'
+                buildCommand: 'cd infrastructure && yarn build'
             }),
         });
 
         // This is where we add the application stages
         pipeline.addApplicationStage(new CdkpipelinesDemoStage(this, 'PreProd', {
-            env: { account: '754950554578', region: 'eu-west-1' }
+            env: { account: '329315029403', region: 'us-east-1' }
         }));
     }
 }

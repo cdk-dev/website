@@ -2,8 +2,6 @@ import React, { ReactElement } from "react"
 
 import Nav from "../components/Nav"
 import Layout from "../components/Layout"
-import queryGraphql from "../graphql"
-import Post from "../components/Post"
 import CreateContent from "../components/CreateContent"
 
 function Posts({ posts }): ReactElement {

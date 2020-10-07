@@ -1,0 +1,10 @@
+title: "Migrating CloudFormation templates to the AWS Cloud Development Kit"
+excerpt: "Until today, the only way to leverage the infrastructure defined in existing templates was the CfnInclude class from the core module, which allowed including a CloudFormation template in a CDK application, and outputting it unchanged. However, this solution has a couple limitations:"
+banner: banner.png
+authorIds:
+  - adam-ruka
+url: https://aws.amazon.com/blogs/developer/migrating-cloudformation-templates-to-the-aws-cloud-development-kit/
+createdAt: "2020-10-07 23:00"
+categories:
+  - AWS-CDK
+  - Cloudformation

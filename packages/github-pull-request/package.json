@@ -1,0 +1,71 @@
+{
+  "name": "github-pull-request",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cdk-dev/website.git"
+  },
+  "bin": {},
+  "scripts": {
+    "no-changes": "(git log --oneline -1 | grep -q \"chore(release):\") && echo \"No changes to release.\"",
+    "bump": "yarn --silent no-changes || standard-version",
+    "release": "yarn --silent no-changes || (yarn bump && git push --follow-tags origin master)",
+    "compile": "tsc",
+    "watch": "tsc -w",
+    "build": "yarn compile",
+    "package": "rm -fr dist && mkdir -p dist/js && yarn pack && mv *.tgz dist/js/",
+    "test": "rm -fr lib/ && jest --passWithNoTests --updateSnapshot && yarn eslint",
+    "test:watch": "jest --watch",
+    "test:update": "jest --updateSnapshot",
+    "eslint": "eslint --ext .ts --fix src test"
+  },
+  "author": {
+    "name": "Sebastian Korfmann",
+    "email": "sebastian@korfmann.net",
+    "organization": false
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.7",
+    "@types/mozilla-readability": "^0.2.0",
+    "@types/node": "^10.17.0",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "eslint": "^7.10.0",
+    "eslint-import-resolver-node": "^0.3.4",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.4.2",
+    "json-schema": "^0.2.5",
+    "standard-version": "^9.0.0",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.5"
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "@octokit/app": "^4.2.1",
+    "@octokit/core": "^3.1.2",
+    "@octokit/rest": "^18.0.6",
+    "@types/lru-cache": "^5.1.0",
+    "octokit-plugin-create-pull-request": "^3.9.0"
+  },
+  "bundledDependencies": [],
+  "keywords": [],
+  "main": "lib/index.js",
+  "license": "Apache-2.0",
+  "version": "0.0.0",
+  "types": "lib/index.d.ts",
+  "jest": {
+    "clearMocks": true,
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "preset": "ts-jest",
+    "testMatch": [
+      "**/__tests__/**/*.ts?(x)",
+      "**/?(*.)+(spec|test).ts?(x)"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+title: CDK Snippets for VScode
+teaser: VSCode CDK snippets is a compilation of snippets created for personal usage over the last months + some extra useful snippets. The purpose of these snippets is to remove the burden of writing CDK resources scaffolds manually, automating the process and making the development cycle faster and less error prone.
+url: "https://marketplace.visualstudio.com/items?itemName=mklein.cdk-snippets"
+createdAt: "2020-10-16 19:00"
+categories:
+  - Snippets
+  - AWS CDK

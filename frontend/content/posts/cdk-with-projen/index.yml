@@ -1,0 +1,10 @@
+title: "Building AWS CDK Construct Library with Projen"
+excerpt: "How to build, test and publish AWS CDK construct from scratch with projen. After watching this video, you will be able to build your custom CDK construct and publish to npm and pypi."
+authorIds:
+  - pahud-hsieh
+url: https://youtu.be/cTsSXYOYQPw
+createdAt: "2020-11-20 19:00"
+categories:
+  - AWS-CDK
+  - Projen
+  - Video

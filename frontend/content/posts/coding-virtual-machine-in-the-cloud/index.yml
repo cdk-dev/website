@@ -1,0 +1,12 @@
+title: "Coding a Virtual Machine in the Cloud"
+excerpt: "Get an ec2 instance running and provision with AWS features"
+banner: banner.png
+authorIds:
+  - cristian-penaranda
+url: https://dev.to/aws-builders/aws-cdk-coding-a-virtual-machine-in-the-cloud-9de
+createdAt: "2020-10-28 12:00"
+categories:
+  - AWS-CDK
+  - Python
+  - Linux
+  - Devops

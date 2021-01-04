@@ -1,0 +1,12 @@
+title: "Projen: The Next CDK Surprise!"
+excerpt: "Projen is the CDK for software projects."
+banner: banner.png
+authorIds:
+  - philip-gollucci
+url: https://dev.to/aws-builders/projen-the-next-cdk-suprise-13b2
+createdAt: "2021-01-04 14:22"
+categories:
+  - AWS-CDK
+  - Typescript
+  - JSII
+  - Projen

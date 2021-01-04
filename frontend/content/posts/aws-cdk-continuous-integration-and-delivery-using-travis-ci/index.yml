@@ -1,0 +1,10 @@
+title: "AWS CDK Continuous Integration and Delivery Using Travis CI"
+excerpt: "How to ship infrastructure like you ship your code using GitHub, Travis CI and CDK."
+banner: header.jpg
+authorIds:
+  - thomaspoignant
+url: https://medium.com/better-programming/aws-cdk-continuous-integration-and-delivery-using-travis-ci-ee5dd7549434
+createdAt: "2020-12-09 12:00"
+categories:
+  - AWS-CDK
+  - CI/CD

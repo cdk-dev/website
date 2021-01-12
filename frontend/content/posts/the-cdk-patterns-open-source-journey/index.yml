@@ -1,11 +1,8 @@
-title: "Supercharging Your ECS Applications with the AWS CDK"
-excerpt: "AWS Online Tech Talk: Learn how to deploy your containerized applications to ECS using the AWS CDK"
+title: "The CDK Patterns open source journey"
+excerpt: "Read on to find out how CDK Patterns released the potential of our engineers, gained industry momentum, and caught the attention of Werner Vogels, CTO of Amazon."
 authorIds:
-  - adam-keller
-url: https://youtu.be/NkI5yeMFRK8
-createdAt: "2020-09-18 19:00"
+  - matt-coulter
+url: https://aws.amazon.com/blogs/opensource/the-cdk-patterns-open-source-journey/
+createdAt: "2021-01-12 19:00"
 categories:
   - AWS-CDK
-  - Video
-  - Python
-  - ECS

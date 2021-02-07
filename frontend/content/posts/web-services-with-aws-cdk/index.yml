@@ -1,0 +1,8 @@
+title: "Web Services with AWS CDK"
+excerpt: "Tutorial: I built a small web service to put the CDK through its paces. My application has a React frontend that fetches a list of really shitty websites from a Lambda function and saves them in the browser’s IndexedDB, a sort of browser SQL database. "
+authorIds:
+  - mischa-spiegelmock
+url: https://spiegelmock.com/2021/01/25/web-services-with-aws-cdk/
+createdAt: "2021-01-25 12:00"
+categories:
+  - AWS-CDK

@@ -1,0 +1,8 @@
+title: "4 Methods to configure multiple environments in the AWS CDK"
+excerpt: "In this post I will explore 4 different methods that can be used to pass configuration values to the AWS CDK."
+authorIds:
+  - rehan-v-d-merwe
+url: https://www.rehanvdm.com/aws/4-methods-to-configure-multiple-environments-in-the-aws-cdk/index.html
+createdAt: "2021-01-24 19:00"
+categories:
+  - AWS-CDK

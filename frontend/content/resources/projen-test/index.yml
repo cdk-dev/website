@@ -1,0 +1,7 @@
+title: Create and Publish CDK Constructs Using projen and jsii
+teaser: An example project explaining how to create and publish CDK constructs using projen and jsii. It lets you publish your CDK constructs to npm, Maven, NuGet and PyPi.
+url: "https://github.com/seeebiii/projen-test"
+createdAt: "2020-09-17 18:00"
+categories:
+  - AWS CDK
+  - Projen

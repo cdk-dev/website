@@ -1,0 +1,9 @@
+title: "Working backwards: The story behind the AWS Cloud Development Kit"
+excerpt: "Behind every successful open source project, you’ll find a real problem that needed to be solved. In this post, I will explore one such example through the backstory of the AWS Cloud Development Kit, or AWS CDK for short."
+authorIds:
+  - elad-ricardo
+url: https://aws.amazon.com/blogs/opensource/working-backwards-the-story-behind-the-aws-cloud-development-kit/
+createdAt: "2021-01-12 12:00"
+categories:
+  - AWS-CDK
+  - AWS

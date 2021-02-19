@@ -1,0 +1,10 @@
+title: "Manage Third-Party Providers Directly From AWS CDK"
+excerpt: "Use CloudFormation custom resources with CDK to create non-AWS resources (datadog, auth0 ...) during the provisioning of your infrastructure."
+authorIds:
+  - thomaspoignant
+url: https://medium.com/better-programming/manage-third-party-providers-directly-from-aws-cdk-6afef21c9586?source=friends_link&sk=671a20ed0809e2d7e0fecbc20ad2509e
+createdAt: "2021-02-19 12:00"
+categories:
+  - AWS-CDK
+  - Datadog
+  - Cloudformation

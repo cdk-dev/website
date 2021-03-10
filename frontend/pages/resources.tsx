@@ -9,6 +9,7 @@ import utc from "dayjs/plugin/utc"
 import timezone from "dayjs/plugin/timezone"
 import relativeTime from "dayjs/plugin/relativeTime"
 import CreateContent from "../components/CreateContent"
+import Newsletter from "../components/Newsletter"
 
 dayjs.extend(relativeTime) // For fromNow()
 dayjs.extend(utc) // From Timezone
@@ -89,6 +90,7 @@ function Tools({ resources }): ReactElement {
       </div>
 
       <CreateContent />
+      <Newsletter />
     </Layout>
   )
 }

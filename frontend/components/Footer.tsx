@@ -90,7 +90,7 @@ function Footer(): ReactElement {
             <span role="img" aria-label="Green Heart Emoji">
               💚
             </span>{" "}
-            by cdk.dev Community
+            by cdk.dev Community / Open Construct Foundation
           </p>
         </div>
       </div>

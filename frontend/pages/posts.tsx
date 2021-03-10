@@ -5,6 +5,7 @@ import Layout from "../components/Layout"
 import queryGraphql from "../graphql"
 import Post from "../components/Post"
 import CreateContent from "../components/CreateContent"
+import Newsletter from "../components/Newsletter"
 
 function Posts({ posts }): ReactElement {
   return (
@@ -38,6 +39,7 @@ function Posts({ posts }): ReactElement {
       </div>
 
       <CreateContent />
+      <Newsletter />
     </Layout>
   )
 }

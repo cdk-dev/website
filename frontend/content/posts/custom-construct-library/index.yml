@@ -2,7 +2,7 @@ title: "Five reasons for writing a custom CDK Construct Library"
 excerpt: "CDK is a great tool to create your application resources using programming languages. Here are five reasons for your own construct library."
 authorIds:
   - mduesterhoeft
-url: https://mathiasdpunkt.medium.com/five-reasons-for-writing-a-custom-cdk-construct-library-324f8d17f177
+url: https://dev.to/mathiasdpunkt/five-reasons-for-writing-a-custom-cdk-construct-library-1pni
 createdAt: "2021-03-22 19:00"
 categories:
   - AWS-CDK

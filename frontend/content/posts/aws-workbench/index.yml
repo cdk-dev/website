@@ -1,0 +1,10 @@
+title: "AWS Workbench - A design to deploy IDE for AWS"
+excerpt: "AWS Workbench is an Integrated Development  environment for designing and deploying AWS Infrastructure. AWS Workbench is based AWS CDK and Eclipse Sirius"
+banner: share.png
+authorIds:
+  - rkvsraman
+url: https://aws-workbench.github.io/
+createdAt: "2021-03-25 14:00"
+categories:
+  - AWS-CDK
+  - Eclipse Sirius 

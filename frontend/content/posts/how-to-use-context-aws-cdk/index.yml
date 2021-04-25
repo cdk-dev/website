@@ -1,0 +1,8 @@
+title: "How to use Context in AWS CDK"
+excerpt: "Context is a combination of key-value pairs we can set in our CDK application. Context is similar to environment variables, in that both are accessible at synthesis time."
+authorIds:
+  - borislav-hadzhiev
+url: https://bobbyhadz.com/blog/how-to-use-context-aws-cdk
+createdAt: "2021-04-23 19:00"
+categories:
+  - AWS-CDK

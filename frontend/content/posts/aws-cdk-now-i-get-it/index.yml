@@ -1,0 +1,9 @@
+title: AWS Cloud Development Kit - Now I Get It
+excerpt: "When CDK launched in 2019, I remember reading the announcement and thinking, Ok, AWS wants their own Terraform-esque tool. I finally decided to give CDK a go for one of my projects. Here is what I discovered."
+authorIds:
+  - joel-knight
+url: https://www.packetmischief.ca/2021/04/11/aws-cdk-now-i-get-it/
+createdAt: "2021-04-11 14:00"
+categories:
+  - AWS-CDK
+ 

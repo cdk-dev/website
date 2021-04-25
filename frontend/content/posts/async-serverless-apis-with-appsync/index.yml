@@ -1,5 +1,6 @@
 title: Building Scalable GraphQL APIs on AWS with CDK, TypeScript, AWS AppSync, Amazon DynamoDB, and AWS Lambda
 excerpt: "In this post, we’ll be building an AWS AppSync API from scratch using CDK. The post will focus on how to use CDK to deploy AppSync APIs that leverage a variety of AWS services including Amazon DynamoDB and AWS Lambda."
+banner: appsync.jpg
 authorIds:
   - nader-dabit
 url: https://aws.amazon.com/blogs/mobile/building-scalable-graphql-apis-on-aws-with-cdk-and-aws-appsync

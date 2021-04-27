@@ -1,0 +1,7 @@
+title: CDK-Dia
+teaser: Pahuds first initiative building AWS CDK construct library with AWS Heroes and Commumity Builders. In the past 2 weeks we built 14 awesome Lambda@Edge as CDK constructs. CDK constructs library that allows you to build AWS CloudFront Extensions in JavaScript, TypeScript or Python.
+url: "https://github.com/pahud/cdk-cloudfront-plus"
+createdAt: "2020-09-17 20:05"
+categories:
+  - Tools
+  - AWS CDK

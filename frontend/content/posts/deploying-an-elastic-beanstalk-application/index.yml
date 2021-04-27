@@ -1,0 +1,9 @@
+title: "Deploying an Elastic Beanstalk Application Using the AWS CDK"
+excerpt: "In this post I'll describe how to create a simple Elastic Beanstalk application using the AWS CDK that you can use to deploy a compatible web application."
+authorIds:
+  - michael-mather
+url: https://dev.to/raucoustortoise/deploying-an-elastic-beanstalk-application-using-the-aws-cdk-2joo
+createdAt: "2021-03-24 12:00"
+categories:
+  - AWS-CDK
+  - Pipelines

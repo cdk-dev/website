@@ -1,0 +1,9 @@
+title: Automating CDK Version Bumping with AWS Serverless and Github
+excerpt: "Let's talk about construct versioning in the AWS CDK (specifically, Typescript)."
+authorIds:
+  - matthew-bonig
+url: https://matthewbonig.com/2021/04/06/automating-construct-publishing/
+createdAt: "2021-04-06 14:00"
+categories:
+  - AWS-CDK
+  - Github

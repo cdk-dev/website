@@ -1,0 +1,8 @@
+title: "Using Nested Stacks with AWS CDK"
+excerpt: "CloudFormation Nested Stacks are great when you want to separate logical resources in your stack and reference those resources in other nested stacks. Ryan shows in this post how to use Nested Stacks with the CDK."
+authorIds:
+  - ryan-dsouza
+url: https://dev.to/ryands17/using-nested-stacks-with-aws-cdk-4akc
+createdAt: "2021-03-19 19:00"
+categories:
+  - AWS-CDK

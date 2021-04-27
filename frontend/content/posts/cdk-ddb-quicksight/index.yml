@@ -1,0 +1,8 @@
+title: "AWS DynamoDB Analysis with QuickSight and AWS CDK"
+excerpt: "Martin presents how to build a DynamoDB to Quicksight stack with the CDK."
+authorIds:
+  - martin-mueller
+url: https://martinmueller.dev/cdk-ddb-quicksight-eng
+createdAt: "2021-04-8 14:00"
+categories:
+  - AWS-CDK

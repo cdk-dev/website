@@ -1,0 +1,12 @@
+title: Building S3 Static Website with AWS CDK and Projen
+excerpt: "In this blog post, we will create an awesome React TypeScript App hosted in an S3 static website bucket. For that we will use AWS CDK and Projen."
+authorIds:
+  - martin-mueller
+url: https://hands-on.cloud/building-s3-static-website-with-aws-cdk-and-projen/
+createdAt: "2021-04-29 14:00"
+categories:
+  - AWS-CDK
+  - Projen
+  - Typescript
+  - React
+ 

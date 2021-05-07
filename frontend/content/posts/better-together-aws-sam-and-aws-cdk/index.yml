@@ -1,0 +1,9 @@
+title: "Better together: AWS SAM and AWS CDK"
+excerpt: "AWS is announcing the public preview of AWS Serverless Application Model CLI (AWS SAM CLI) support for local development and testing of AWS Cloud Development Kit (AWS CDK) projects. AWS SAM and AWS CDK are both open-source frameworks for building applications using infrastructure as code (IaC)."
+authorIds:
+  - eric-johnson
+url: https://aws.amazon.com/blogs/compute/better-together-aws-sam-and-aws-cdk/
+createdAt: "2021-04-29 14:00"
+categories:
+  - AWS-CDK
+  - AWS-SAM

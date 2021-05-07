@@ -1,0 +1,8 @@
+title: "Building and deploying Fargate with EKS using the AWS CDK & cdk8s+"
+excerpt: "In this blog post, we show you how to use the AWS Cloud Development Kit (AWS CDK) with cdk8s and cdk8s+ to deploy a sample Kubernetes workload on an Amazon EKS cluster running Kubernetes pods on AWS Fargate in an enterprise context. This post provides a solution we implemented with one of our enterprise customers."
+authorIds:
+  - aws
+url: https://aws.amazon.com/blogs/containers/building-and-deploying-fargate-with-eks-in-an-enterprise-context-using-the-aws-cloud-development-kit-and-cdk8s/
+createdAt: "2021-05-1 14:00"
+categories:
+  - AWS-CDK

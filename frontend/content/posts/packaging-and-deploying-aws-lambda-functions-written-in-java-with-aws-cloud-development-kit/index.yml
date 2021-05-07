@@ -1,6 +1,5 @@
 title: "Packaging and deploying AWS Lambda functions written in Java with AWS Cloud Development Kit"
 excerpt: "In this article, we’ll show how to build and package Lambda functions written in Java with external dependencies via AWS CDK. You can download the code used in this walkthrough from the project’s GitHub repo."
-banner: banner.png
 authorIds:
   - aws
 url: https://aws.amazon.com/blogs/opensource/packaging-and-deploying-aws-lambda-functions-written-in-java-with-aws-cloud-development-kit/

@@ -1,0 +1,9 @@
+title: "Deploying Jenkins into AWS ECS using CDK"
+excerpt: "In this article, you’ll learn how to deploy a production-ready Jenkins instance in just a few lines of code, using the power of the AWS Cloud Development Kit (CDK)."
+authorIds:
+  - tom-gregory
+url: https://tomgregory.com/deploying-jenkins-into-aws-ecs-using-cdk
+createdAt: "2021-05-03 12:00"
+categories:
+  - AWS-CDK
+  - ECS

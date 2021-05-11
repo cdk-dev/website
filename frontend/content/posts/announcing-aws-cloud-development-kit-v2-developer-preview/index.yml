@@ -1,0 +1,8 @@
+title: "Announcing AWS Cloud Development Kit v2 Developer Preview"
+excerpt: "The AWS Cloud Development Kit (AWS CDK) v2 is now available for Developer Preview in TypeScript, Python, Java, C#, and Go. The AWS CDK is an open-source software development framework to model and provision your cloud application resources using familiar programming languages."
+authorIds:
+  - aws
+url: https://aws.amazon.com/blogs/developer/announcing-aws-cloud-development-kit-v2-developer-preview
+createdAt: "2021-04-30 19:00"
+categories:
+  - AWS-CDK

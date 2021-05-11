@@ -1,0 +1,10 @@
+title: "Hands-on AWS CDK for Serverless"
+excerpt: "Check out this really detailed step by step walkthrough of building a Serverless Application on AWS."
+authorIds:
+  - wen-chuan-lee
+url: https://leewc.com/articles/hands-on-serverless-with-aws-cdk-typscript
+createdAt: "2021-04-30 19:00"
+categories:
+  - AWS-CDK
+  - Serverless
+

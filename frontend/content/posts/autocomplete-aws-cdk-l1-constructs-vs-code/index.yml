@@ -1,0 +1,8 @@
+title: "Autocomplete AWS CDK L1 Constructs in VS Code"
+excerpt: "This extension adds L1 construct snippets from AWS CDK into Visual Studio Code."
+authorIds:
+  - danny-steenman
+url: https://dannys.cloud/autocomplete-aws-cdk-l1-constructs-vs-code
+createdAt: "2021-05-18 19:00"
+categories:
+  - AWS-CDK

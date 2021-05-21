@@ -1,0 +1,8 @@
+title: "The CDK will enable a new generation of Serverless Developers"
+excerpt: "In this talk, I will explore how the CDK solves these problems and brings infrastructure-as-code closer to DevOps engineers than ever before. I will cover three segments: the power of a multi-language framework, the benefits of applying unit testing to your infrastructure and applying the time-proven concepts of object oriented design and DRY to your infrastructure-as-code."
+authorIds:
+  - donkersgoed
+url: https://www.youtube.com/watch?v=tiyjhWTSExg
+createdAt: "2021-05-20 23:00"
+categories:
+  - AWS-CDK

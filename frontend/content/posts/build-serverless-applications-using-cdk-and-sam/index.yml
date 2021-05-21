@@ -1,0 +1,9 @@
+title: "Build Serverless Applications using CDK and SAM"
+excerpt: "I will guide you through a small demo project to demonstrate how to build a serverless application with AWS CDK and test it locally with AWS SAM."
+authorIds:
+  - lorenz-vanthillo
+url: https://dev.to/aws-builders/build-serverless-applications-using-cdk-and-sam-4oig
+createdAt: "2021-05-21 14:00"
+categories:
+  - AWS-CDK
+  - AWS-SAM

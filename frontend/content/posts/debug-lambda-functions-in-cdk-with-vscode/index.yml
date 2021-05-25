@@ -1,6 +1,6 @@
 title: "Debug Lambda Functions in CDK with VS Code"
 excerpt: "In this tutorial we look at how you can set breakpoints and debug the Lambda functions in your CDK apps using Visual Studio Code. We use Live Lambda Dev from SST, an open source framework for serverless built using CDK."
-banner: share.png
+banner: share.jpg
 authorIds:
   - jay-v
 url: https://serverless-stack.com/examples/how-to-automatically-resize-images-with-serverless.html

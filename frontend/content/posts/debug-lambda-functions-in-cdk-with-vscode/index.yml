@@ -3,7 +3,7 @@ excerpt: "In this tutorial we look at how you can set breakpoints and debug the 
 banner: share.jpg
 authorIds:
   - jay-v
-url: https://serverless-stack.com/examples/how-to-automatically-resize-images-with-serverless.html
+url: https://serverless-stack.com/examples/how-to-debug-lambda-functions-with-visual-studio-code.html
 createdAt: "2021-05-25 13:00"
 categories:
   - AWS-CDK

@@ -1,0 +1,11 @@
+title: "Build and Test Appsync Locally in CDK"
+excerpt: "In this tutorial we look at how you can create a GraphQL endpoint using AWS AppSync and CDK. We'll be using SST to build and test our endpoints locally."
+banner: share.jpg
+authorIds:
+  - jay-v
+url: https://serverless-stack.com/examples/how-to-create-a-serverless-graphql-api-with-aws-appsync.html
+createdAt: "2021-06-08 13:00"
+categories:
+  - AWS-CDK
+  - AppSync
+

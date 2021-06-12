@@ -1,0 +1,11 @@
+title: "TypeScript API Anti-Framework"
+excerpt: "A look into cloud-native API development without a full framework."
+authorIds:
+  - mischa-spiegelmock
+url: https://spiegelmock.com/2021/05/29/frameworkless-web-applications-aws-cdk/
+createdAt: "2021-06-12 14:00"
+categories:
+  - AWS-CDK
+  - typescript
+  - api
+  - lambda

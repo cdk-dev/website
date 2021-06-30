@@ -14,14 +14,15 @@ const resourceFiles = fg.sync(["content/resources/**/index.yml"], {
 
 export const posts = postFiles.map((filePath) => {
   const post = yaml.safeLoad(fs.readFileSync(filePath))
+
   const folder = path.parse(filePath)
 
   if (post.banner) {
     // This can't be a fully dynamic require, since the optimize image plugin (webpack, to be specific)
     // can't handle it for some reason. See https://github.com/cyrilwanner/next-optimized-images/issues/16#issuecomment-416066832
-    post.image = require(`../content/posts/${path.basename(folder.dir)}/${
-      post.banner
-    }`)
+    post.image = require(`../content/posts/${path.basename(
+      folder.dir
+    )}/images/${post.banner}`)
   } else {
     const pattern = GeoPattern.generate(post.title)
     post.image = pattern.toDataUri()
@@ -39,9 +40,11 @@ export const users = authorFiles.map((filePath) => {
 
   user.id = path.basename(folder.dir)
 
-  // This can't be a fully dynamic require, since the optimize image plugin (webpack, to be specific)
-  // can't handle it for some reason. See https://github.com/cyrilwanner/next-optimized-images/issues/16#issuecomment-416066832
-  user.avatar = require(`../content/users/${user.id}/${user.avatar}`)
+  if (user.avatar) {
+    // This can't be a fully dynamic require, since the optimize image plugin (webpack, to be specific)
+    // can't handle it for some reason. See https://github.com/cyrilwanner/next-optimized-images/issues/16#issuecomment-416066832
+    user.avatar = require(`../content/users/${user.id}/images/${user.avatar}`)
+  }
 
   user.createdAt = new Date(user.createdAt).toISOString()
 
@@ -57,9 +60,7 @@ export const resources = resourceFiles.map((filePath) => {
   if (resource.image) {
     // This can't be a fully dynamic require, since the optimize image plugin (webpack, to be specific)
     // can't handle it for some reason. See https://github.com/cyrilwanner/next-optimized-images/issues/16#issuecomment-416066832
-    resource.image = require(`../content/resources/${path.basename(
-      folder.dir
-    )}/${resource.banner}`)
+    resource.image = require(`../content/resources/${resource.id}/images/${resource.image}`)
   } else {
     const pattern = GeoPattern.generate(resource.title)
     resource.image = pattern.toDataUri()

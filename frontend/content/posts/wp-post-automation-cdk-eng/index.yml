@@ -1,10 +1,10 @@
-title: AWS CDK Custom Construct Versions Checker
-excerpt: "I have developed a GitHub workflow that automatically tests the compatibility of my custom constructs against the new version"
+title: Wordpress Posts automated with AWS CDK
+excerpt: "Automate you Wordpress post creation when you upload a video with AWS CDK"
 authorIds:
   - martin-mueller
-url: https://martinmueller.dev/cdk-construct-checker-eng/
-createdAt: "2021-05-18 14:00"
+url: https://martinmueller.dev/wp-post-automation-cdk-eng/
+createdAt: "2021-08-08 07:00"
 categories:
   - AWS-CDK
-  - Custom
   - Typescript
+  - Wordpress

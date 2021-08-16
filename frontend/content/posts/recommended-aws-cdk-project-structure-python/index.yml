@@ -1,0 +1,10 @@
+title: "Recommended AWS CDK project structure for Python applications"
+excerpt: "In this blog post, I describe the recommended AWS Cloud Development Kit (AWS CDK) project structure for Python applications."
+banner: recommended-aws-cdk-project-structure-python.png
+authorIds:
+  - alex-pulver
+url: https://aws.amazon.com/blogs/developer/recommended-aws-cdk-project-structure-for-python-applications/
+createdAt: "2021-08-13 12:00"
+categories:
+  - AWS Cloud Development Kit
+  - Python

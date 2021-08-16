@@ -6,5 +6,5 @@ authorIds:
 url: https://aws.amazon.com/blogs/developer/recommended-aws-cdk-project-structure-for-python-applications/
 createdAt: "2021-08-13 12:00"
 categories:
-  - AWS Cloud Development Kit
+  - AWS-CDK
   - Python

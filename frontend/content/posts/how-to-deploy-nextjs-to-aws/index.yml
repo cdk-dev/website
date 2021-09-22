@@ -1,5 +1,5 @@
 title: "How to deploy Next.js to AWS"
-excerpt: "In this example we'll look at how to use CDK and SST to deploy Next.js app to AWS."
+excerpt: "In this example we'll look at how to use CDK and SST to deploy a Next.js app to AWS."
 banner: share.png
 authorIds:
   - jay-v

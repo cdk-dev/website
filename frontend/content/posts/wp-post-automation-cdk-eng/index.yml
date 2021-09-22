@@ -1,0 +1,11 @@
+title: Wordpress Posts automated with AWS CDK
+excerpt: "Automate you Wordpress post creation when you upload a video with AWS CDK"
+banner: wp-aws.jpg
+authorIds:
+  - martin-mueller
+url: https://martinmueller.dev/wp-post-automation-cdk-eng/
+createdAt: "2021-08-08 07:00"
+categories:
+  - AWS-CDK
+  - Typescript
+  - Wordpress

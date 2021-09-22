@@ -1,0 +1,12 @@
+title: "How to deploy Next.js to AWS"
+excerpt: "In this example we'll look at how to use CDK and SST to deploy Next.js app to AWS."
+banner: share.png
+authorIds:
+  - jay-v
+url: https://serverless-stack.com/examples/how-to-create-a-nextjs-app-with-serverless.html
+createdAt: "2021-09-22 19:00"
+categories:
+  - AWS-CDK
+  - SST
+  - NEXTJS
+

@@ -32,6 +32,14 @@ function Footer(): ReactElement {
           </div>
           <div className="px-5 py-2">
             <a
+              href="/codeofconduct"
+              className="text-base leading-6 text-gray-500 hover:text-gray-900"
+            >
+              Code of Conduct
+            </a>
+          </div>
+          <div className="px-5 py-2">
+            <a
               href="https://github.com/cdk-dev"
               className="text-base leading-6 text-gray-500 hover:text-gray-900"
             >

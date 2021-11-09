@@ -140,6 +140,12 @@ function Nav({ title }: NavProps): ReactElement {
                   Resources
                 </a>
                 <a
+                  href="/codeofconduct"
+                  className="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
+                >
+                  Code of Conduct
+                </a>
+                <a
                   href="https://github.com/cdk-dev"
                   className="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >

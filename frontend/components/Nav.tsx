@@ -30,6 +30,7 @@ function Nav({ title }: NavProps): ReactElement {
                 <NavLink href="/" linkName="Home" />
                 <NavLink href="/posts" linkName="Posts" />
                 <NavLink href="/resources" linkName="Resources" />
+                <NavLink href="/codeofconduct" linkName="Code of Conduct" />
                 <NavLink href="https://github.com/cdk-dev" linkName="Github" />
                 <NavLink href="https://cdkday.com" linkName="CDK Day" />
               </div>
@@ -169,6 +170,13 @@ function Nav({ title }: NavProps): ReactElement {
                     role="menuitem"
                   >
                     Resources
+                  </a>
+                  <a
+                    href="/codeofconduct"
+                    className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+                    role="menuitem"
+                  >
+                    Code of Conduct
                   </a>
                   <a
                     href="https://github.com/cdk-dev"

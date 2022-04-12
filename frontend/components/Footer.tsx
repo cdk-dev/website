@@ -32,6 +32,14 @@ function Footer(): ReactElement {
           </div>
           <div className="px-5 py-2">
             <a
+              href="/codeofconduct"
+              className="text-base leading-6 text-gray-500 hover:text-gray-900"
+            >
+              Code of Conduct
+            </a>
+          </div>
+          <div className="px-5 py-2">
+            <a
               href="https://github.com/cdk-dev"
               className="text-base leading-6 text-gray-500 hover:text-gray-900"
             >
@@ -49,7 +57,7 @@ function Footer(): ReactElement {
         </nav>
         <div className="mt-8 flex justify-center">
           <a
-            href="https://join.slack.com/t/cdk-dev/shared_invite/zt-mso6p56d-qJp7SOTBvMaQuDrx7R2wHg"
+            href="https://join.slack.com/t/cdk-dev/shared_invite/zt-xtpfmrqt-6ormYTA0hLdpMSAtTkM_2A"
             className="text-gray-400 hover:text-gray-500"
           >
             <span className="sr-only">Slack</span>

@@ -1,0 +1,12 @@
+title: "1yr after projen's debut"
+excerpt: "In short, ~50% of the ecosystem is on the CURRENT minor version."
+banner: banner.png
+authorIds:
+  - philip-gollucci
+url: https://dev.to/aws-builders/1yr-after-projen-s-debut-19pf
+createdAt: "2022-03-27 17:16"
+categories:
+  - AWS-CDK
+  - Typescript
+  - JSII
+  - Projen

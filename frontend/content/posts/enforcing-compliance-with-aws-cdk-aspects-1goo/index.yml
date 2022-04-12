@@ -1,0 +1,9 @@
+title: "Enforcing compliance with AWS CDK Aspects"
+excerpt: "This post will look at how aspects of AWS CDK can help us enforce compliance."
+authorIds:
+  - wojciech-matuszewski
+url: https://dev.to/aws-builders/enforcing-compliance-with-aws-cdk-aspects-1goo
+createdAt: "2022-01-24 19:00"
+categories:
+  - AWS-CDK
+

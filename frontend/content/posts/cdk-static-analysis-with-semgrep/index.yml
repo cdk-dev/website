@@ -1,0 +1,8 @@
+title: "Using SemGrep to find security issues and misconfigurations in AWS Cloud Development Kit projects"
+excerpt: "Learn how to find security issues and misconfigurations in AWS Cloud Development Kit projects with SemGrep."
+authorIds:
+  - dakota-riley
+url: https://blog.aquia.io/blog/2022-02-18-semgrep-cdk/
+createdAt: "2022-04-12 19:00"
+categories:
+  - AWS-CDK

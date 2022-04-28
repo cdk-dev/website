@@ -1,0 +1,8 @@
+title: "Application Load Balanced Fargate Service example in AWS CDK"
+excerpt: "This blog post shows you how to create an Application Load Balanced Fargate Service in AWS CDK"
+authorIds:
+  - danny-steenman
+url: https://towardsthecloud.com/aws-cdk-application-load-balanced-fargate-service-example
+createdAt: "2021-10-25 06:50"
+categories:
+  - AWS-CDK

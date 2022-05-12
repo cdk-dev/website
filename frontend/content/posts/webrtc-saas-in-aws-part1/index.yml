@@ -1,0 +1,10 @@
+title: "Hosting an Open Source WebRTC as a Service with AWS CDK - Part 1 "
+excerpt: "Part 1 of a series of post that shows how to create a WebRTC SaaS offering in AWS"
+authorIds:
+  - cristian-penaranda
+url: https://dev.to/kristianpaul/hosting-an-open-source-webrtc-as-a-service-with-aws-part-1-1geb
+createdAt: "2022-05-26 12:00"
+categories:
+  - AWS-CDK
+  - OpenSource
+  - Devops

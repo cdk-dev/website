@@ -1,0 +1,11 @@
+title: "Improve the Developer Experience (DX) by Publishing an API SDK - includes CDK repos"
+excerpt: "Make the OpenAPI Spec file the contract between back and frontend by publishing an API SDK as an NPM package. Create visibility with automation by using Slack notifications when the backend pipeline publishes a new SDK."
+banner: header.png
+authorIds:
+  - rehan-v-d-merwe
+url: https://www.rehanvdm.com/blog/improve-dx-publishing-an-api-sdk-cdk-serverless/index.html?utm_source=cdk-dev
+createdAt: "2022-05-17 19:00"
+categories:
+  - AWS-CDK
+  - TypeScript
+  - Developer Experience

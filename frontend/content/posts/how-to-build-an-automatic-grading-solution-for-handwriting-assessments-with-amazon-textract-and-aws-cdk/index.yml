@@ -1,5 +1,5 @@
 title: "How to build an automatic grading solution for handwriting assessments with Amazon Textract and AWS CDK?"
-excerpt: "By default hashtag#amazontextract handles 1 PDF as a whole but in the real world, we scan a set of hashtag#forms, hashtag#survey or hashtag#assignments, and wants to extract the individual document values into a row in Excel. Also, we want to have the high level output for multiple choice and "true or false" question but hashtag#textract just tell the checkbox is checked or not the output the answer of those question. Here is our solution to convert low level output into meaningful report plus images enhancement and hashtag#ocr."
+excerpt: "By default amazontextract handles 1 PDF as a whole but in the real world, we scan a set of hashtag#forms, survey or assignments, and wants to extract the individual document values into a row in Excel. Also, we want to have the high level output for multiple choice and true or false question but hashtag#textract just tell the checkbox is checked or not the output the answer of those question. Here is our solution to convert low level output into meaningful report plus images enhancement and hashtag#ocr."
 authorIds:
   - cyrus-wong
 url: https://www.linkedin.com/pulse/how-build-automatic-grading-solution-handwriting-aws-wong/

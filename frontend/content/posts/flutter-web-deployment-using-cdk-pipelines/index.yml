@@ -1,0 +1,14 @@
+title: "Building a Flutter application (for Web) with AWS Lambda Function URL backend using AWS CDK Pipelines (written in Java)"
+excerpt: "In this post I am going to use CDK Pipelines to build a demo Flutter application hosted on AWS S3 with a Backend powered by AWS Lambda (using Function URLs).
+The CDK code will be in Java, the Lambda functions in Typescript and the WebApp in Dart. Why? Because I love trying out things."
+banner: header.png
+authorIds:
+  - lock128
+url: https://www.lockhead.info/index.php/2022/06/02/building-a-flutter-application-for-web-with-aws-lambda-function-url-backend-using-aws-cdk-pipelines-written-in-java/
+createdAt: "2022-06-02 09:00"
+categories:
+  - AWS-CDK
+  - TypeScript
+  - Developer Experience
+  - Java
+  - Codepipeline

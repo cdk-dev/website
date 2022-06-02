@@ -3,7 +3,7 @@ excerpt: "In this post I am going to use CDK Pipelines to build a demo Flutter a
 The CDK code will be in Java, the Lambda functions in Typescript and the WebApp in Dart. Why? Because I love trying out things."
 banner: header.png
 authorIds:
-  - lock128
+  - johannes-koch
 url: https://www.lockhead.info/index.php/2022/06/02/building-a-flutter-application-for-web-with-aws-lambda-function-url-backend-using-aws-cdk-pipelines-written-in-java/
 createdAt: "2022-06-02 09:00"
 categories:

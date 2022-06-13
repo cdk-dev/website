@@ -94,7 +94,7 @@ function Footer(): ReactElement {
         </div>
         <div className="mt-8">
           <p className="text-center text-base leading-6 text-gray-400">
-            &copy; 2020-2021 - Made with{" "}
+            &copy; 2020-2022 - Made with{" "}
             <span role="img" aria-label="Green Heart Emoji">
               💚
             </span>{" "}

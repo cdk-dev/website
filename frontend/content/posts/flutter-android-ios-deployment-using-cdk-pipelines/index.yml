@@ -5,7 +5,7 @@ banner: header.png
 authorIds:
   - johannes-koch
 url: https://www.lockhead.info/index.php/2022/06/13/building-a-flutter-application-for-web-ios-and-android-using-a-ci-cd-pipeline-on-codebuild-cdk4j/
-createdAt: "2022-06-02 09:00"
+createdAt: "2022-06-13 18:00"
 categories:
   - AWS-CDK
   - TypeScript

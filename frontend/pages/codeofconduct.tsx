@@ -47,6 +47,8 @@ const coc = () => {
                   and learning from the experience</li>
                 <li>Focusing on what is best not just for us as individuals, but for the
                   overall community</li>
+                <li>Be respectful of Direct Messaging. Everyone here is a volunteer just trying
+                  to help and getting contacted in DMs can often feel like you're providing free support.</li>
               </ul>
               <p className="mb-8">
                 Examples of unacceptable behavior include:

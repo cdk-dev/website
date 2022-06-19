@@ -1,0 +1,16 @@
+title: "Building a Flutter application (for Web, Android and iOS) with AWS Lambda Function URL backend using AWS CDK Pipelines (written in Java) and CodeMagic"
+excerpt: "In this post I am extending the existing example to build a demo Flutter application for Web, Android and iOS.
+The CDK code will be in Java, the Lambda functions in Typescript and the WebApp in Dart. Why? Because I love trying out things."
+banner: header.png
+authorIds:
+  - johannes-koch
+url: https://www.lockhead.info/index.php/2022/06/13/building-a-flutter-application-for-web-ios-and-android-using-a-ci-cd-pipeline-on-codebuild-cdk4j/
+createdAt: "2022-06-02 09:00"
+categories:
+  - AWS-CDK
+  - TypeScript
+  - Developer Experience
+  - Java
+  - Codepipeline
+  - Android
+  - iOS

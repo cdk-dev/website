@@ -1,7 +1,7 @@
 title: "Creating Lambda Layers with TypeScript and CDK - The Right Way"
 excerpt: "An example on how to deploy and use internal packages as Lambda Layers. The post also covers potential mistakes that can be made during development with an exploration on why those mistakes can be easily missed."
 authorIds:
-  - Torsitano
+  - shawn-torsitano
 url: https://www.shawntorsitano.com/2022/06/19/creating-lambda-layers-with-typescript-and-cdk-the-right-way/
 createdAt: "2022-06-19 11:00"
 categories:

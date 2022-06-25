@@ -1,7 +1,16 @@
-import React, { ReactElement } from "react"
-import Link from "next/link"
+import React, { ReactElement, useEffect, useState } from "react"
+import { getSlackFnUrl } from "../util/slack-invite";
 
 function Footer(): ReactElement {
+  const [slackJoinUrl, setSlackJoinUrl] = useState("https://join.slack.com/t/cdk-dev/shared_invite/zt-1be73wcat-VLBZ_PPMf0NYqLw1y3F0cQ");
+  const getUrl = async () => {
+    const url = await getSlackFnUrl();
+    setSlackJoinUrl(url);
+  };
+  useEffect(() => {
+    getUrl();
+  }, []);
+  
   return (
     <div className="bg-white">
       <div className="max-w-screen-xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
@@ -57,7 +66,7 @@ function Footer(): ReactElement {
         </nav>
         <div className="mt-8 flex justify-center">
           <a
-            href="https://join.slack.com/t/cdk-dev/shared_invite/zt-1be73wcat-VLBZ_PPMf0NYqLw1y3F0cQ"
+            href={slackJoinUrl}
             className="text-gray-400 hover:text-gray-500"
           >
             <span className="sr-only">Slack</span>

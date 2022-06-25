@@ -1,10 +1,11 @@
-import React, { ReactElement } from "react"
-import Link from "next/link"
+import React, { ReactElement, useEffect } from "react"
 import { useState } from "react"
 import { Transition } from "@tailwindui/react"
+import { getSlackFnUrl } from "../util/slack-invite";
 
 export interface NavProps {
-  title?: string
+  title?: string;
+  slackUrl?: string;
 }
 
 function HeroPattern(): ReactElement {
@@ -83,6 +84,14 @@ function HeroPattern(): ReactElement {
 function Nav({ title }: NavProps): ReactElement {
   const pageTitle = title || ""
   const [isOpen, setIsOpen] = useState(false)
+  const [slackJoinUrl, setSlackJoinUrl] = useState("https://join.slack.com/t/cdk-dev/shared_invite/zt-1be73wcat-VLBZ_PPMf0NYqLw1y3F0cQ");
+  const getUrl = async () => {
+    const url = await getSlackFnUrl();
+    setSlackJoinUrl(url);
+  };
+  useEffect(() => {
+    getUrl();
+  }, []);
 
   return (
     <>
@@ -265,7 +274,7 @@ function Nav({ title }: NavProps): ReactElement {
               <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
                 <div className="rounded-md shadow">
                   <a
-                    href="https://join.slack.com/t/cdk-dev/shared_invite/zt-1be73wcat-VLBZ_PPMf0NYqLw1y3F0cQ"
+                    href={slackJoinUrl}
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
                   >
                     Join Slack

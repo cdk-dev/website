@@ -9,5 +9,12 @@
   },
   "workspaces": [
     "frontend"
-  ]
+  ],
+  "dependencies": {
+    "aws-cdk-lib": "^2.29.1",
+    "aws-sdk": "^2.1162.0",
+    "constructs": "^10.1.42",
+    "esbuild": "^0.14.47",
+    "fs-extra": "^10.1.0"
+  }
 }

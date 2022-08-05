@@ -2,7 +2,7 @@ title: "How to share resources across stacks in AWS CDK"
 excerpt: "This blog post shows a complete example of how to share resources between CDK stack, in the same AWS CDK App."
 authorIds:
   - danny-steenman
-url: https://towardsthecloud.com/share-resources-across-stacks-aws-cdk
+url: https://towardsthecloud.com/aws-cdk-share-resources-across-stacks
 createdAt: "2021-06-23 05:54"
 categories:
   - AWS-CDK

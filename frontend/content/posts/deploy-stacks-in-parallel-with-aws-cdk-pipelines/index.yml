@@ -2,7 +2,7 @@ title: "Deploy stacks in parallel with AWS CDK Pipelines"
 excerpt: "Update AWS CDK Pipelines to run multiple actions in parallel in one stage."
 authorIds:
   - danny-steenman
-url: https://towardsthecloud.com/deploy-stacks-parallel-aws-cdk-pipelines
+url: https://towardsthecloud.com/aws-cdk-pipelines-parallel-deploy
 createdAt: "2021-02-10 07:09"
 categories:
   - AWS-CDK

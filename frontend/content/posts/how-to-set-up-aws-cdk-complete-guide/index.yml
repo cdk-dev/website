@@ -2,7 +2,7 @@ title: "How to set up AWS CDK - complete guide"
 excerpt: "Install AWS CDK by running the following command in your terminal: npm install -g aws-cdk. Then you can continue to initialize your first project."
 authorIds:
   - danny-steenman
-url: https://towardsthecloud.com/how-to-set-up-aws-cdk
+url: https://towardsthecloud.com/install-aws-cdk
 createdAt: "2021-05-31 06:13"
 categories:
   - AWS-CDK

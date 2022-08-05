@@ -2,7 +2,7 @@ title: "How to migrate to AWS CDK v2"
 excerpt: "This guide will show you how you can upgrade an existing AWS CDK v1 app to v2 without breaking its functionality."
 authorIds:
   - danny-steenman
-url: https://towardsthecloud.com/how-to-migrate-to-aws-cdk-v2
+url: https://towardsthecloud.com/migrate-aws-cdk-v2
 createdAt: "2022-03-18 07:04"
 categories:
   - AWS-CDK

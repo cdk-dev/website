@@ -1,0 +1,9 @@
+title: "What is an identifier (id) in AWS CDK - Complete Guide"
+excerpt: "The things we should know about Identifiers in CDK to prevent unwanted
+  resource replacement, due to code refactors."
+authorIds:
+  - borislav-hadzhiev
+url: https://bobbyhadz.com/blog/aws-cdk-identifiers
+createdAt: "2022-09-19 13:49"
+categories:
+  - AWS-CDK

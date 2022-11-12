@@ -265,7 +265,7 @@ function Nav({ title }: NavProps): ReactElement {
               <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
                 <div className="rounded-md shadow">
                   <a
-                    href="https://join.slack.com/t/cdk-dev/shared_invite/zt-1gpcsl828-c9p9l0a9gg~J~ghmUGO83A"
+                    href="https://join.slack.com/t/cdk-dev/shared_invite/zt-1jhk11vd3-ecIa6_8b0rGCrpYEEAasHQ"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
                   >
                     Join Slack

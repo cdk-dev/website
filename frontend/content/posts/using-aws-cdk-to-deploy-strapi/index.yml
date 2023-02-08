@@ -3,7 +3,7 @@ excerpt: "This article shows a complete example on how to use CDK to deploy a St
 authorIds:
   - zied-ben-tahar
 url: https://levelup.gitconnected.com/deploying-strapi-cms-on-aws-with-ecs-on-fargate-aurora-serverless-v2-and-cdk-3c9b9ec732a3
-createdAt: "2022-02-07 07:00"
+createdAt: "2023-02-07 07:00"
 categories:
   - AWS-CDK
   - Strapi

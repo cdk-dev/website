@@ -46,31 +46,32 @@ function Archive({
 export default Archive
 
 export async function getStaticProps() {
+  // https://api.slack.com/messaging/retrieving#pulling_threads
 
   // fetch messages and threads from database
   const archiveMessages: Message[] = [
     {
-      channelId: "1",
+      // channelId: "1",
       channelName: "aws-cdk",
       author: "Matthew",
-      timestamp: 11122,
+      timestamp: 1482960137,
       text: "hello world",
     },
     {
-      channelId: "2",
+      // channelId: "2",
       channelName: "jobs",
       author: "Martin",
-      timestamp: 11332,
+      timestamp: 1482960137, //  Wednesday, December 28, 2016 9:22:17 PM
       text: "need a job!",
       thread: [
         {
           author: "Matthew",
-          timestamp: 11333,
+          timestamp: 1482960337,
           text: "I have carpenter position available",
         },
         {
           author: "John",
-          timestamp: 11334,
+          timestamp: 1482960537,
           text: "McDonalds is looking as well",
         },
       ],
@@ -81,7 +82,7 @@ export async function getStaticProps() {
 }
 
 interface Message {
-  channelId: string
+  // channelId: string
   channelName: string
   author: string
   timestamp: number

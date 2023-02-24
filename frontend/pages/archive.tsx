@@ -1,9 +1,17 @@
 import React, { ReactElement } from "react"
+import {
+  DynamoDBClient,
+  QueryCommand,
+  ScanCommand,
+  ScanCommandInput,
+} from "@aws-sdk/client-dynamodb"
 
 import Nav from "../components/Nav"
 import Layout from "../components/Layout"
 import CreateContent from "../components/CreateContent"
 import Newsletter from "../components/Newsletter"
+
+const ddbClient = new DynamoDBClient({ region: "us-east-1" })
 
 function Archive({
   archiveMessages,
@@ -49,34 +57,60 @@ export async function getStaticProps() {
   // https://api.slack.com/messaging/retrieving#pulling_threads
 
   // fetch messages and threads from database
-  const archiveMessages: Message[] = [
-    {
-      // channelId: "1",
-      channelName: "aws-cdk",
-      author: "Matthew",
-      timestamp: 1482960137,
-      text: "hello world",
-    },
-    {
-      // channelId: "2",
-      channelName: "jobs",
-      author: "Martin",
-      timestamp: 1482960137, //  Wednesday, December 28, 2016 9:22:17 PM
-      text: "need a job!",
-      thread: [
-        {
-          author: "Matthew",
-          timestamp: 1482960337,
-          text: "I have carpenter position available",
-        },
-        {
-          author: "John",
-          timestamp: 1482960537,
-          text: "McDonalds is looking as well",
-        },
-      ],
-    },
-  ]
+  // const archiveMessages: Message[] = [
+  //   {
+  //     // channelId: "1",
+  //     channelName: "aws-cdk",
+  //     author: "Matthew",
+  //     timestamp: 1482960037,
+  //     text: "hello world",
+  //   },
+  //   {
+  //     // channelId: "2",
+  //     channelName: "jobs",
+  //     author: "Martin",
+  //     timestamp: 1482960137, //  Wednesday, December 28, 2016 9:22:17 PM
+  //     text: "need a job!",
+  //     thread: [
+  //       {
+  //         author: "Matthew",
+  //         timestamp: 1482960337,
+  //         text: "I have carpenter position available",
+  //       },
+  //       {
+  //         author: "John",
+  //         timestamp: 1482960537,
+  //         text: "McDonalds is looking as well",
+  //       },
+  //     ],
+  //   },
+  // ]
+
+  const params: ScanCommandInput = {
+    // Specify which items in the results are returned.
+    // FilterExpression: "Subtitle = :topic AND Season = :s AND Episode = :e",
+    // Define the expression attribute value, which are substitutes for the values you want to compare.
+    // ExpressionAttributeValues: {
+    //   ":topic": { S: "SubTitle2" },
+    //   ":s": { N: "1" },
+    //   ":e": { N: "2" },
+    // },
+    // Set the projection expression, which the the attributes that you want.
+    // ProjectionExpression: "Season, Episode, Title, Subtitle",
+    TableName: "TestSlackDB",
+  }
+
+  const data = await ddbClient.send(new ScanCommand(params))
+
+  // .filter(item => Number(item.thread_ts.N) === 0)
+  const archiveMessages = data.Items.map<Message>((item) => {
+    return {
+      channelName: item.channel_name.S,
+      author: item.user.S,
+      timestamp: Number(item.ts.N),
+      text: item.text.S,
+    }
+  })
 
   return { props: { archiveMessages } }
 }

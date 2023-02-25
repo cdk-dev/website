@@ -56,67 +56,57 @@ export default Archive
 export async function getStaticProps() {
   // https://api.slack.com/messaging/retrieving#pulling_threads
 
-  // fetch messages and threads from database
-  // const archiveMessages: Message[] = [
-  //   {
-  //     // channelId: "1",
-  //     channelName: "aws-cdk",
-  //     author: "Matthew",
-  //     timestamp: 1482960037,
-  //     text: "hello world",
-  //   },
-  //   {
-  //     // channelId: "2",
-  //     channelName: "jobs",
-  //     author: "Martin",
-  //     timestamp: 1482960137, //  Wednesday, December 28, 2016 9:22:17 PM
-  //     text: "need a job!",
-  //     thread: [
-  //       {
-  //         author: "Matthew",
-  //         timestamp: 1482960337,
-  //         text: "I have carpenter position available",
-  //       },
-  //       {
-  //         author: "John",
-  //         timestamp: 1482960537,
-  //         text: "McDonalds is looking as well",
-  //       },
-  //     ],
-  //   },
-  // ]
-
   const params: ScanCommandInput = {
-    // Specify which items in the results are returned.
-    // FilterExpression: "Subtitle = :topic AND Season = :s AND Episode = :e",
-    // Define the expression attribute value, which are substitutes for the values you want to compare.
-    // ExpressionAttributeValues: {
-    //   ":topic": { S: "SubTitle2" },
-    //   ":s": { N: "1" },
-    //   ":e": { N: "2" },
-    // },
-    // Set the projection expression, which the the attributes that you want.
-    // ProjectionExpression: "Season, Episode, Title, Subtitle",
     TableName: "TestSlackDB",
   }
 
   const data = await ddbClient.send(new ScanCommand(params))
 
-  // .filter(item => Number(item.thread_ts.N) === 0)
-  const archiveMessages = data.Items.map<Message>((item) => {
+  // Get and transform non-thread messages
+  const nonThreadmessages = data.Items.filter(
+    (item) => Number(item.thread_ts.N) === 0
+  ).map<Message>((item) => {
     return {
-      channelName: item.channel_name.S,
-      author: item.user.S,
-      timestamp: Number(item.ts.N),
-      text: item.text.S,
+      channelName: item.channel_name?.S ?? "no channel name",
+      author: item.user?.S,
+      timestamp: Number(item.ts?.N),
+      text: item.text?.S,
     }
   })
+
+  // Get and transform thread messages
+  const parentThreadMessages = data.Items.filter(
+    (item) => Number(item.ts.N) === Number(item.thread_ts.N)
+  )
+
+  const threadMessages = parentThreadMessages.map<Message>((parentThreadMessage) => {
+    // Get children messages
+    const childrenThreadMessages = data.Items.filter(
+      (item) =>
+        Number(parentThreadMessage.ts.N) === Number(item.ts.N) &&
+        Number(item.thread_ts.N) !== Number(item.ts.N)
+    ).map<ThreadMessage>((childThreadMessage) => {
+      return {
+        author: childThreadMessage.user?.S,
+        timestamp: Number(childThreadMessage.ts?.N),
+        text: childThreadMessage.text?.S,
+      }
+    })
+    return {
+      channelName: parentThreadMessage.channel_name?.S ?? "no channel name",
+      author: parentThreadMessage.user?.S,
+      timestamp: Number(parentThreadMessage.ts?.N),
+      text: parentThreadMessage.text?.S,
+      thread: childrenThreadMessages,
+    }
+  })
+
+  const archiveMessages = [...nonThreadmessages, ...threadMessages]
 
   return { props: { archiveMessages } }
 }
 
 interface Message {
-  // channelId: string
   channelName: string
   author: string
   timestamp: number

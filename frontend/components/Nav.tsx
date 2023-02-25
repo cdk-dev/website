@@ -14,13 +14,13 @@ function Nav({ title }: NavProps): ReactElement {
   return (
     <>
       <nav className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex">
-              <div className="flex-shrink-0 flex items-center">
+              <div className="flex items-center flex-shrink-0">
                 <a href="/" aria-label="Home">
                   <img
-                    className="h-8 w-auto sm:h-10"
+                    className="w-auto h-8 sm:h-10"
                     src="/cdkdevlogo.svg"
                     alt="cdk.dev"
                   />
@@ -29,6 +29,7 @@ function Nav({ title }: NavProps): ReactElement {
               <div className="hidden sm:ml-6 sm:flex">
                 <NavLink href="/" linkName="Home" />
                 <NavLink href="/posts" linkName="Posts" />
+                <NavLink href="/archive" linkName="Archive" />
                 <NavLink href="/resources" linkName="Resources" />
                 <NavLink href="/codeofconduct" linkName="Code of Conduct" />
                 <NavLink href="https://github.com/cdk-dev" linkName="Github" />
@@ -37,20 +38,20 @@ function Nav({ title }: NavProps): ReactElement {
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:items-center">
               <button
-                className="p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:text-gray-500 focus:bg-gray-100 transition duration-150 ease-in-out"
+                className="p-1 text-gray-400 transition duration-150 ease-in-out border-2 border-transparent rounded-full hover:text-gray-500 focus:outline-none focus:text-gray-500 focus:bg-gray-100"
                 aria-label="Notifications"
               >
                 <svg
-                  className="h-6 w-6"
+                  className="w-6 h-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 ></svg>
               </button>
-              <div className="ml-3 relative">
+              <div className="relative ml-3">
                 <div>
                   <button
-                    className="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
+                    className="flex text-sm transition duration-150 ease-in-out border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300"
                     id="user-menu"
                     aria-label="User menu"
                     aria-haspopup="true"
@@ -58,15 +59,15 @@ function Nav({ title }: NavProps): ReactElement {
                 </div>
               </div>
             </div>
-            <div className="-mr-2 flex items-center sm:hidden">
+            <div className="flex items-center -mr-2 sm:hidden">
               <button
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                className="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500"
                 aria-label="Main menu"
                 aria-expanded="false"
                 onClick={() => setIsOpen(!isOpen)}
               >
                 <svg
-                  className="block h-6 w-6"
+                  className="block w-6 h-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -79,7 +80,7 @@ function Nav({ title }: NavProps): ReactElement {
                   />
                 </svg>
                 <svg
-                  className="hidden h-6 w-6"
+                  className="hidden w-6 h-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -109,19 +110,19 @@ function Nav({ title }: NavProps): ReactElement {
         {(ref) => (
           <div
             ref={ref}
-            className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+            className="absolute inset-x-0 top-0 p-2 transition origin-top-right transform md:hidden"
           >
             <div className="rounded-lg shadow-md">
               <div
-                className="rounded-lg bg-white shadow-xs overflow-hidden"
+                className="overflow-hidden bg-white rounded-lg shadow-xs"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="main-menu"
               >
-                <div className="px-5 pt-4 flex items-center justify-between">
+                <div className="flex items-center justify-between px-5 pt-4">
                   <div>
                     <img
-                      className="h-8 w-auto"
+                      className="w-auto h-8"
                       src="/cdkdevlogo.svg"
                       alt="cdk.dev"
                     />
@@ -130,11 +131,11 @@ function Nav({ title }: NavProps): ReactElement {
                     <button
                       type="button"
                       onClick={() => setIsOpen(!isOpen)}
-                      className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                      className="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500"
                       aria-label="Close menu"
                     >
                       <svg
-                        className="h-6 w-6"
+                        className="w-6 h-6"
                         stroke="currentColor"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -152,42 +153,49 @@ function Nav({ title }: NavProps): ReactElement {
                 <div className="px-2 pt-2 pb-3">
                   <a
                     href="/"
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+                    className="block px-3 py-2 text-base font-medium text-gray-700 transition duration-150 ease-in-out rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50"
                     role="menuitem"
                   >
                     Home
                   </a>
                   <a
                     href="/posts"
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+                    className="block px-3 py-2 text-base font-medium text-gray-700 transition duration-150 ease-in-out rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50"
                     role="menuitem"
                   >
                     Posts
                   </a>
                   <a
+                    href="/archive"
+                    className="block px-3 py-2 mt-1 text-base font-medium text-gray-700 transition duration-150 ease-in-out rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50"
+                    role="menuitem"
+                  >
+                    Archive
+                  </a>
+                  <a
                     href="/resources"
-                    className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+                    className="block px-3 py-2 mt-1 text-base font-medium text-gray-700 transition duration-150 ease-in-out rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50"
                     role="menuitem"
                   >
                     Resources
                   </a>
                   <a
                     href="/codeofconduct"
-                    className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+                    className="block px-3 py-2 mt-1 text-base font-medium text-gray-700 transition duration-150 ease-in-out rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50"
                     role="menuitem"
                   >
                     Code of Conduct
                   </a>
                   <a
                     href="https://github.com/cdk-dev"
-                    className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+                    className="block px-3 py-2 mt-1 text-base font-medium text-gray-700 transition duration-150 ease-in-out rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50"
                     role="menuitem"
                   >
                     Github
                   </a>
                   <a
                     href="https://cdkday.com"
-                    className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+                    className="block px-3 py-2 mt-1 text-base font-medium text-gray-700 transition duration-150 ease-in-out rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50"
                     role="menuitem"
                   >
                     CDK Day

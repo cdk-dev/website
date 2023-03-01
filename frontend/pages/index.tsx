@@ -20,7 +20,7 @@ const Index = ({ posts }) => (
             Recent Community Blog Posts
           </h2>
           <p className="mt-3 max-w-2xl mx-auto text-xl leading-7 text-gray-500 sm:mt-4">
-            What's been talked about in the CDK ecosytem.{" "}
+            What's being talked about in the CDK ecosystem.{" "}
             <a className="italic underline" href="/posts">
               More...
             </a>

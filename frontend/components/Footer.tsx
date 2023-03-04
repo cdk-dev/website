@@ -57,7 +57,7 @@ function Footer(): ReactElement {
         </nav>
         <div className="mt-8 flex justify-center">
           <a
-            href="https://join.slack.com/t/cdk-dev/shared_invite/zt-1mvwihbtu-DKhqC~KdwbO4rY837rAQRg"
+            href="tinyurl.com/cdk-dev-invite"
             className="text-gray-400 hover:text-gray-500"
           >
             <span className="sr-only">Slack</span>

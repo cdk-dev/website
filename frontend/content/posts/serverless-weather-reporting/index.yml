@@ -1,0 +1,14 @@
+title: Serverless Weather Reporting with AWS Step Functions and CDK
+excerpt: "In this article, we create a weather reporting website using CDK and a Step Function."
+banner: header.jpg
+authorIds:
+  - danielle-heberling
+url: https://www.danielleheberling.xyz/blog/serverless-weather-reporting
+createdAt: "2023-03-05 07:00"
+categories:
+  - AWS-CDK
+  - Typescript
+  - AWS-Step-Functions
+  - Lambda
+  - DynamoDB
+  - EventBridge-Scheduler

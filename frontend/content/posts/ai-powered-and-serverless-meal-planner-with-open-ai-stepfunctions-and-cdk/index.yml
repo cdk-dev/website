@@ -1,0 +1,12 @@
+title: Building an AI powered and Serverless meal planner with OpenAI, AWS Step functions, AWS Lambda and CDK
+excerpt: "We will see how to use OpenAI along with AWS Serverless Services to build a meal planner application"
+authorIds:
+  - zied-ben-tahar
+url: https://medium.com/gitconnected/building-an-ai-powered-and-serverless-meal-planner-with-openai-aws-step-functions-aws-lambda-ce45c45794cc
+createdAt: "2023-03-15 07:00"
+categories:
+  - AWS-CDK
+  - Step functions
+  - Lambda
+  - SES
+  - OpenAI

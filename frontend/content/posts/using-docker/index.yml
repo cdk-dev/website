@@ -1,4 +1,4 @@
-title: "sing Docker for AWS CDK development"
+title: "Using Docker for AWS CDK development"
 excerpt: "We can use Docker Compose to create a container with a consistent AWS CDK development environment for Windows, Linux and macOS."
 authorIds:
   - miguel-a-calles-mba

@@ -1,0 +1,8 @@
+title: "Optimize your AWS CDK Project Structure for Growth"
+excerpt: "In this blog post, we will walk you through an optimized AWS CDK project structure and explain the features and decisions behind organizing it in this manner."
+authorIds:
+  - danny-steenman
+url: https://towardsthecloud.com/aws-cdk-project-structure
+createdAt: "2023-03-18 13:52"
+categories:
+  - AWS-CDK

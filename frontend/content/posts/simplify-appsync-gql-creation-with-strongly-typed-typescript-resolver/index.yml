@@ -3,7 +3,7 @@ excerpt: "We will look into creating an AWS Appsync GraphQL API with TypeScript 
 authorIds:
   - sudokar
 url: https://dev.to/sudokar/simplify-aws-appsync-graphql-api-creation-with-strongly-typed-typescript-resolvers-g7b
-createdAt: "2023-08-01 07:00"
+createdAt: "2023-08-02 18:00"
 categories:
   - AWS-CDK
   - Appsync

@@ -1,5 +1,5 @@
 title: "Simplify AWS Appsync GraphQL API creation with strongly typed Typescript resolvers"
-excerpt: "We'll look into creating an AWS Appsync GraphQL API with TypeScript using cdk-appsync-typescript-resolver AWS CDK construct"
+excerpt: "We will look into creating an AWS Appsync GraphQL API with TypeScript using cdk-appsync-typescript-resolver AWS CDK construct"
 authorIds:
   - sudokar
 url: https://dev.to/sudokar/simplify-aws-appsync-graphql-api-creation-with-strongly-typed-typescript-resolvers-g7b

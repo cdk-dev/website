@@ -1,0 +1,19 @@
+title: "Extended CDK Workshop"
+excerpt: "In this workshop we will be building the infrastructure for a Coffee Listing application. You will be able to upload, list and vote on coffee photos, while deployinig everything to the cloud with AWS CDK."
+authorIds:
+  - oieduardorabelo
+banner: header.jpg
+url: https://catalog.us-east-1.prod.workshops.aws/workshops/071bbc60-6c1f-47b6-8c66-e84f5dc96b3f/en-US
+createdAt: "2021-11-10 19:00"
+categories:
+  - AWS-Workshop
+  - AWS-CDK
+  - TypeScript
+  - Python
+  - JSII
+  - Developer Experience
+  - CDK-Pipelines
+  - CodePipeline
+  - CodeArtifact
+  - Python
+  - Cloud9

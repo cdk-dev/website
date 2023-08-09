@@ -1,6 +1,6 @@
 {
   "name": "cdk-dev-website",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -14,14 +14,12 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
+    "@apollo/client": "^3.7.17",
     "@tailwindcss/ui": "^0.6.2",
     "@tailwindui/react": "^0.1.1",
-    "apollo-server-micro": "^2.18.1",
     "cssnano": "^4.1.10",
     "dayjs": "^1.8.36",
-    "fast-glob": "^3.2.4",
-    "geopattern": "^1.2.3",
-    "graphql": "^15.3.0",
+    "graphql": "^16.7.1",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^8.0.0",

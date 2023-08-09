@@ -13,10 +13,10 @@ function CreateContent(): ReactElement {
           <div className="mt-8 flex lg:flex-shrink-0 lg:mt-0">
             <div className="inline-flex rounded-md shadow">
               <a
-                href="https://github.com/cdk-dev/website/issues/new?assignees=&labels=content&template=content.md&title="
+                href="https://www.hekto.co/cdk-dev/community/#suggest"
                 className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
               >
-                Create Pull Request
+                Suggest Link
               </a>
             </div>
           </div>

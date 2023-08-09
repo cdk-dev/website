@@ -100,15 +100,19 @@ export default Tools
 export async function getStaticProps() {
   const { resources } = await queryGraphql(`
     query {
-      resources {
+      space(slug: "spiegel/lunch") {
         id
-        title
-        teaser
-        url
-        image
-        categories
-        createdAt
-        hostname
+        public
+        slug
+        description
+        elements {
+          link {
+            summary
+            updatedAt
+            insertedAt
+            url
+          }
+        }
       }
     }
   `)

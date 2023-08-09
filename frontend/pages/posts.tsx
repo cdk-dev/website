@@ -6,6 +6,7 @@ import queryGraphql from "../graphql"
 import Post from "../components/Post"
 import CreateContent from "../components/CreateContent"
 import Newsletter from "../components/Newsletter"
+import { gql } from '@apollo/client';
 
 function Posts({ posts }): ReactElement {
   return (
@@ -47,23 +48,34 @@ function Posts({ posts }): ReactElement {
 export default Posts
 
 export async function getStaticProps() {
-  const { posts } = await queryGraphql(`
+  const { space } = await queryGraphql(gql`
     query {
-      posts {
-        title
-        excerpt
-        url
-        image
-        categories
-        hostname
-        createdAt
-        author {
-          id
-          name
-          avatar
+      space(slug: "cdk-dev/community") {
+        id
+        public
+        slug
+        description
+        elements(limit: 500) {
+          link {
+            summary
+            updatedAt
+            ogImage
+            insertedAt
+            url
+          }
         }
       }
     }
   `)
+
+  // first 3 posts are featured
+  const posts = space.elements.map((element) => ({
+    summary: element.link.summary,
+    url: element.link.url,
+    hostname: new URL(element.link.url).hostname,
+    createdAt: element.link.insertedAt,
+    image: element.link.ogImage,
+  }))
+
   return { props: { posts } }
 }

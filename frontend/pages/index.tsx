@@ -60,7 +60,6 @@ export async function getStaticProps() {
     }
   `)
 
-  // first 3 posts are featured
   const posts = space.elements.map((element) => ({
     summary: element.link.summary,
     url: element.link.url,

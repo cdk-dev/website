@@ -10,6 +10,7 @@ import timezone from "dayjs/plugin/timezone"
 import relativeTime from "dayjs/plugin/relativeTime"
 import CreateContent from "../components/CreateContent"
 import Newsletter from "../components/Newsletter"
+import { gql } from '@apollo/client';
 
 dayjs.extend(relativeTime) // For fromNow()
 dayjs.extend(utc) // From Timezone
@@ -33,16 +34,6 @@ function Resource({ resource }): ReactElement {
             <p className="mt-3 text-base leading-6 text-gray-500">
               {resource.teaser}
             </p>
-            <div className="mt-4">
-              {resource.categories.map((category) => (
-                <span
-                  key={category}
-                  className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium leading-5 bg-indigo-100 text-indigo-800 mr-2 mb-1"
-                >
-                  {category}
-                </span>
-              ))}
-            </div>
           </a>
         </div>
 
@@ -98,17 +89,18 @@ function Tools({ resources }): ReactElement {
 export default Tools
 
 export async function getStaticProps() {
-  const { resources } = await queryGraphql(`
+    const { space } = await queryGraphql(gql`
     query {
-      space(slug: "spiegel/lunch") {
+      space(slug: "cdk-dev/resources") {
         id
         public
         slug
         description
-        elements {
+        elements(limit: 3) {
           link {
             summary
             updatedAt
+            ogImage
             insertedAt
             url
           }
@@ -116,5 +108,14 @@ export async function getStaticProps() {
       }
     }
   `)
+
+  const resources = space.elements.map((element) => ({
+    summary: element.link.summary,
+    url: element.link.url,
+    hostname: new URL(element.link.url).hostname,
+    createdAt: element.link.insertedAt,
+    image: element.link.ogImage,
+  }))
+
   return { props: { resources } }
 }

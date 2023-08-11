@@ -41,8 +41,8 @@ const Index = ({ posts }) => (
 
 export async function getStaticProps() {
   const { space } = await queryGraphql(gql`
-    query {
-      space(slug: "cdk-dev/community") {
+    query($slug: String!) {
+      space(slug: $slug) {
         id
         public
         slug
@@ -58,7 +58,7 @@ export async function getStaticProps() {
         }
       }
     }
-  `)
+  `, { slug: "cdk-dev/community" })
 
   const posts = space.elements.map((element) => ({
     summary: element.link.summary,

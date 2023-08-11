@@ -1,5 +1,5 @@
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
-
+import { DocumentNode } from 'graphql'
 // Create an HTTP link to the Absinthe server.
 const link = new HttpLink({
   uri: "https://www.hekto.co/graphql"
@@ -16,7 +16,7 @@ const client = new ApolloClient({
   cache
 });
 
-export default async (query: string, variables: any) => {
+export default async (query: DocumentNode, variables: any) => {
   const response = await client.query({
     query,
     variables

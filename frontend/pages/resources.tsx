@@ -90,8 +90,8 @@ export default Tools
 
 export async function getStaticProps() {
     const { space } = await queryGraphql(gql`
-    query {
-      space(slug: "cdk-dev/resources") {
+    query($slug: String!) {
+      space(slug: $slug) {
         id
         public
         slug
@@ -107,7 +107,7 @@ export async function getStaticProps() {
         }
       }
     }
-  `)
+  `, { slug: "cdk-dev/resources" })
 
   const resources = space.elements.map((element) => ({
     summary: element.link.summary,

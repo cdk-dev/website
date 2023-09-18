@@ -1,0 +1,12 @@
+title: "Using AWS CloudFormation and AWS Cloud Development Kit to provision multicloud resources"
+excerpt: "Customers often need to architect solutions to support components across multiple cloud service providers. In this post, you will learn how to use the AWS CDK to create a single pane of glass for managing your multicloud resources."
+authorIds:
+  - aaron-sempf
+url: https://aws.amazon.com/blogs/devops/using-aws-cloudformation-and-aws-cloud-development-kit-to-provision-multicloud-resources/
+createdAt: "2023-09-08 11:00"
+categories:
+  - AWS-CDK
+  - typescript
+  - cloudFormation
+  - constructs
+  - multicloud

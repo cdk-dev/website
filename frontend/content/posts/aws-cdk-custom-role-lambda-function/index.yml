@@ -1,0 +1,8 @@
+title: "Assign a Custom Role to a Lambda Function with AWS CDK"
+excerpt: "In this blog post, we will outline how to create a custom IAM role, an AWS Lambda function, and then assign the custom role to the Lambda function in AWS CDK."
+authorIds:
+  - danny-steenman
+url: https://towardsthecloud.com/aws-cdk-custom-role-lambda-function
+createdAt: "2023-07-29 11:03"
+categories:
+  - AWS-CDK

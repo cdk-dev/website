@@ -1,0 +1,8 @@
+title: "Speed up AWS CDK deploys up to 80%"
+excerpt: "Adding the SWC TypeScript transpiler to your AWS CDK apps will speed up the time it takes to run a cdk command."
+authorIds:
+  - miguel-a-calles-mba
+url: https://aws.plainenglish.io/speed-up-aws-cdk-deploys-up-to-80-c47afad1c18c
+createdAt: "2023-07-18 21:19"
+categories:
+  - AWS-CDK

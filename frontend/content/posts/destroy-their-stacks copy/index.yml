@@ -1,0 +1,8 @@
+title: "Demystifying AWS CDK's ECS Pattern"
+excerpt: "This blog will break down each AWS service using the ECS Fargate pattern with Application Load Balancer."
+authorIds:
+  - john-nguyen
+url: https://medium.com/@jolodev/demystifying-aws-cdks-ecs-pattern-e58315972544
+createdAt: "2023-12-12 22:00"
+categories:
+  - AWS-CDK

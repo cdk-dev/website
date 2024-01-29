@@ -4,7 +4,6 @@ import Layout from "../components/Layout"
 import queryGraphql from "../graphql"
 import CreateContent from "../components/CreateContent"
 import Post from "../components/Post"
-import Newsletter from "../components/Newsletter"
 
 const Index = ({ posts }) => (
   <Layout>
@@ -34,7 +33,6 @@ const Index = ({ posts }) => (
       </div>
     </div>
     <CreateContent />
-    <Newsletter />
   </Layout>
 )
 

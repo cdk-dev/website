@@ -1,7 +1,6 @@
 import Layout from "../components/Layout";
 import Nav from "../components/Nav";
 import CreateContent from "../components/CreateContent";
-import Newsletter from "../components/Newsletter";
 import React from "react";
 
 const coc = () => {
@@ -168,7 +167,6 @@ const coc = () => {
       </div>
 
       <CreateContent />
-      <Newsletter />
     </Layout>
   )
 }

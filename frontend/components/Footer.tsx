@@ -43,7 +43,7 @@ function Footer(): ReactElement {
               href="https://github.com/cdk-dev"
               className="text-base leading-6 text-gray-500 hover:text-gray-900"
             >
-              Github
+              GitHub
             </a>
           </div>
           <div className="px-5 py-2">

@@ -1,0 +1,11 @@
+title: "AWS CDK starter project - Configuration, multiple environments and GitHub CI/CD"
+excerpt: "The Starter Project shows how to do configuration management, design for multiple environments and use GitHub Workflows for CI/CD"
+banner: header.png
+authorIds:
+  - rehan-v-d-merwe
+url: https://rehanvdm.com/blog/aws-cdk-starter-configuration-multiple-environments-cicd?utm_source=cdk-dev
+createdAt: "2024-02-26 00:00"
+categories:
+  - AWS-CDK
+  - TypeScript
+  - DevOps

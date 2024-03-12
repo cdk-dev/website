@@ -1,0 +1,9 @@
+title: AWS CDK Starterkit
+teaser: Create and deploy an AWS CDK app on your AWS account in less than 5 minutes using GitHub actions!
+url: "https://github.com/dannysteenman/aws-cdk-starterkit"
+createdAt: "2024-03-06 20:00"
+categories:
+  - Starterkit
+  - AWS CDK
+  - Examples
+  - Projen

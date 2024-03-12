@@ -1,0 +1,8 @@
+title: CDK Construct Snippets for VS Code
+teaser: This extension adds L1 construct snippets from AWS CDK into Visual Studio Code.
+url: "https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets"
+createdAt: "2021-05-04 20:00"
+categories:
+  - VS Code
+  - AWS CDK
+  - Snippets

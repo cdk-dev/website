@@ -43,7 +43,7 @@ function Footer(): ReactElement {
               href="https://github.com/cdk-dev"
               className="text-base leading-6 text-gray-500 hover:text-gray-900"
             >
-              Github
+              GitHub
             </a>
           </div>
           <div className="px-5 py-2">
@@ -94,7 +94,7 @@ function Footer(): ReactElement {
         </div>
         <div className="mt-8">
           <p className="text-center text-base leading-6 text-gray-400">
-            &copy; 2020-2023 - Made with{" "}
+            &copy; 2020-{new Date().getFullYear()} - Made with{" "}
             <span role="img" aria-label="Green Heart Emoji">
               💚
             </span>{" "}

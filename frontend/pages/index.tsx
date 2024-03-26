@@ -5,6 +5,7 @@ import queryGraphql from "../graphql"
 import CreateContent from "../components/CreateContent"
 import Post from "../components/Post"
 import Newsletter from "../components/Newsletter"
+import { gql } from '@apollo/client';
 
 const Index = ({ posts }) => (
   <Layout>
@@ -39,24 +40,34 @@ const Index = ({ posts }) => (
 )
 
 export async function getStaticProps() {
-  const { recentPosts } = await queryGraphql(`
-    query {
-      recentPosts(limit: 3) {
-        title
-        excerpt
-        url
-        image
-        categories
-        hostname
-        createdAt
-        author {
-          id
-          name
-          avatar
+  const { space } = await queryGraphql(gql`
+    query($slug: String!) {
+      space(slug: $slug) {
+        id
+        public
+        slug
+        description
+        elements(limit: 3) {
+          link {
+            summary
+            updatedAt
+            ogImage
+            insertedAt
+            url
+          }
         }
       }
     }
-  `)
-  return { props: { posts: recentPosts } }
+  `, { slug: "cdk-dev/community" })
+
+  const posts = space.elements.map((element) => ({
+    summary: element.link.summary,
+    url: element.link.url,
+    hostname: new URL(element.link.url).hostname,
+    createdAt: element.link.insertedAt,
+    image: element.link.ogImage,
+  }))
+
+  return { props: { posts } }
 }
 export default Index;

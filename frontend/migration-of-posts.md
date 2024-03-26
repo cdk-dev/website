@@ -1,0 +1,126 @@
+Migration of Posts
+
+```
+find ./content/posts -name index.yml | while read -r file; do
+  python3 -c "import yaml, json; print(json.dumps(yaml.safe_load(open('$file')), default=str))"
+done | jq -s . | jq 'sort_by(.createdAt)' | jq -r '.[].url'
+```
+
+- [x] https://www.sentiatechblog.com/aws-cdk-structure-components (dead)
+- [x] https://aws.amazon.com/blogs/opensource/packaging-and-deploying-aws-lambda-functions-written-in-java-with-aws-cloud-development-kit/
+- [x] https://youtu.be/OXQSSibrt-A
+- [x] https://www.matthewbonig.com/2020/01/11/creating-constructs/
+- [x] https://youtu.be/1ps0Wh19MHQ
+- [x] https://youtu.be/NkI5yeMFRK8
+- [x] https://www.twitch.tv/videos/737014680 (dead)
+- [x] https://aws.amazon.com/blogs/developer/cdk-pipelines-continuous-delivery-for-aws-cdk-applications
+- [x] https://edwin.hashnode.dev/rds-sql-server-native-backup-and-restore-in-cdk
+- [ ] https://aws.amazon.com/blogs/mobile/building-scalable-graphql-apis-on-aws-with-cdk-and-aws-appsync
+- [ ] https://aripalo.com/speaking/2020/aws-community-nordics-cdk-special
+- [ ] https://dev.to/ryands17/generating-thumbnails-via-s3-events-using-aws-cdk-typescript-l1i
+- [ ] https://www.sentiatechblog.com/debugging-a-cdk-python-project-in-visual-studio-code
+- [ ] https://softwhat.com/cdk-chalice-adds-support-for-accessing-chalice-generated-cloudformation-resources/
+- [ ] https://alexanderzeitler.com/articles/create-aws-cognito-userpool-with-oauth-flows-using-cdk/
+- [ ] https://aws.amazon.com/blogs/developer/migrating-cloudformation-templates-to-the-aws-cloud-development-kit/
+- [ ] https://dev.to/aws-builders/aws-cdk-coding-a-virtual-machine-in-the-cloud-9de
+- [ ] https://youtu.be/cTsSXYOYQPw
+- [ ] https://medium.com/better-programming/aws-cdk-continuous-integration-and-delivery-using-travis-ci-ee5dd7549434
+- [ ] https://www.sentiatechblog.com/what-i-learned-using-the-aws-cdk-in-the-past-year
+- [ ] https://dev.to/udondan/correctly-defining-dependencies-in-l3-cdk-constructs-45p
+- [ ] https://dev.to/aws-builders/projen-the-next-cdk-suprise-13b2
+- [ ] https://aws.amazon.com/blogs/opensource/working-backwards-the-story-behind-the-aws-cloud-development-kit/
+- [ ] https://aws.amazon.com/blogs/opensource/the-cdk-patterns-open-source-journey/
+- [ ] https://aws.amazon.com/blogs/devops/cdk-corner-january-2020/
+- [ ] https://www.sebastianhesse.de/2021/01/16/5-ways-to-bundle-a-lambda-function-within-an-aws-cdk-construct/
+- [ ] https://www.rehanvdm.com/aws/4-methods-to-configure-multiple-environments-in-the-aws-cdk/index.html?utm_source=cdk-dev
+- [ ] https://spiegelmock.com/2021/01/25/web-services-with-aws-cdk/
+- [ ] https://dev.to/aws-builders/work-on-your-lambda-functions-live-51cp
+- [ ] https://taimos.de/blog/deploying-your-cdk-app-to-different-stages-and-environments
+- [ ] https://towardsthecloud.com/aws-cdk-pipelines-parallel-deploy
+- [ ] https://www.twitch.tv/videos/916591005
+- [ ] https://medium.com/better-programming/manage-third-party-providers-directly-from-aws-cdk-6afef21c9586?source=friends_link&sk=671a20ed0809e2d7e0fecbc20ad2509e
+- [ ] https://aws.amazon.com/blogs/devops/developing-application-patterns-cdk
+- [ ] https://dev.to/ryands17/using-nested-stacks-with-aws-cdk-4akc
+- [ ] https://dev.to/mathiasdpunkt/five-reasons-for-writing-a-custom-cdk-construct-library-1pni
+- [ ] https://dev.to/raucoustortoise/deploying-an-elastic-beanstalk-application-using-the-aws-cdk-2joo
+- [ ] https://aws-workbench.github.io/
+- [ ] https://www.sentiatechblog.com/why-i-love-the-cdk
+- [ ] https://matthewbonig.com/2021/04/06/automating-construct-publishing/
+- [ ] https://aws.amazon.com/blogs/devops/best-practices-for-developing-cloud-applications-with-aws-cdk/
+- [ ] https://www.packetmischief.ca/2021/04/11/aws-cdk-now-i-get-it/
+- [ ] https://www.youtube.com/watch?v=tw9cQyA3B1M
+- [ ] https://www.youtube.com/watch?v=X8G3G3SnCuI
+- [ ] https://www.youtube.com/watch?v=GGc0eg3E9MM
+- [ ] https://cloudbytes.dev/articles/aws-cdk-building-a-eventbridge-scheduled-lambda-that-reads-and-writes-to-s3
+- [ ] https://bobbyhadz.com/blog/aws-cdk-typescript-lambda
+- [ ] https://bobbyhadz.com/blog/how-to-use-context-aws-cdk
+- [ ] https://blog.beachgeek.co.uk/posts/using-aws-cdk-to-deploy-your-amazon-managed-workflows-for-apache-airflow-environment-12cf
+- [ ] https://hands-on.cloud/building-s3-static-website-with-aws-cdk-and-projen/
+- [ ] https://aws.amazon.com/blogs/compute/better-together-aws-sam-and-aws-cdk/
+- [ ] https://leewc.com/articles/hands-on-serverless-with-aws-cdk-typscript
+- [ ] https://aws.amazon.com/blogs/developer/announcing-aws-cloud-development-kit-v2-developer-preview
+- [ ] https://dev.to/aws-builders/easy-going-programming-aws-resources-with-the-cdk-in-go-43k9
+- [ ] https://martinmueller.dev/cdk-ddb-quicksight-eng
+- [ ] https://tomgregory.com/deploying-jenkins-into-aws-ecs-using-cdk
+- [ ] https://edwinradtke.com/aws-cdk-v2-dp
+- [ ] https://dev.to/aws-heroes/cdk-day-in-review-21eo
+- [ ] https://dev.to/dwchiang/using-aws-cdk-to-deploy-static-website-ft-oauth-2-0-authorization-code-36h6
+- [ ] https://martinmueller.dev/qs-constructs-eng/
+- [ ] https://aws.amazon.com/blogs/containers/building-and-deploying-fargate-with-eks-in-an-enterprise-context-using-the-aws-cloud-development-kit-and-cdk8s/
+- [ ] https://dev.to/thealexkates/how-to-trigger-an-aws-lambda-from-a-dynamodb-stream-event-d8
+- [ ] https://martinmueller.dev/cdk-construct-checker-eng/
+- [ ] https://towardsthecloud.com/autocomplete-aws-cdk-constructs-vscode
+- [ ] https://www.youtube.com/watch?v=tiyjhWTSExg
+- [ ] https://dev.to/aws-builders/build-serverless-applications-using-cdk-and-sam-4oig
+- [ ] https://phatrabbitapps.com/cdk-pipelines-continuous-delivery-for-aws-cdk-applications
+- [ ] https://serverless-stack.com/examples/how-to-debug-lambda-functions-with-visual-studio-code.html
+- [ ] https://towardsthecloud.com/install-aws-cdk
+- [ ] https://serverless-stack.com/examples/how-to-create-a-serverless-graphql-api-with-aws-appsync.html
+- [ ] https://spiegelmock.com/2021/05/29/frameworkless-web-applications-aws-cdk/
+- [ ] https://towardsthecloud.com/aws-cdk-share-resources-across-stacks
+- [ ] https://serverless-stack.com/chapters/dynamically-generate-social-share-images-with-serverless.html
+- [ ] https://martinmueller.dev/wp-post-automation-cdk-eng/
+- [ ] https://www.rehanvdm.com/blog/cdk-shorts-2-parallel-deployments/index.html?utm_source=cdk-dev
+- [ ] https://aws.amazon.com/blogs/developer/recommended-aws-cdk-project-structure-for-python-applications/
+- [ ] https://dev.to/aws-builders/projen-external-project-types-je
+- [ ] https://serverless-stack.com/examples/how-to-create-a-nextjs-app-with-serverless.html
+- [ ] https://towardsthecloud.com/aws-cdk-alb-fargate-service
+- [ ] https://towardsthecloud.com/aws-cdk-scheduled-fargate-task
+- [ ] https://martinmueller.dev/cdk-bitbucket-pipeline-eng/
+- [ ] https://martinmueller.dev/cdk-eventbridge-eng/
+- [ ] https://yvovanzee.nl/cdk-pipelines-and-cloudformation-linting
+- [ ] https://www.freecodecamp.org/news/aws-cloud-development-kit-crash-course/
+- [ ] https://yvovanzee.nl/cdk-pipelines-and-cloudformation-linting
+- [ ] https://dev.to/aws-builders/enforcing-compliance-with-aws-cdk-aspects-1goo
+- [ ] https://towardsthecloud.com/aws-cdk-openid-connect-github
+- [ ] https://towardsthecloud.com/aws-cdk-openid-connect-bitbucket
+- [ ] https://towardsthecloud.com/migrate-aws-cdk-v2
+- [ ] https://dev.to/aws-builders/1yr-after-projen-s-debut-19pf
+- [ ] https://blog.aquia.io/blog/2022-02-18-semgrep-cdk/
+- [ ] https://www.linkedin.com/pulse/how-use-hugging-face-sagemaker-serverless-inference-wong/
+- [ ] https://www.linkedin.com/pulse/how-build-automatic-grading-solution-handwriting-aws-wong/
+- [ ] https://www.linkedin.com/pulse/globalize-your-amazon-rekognition-custom-labels-aws-wong/
+- [ ] https://www.linkedin.com/pulse/aws-cdk-hack-academy-learner-lab-wong-chun-yin-cyrus-%25E9%25BB%2583%25E4%25BF%258A%25E5%25BD%25A5-/
+- [ ] https://www.rehanvdm.com/blog/improve-dx-publishing-an-api-sdk-cdk-serverless/index.html?utm_source=cdk-dev
+- [ ] https://dev.to/kristianpaul/hosting-an-open-source-webrtc-as-a-service-with-aws-part-1-1geb
+- [ ] https://www.lockhead.info/index.php/2022/06/02/building-a-flutter-application-for-web-with-aws-lambda-function-url-backend-using-aws-cdk-pipelines-written-in-java/
+- [ ] https://www.lockhead.info/index.php/2022/06/13/building-a-flutter-application-for-web-ios-and-android-using-a-ci-cd-pipeline-on-codebuild-cdk4j/
+- [ ] https://medium.com/@claude.ducharme/my-experience-on-infra-as-code-with-aws-cdk-tips-tricks-c967fe357133
+- [ ] https://www.shawntorsitano.com/2022/06/19/creating-lambda-layers-with-typescript-and-cdk-the-right-way/
+- [ ] https://towardsthecloud.com/aws-cdk
+- [ ] https://garbe.io/blog/2022/08/01/hey-cdk-how-to-cross-account-deployments/
+- [ ] https://bobbyhadz.com/blog/aws-cdk-identifiers
+- [ ] https://mnapoli.fr/single-file-cdk/
+- [ ] https://volca.io/blog/webapp-cdk
+- [ ] https://levelup.gitconnected.com/deploying-strapi-cms-on-aws-with-ecs-on-fargate-aurora-serverless-v2-and-cdk-3c9b9ec732a3
+- [ ] https://medium.com/gitconnected/transform-objects-on-the-fly-using-s3-object-lambda-with-nodejs-and-cdk-3f01133d9d18
+- [ ] https://www.danielleheberling.xyz/blog/serverless-weather-reporting
+- [ ] https://xebia.com/blog/regain-control-over-orphaned-resources-with-cdk/
+- [ ] https://medium.com/gitconnected/building-an-ai-powered-and-serverless-meal-planner-with-openai-aws-step-functions-aws-lambda-ce45c45794cc
+- [ ] https://towardsthecloud.com/aws-cdk-project-structure
+- [ ] https://miguelacallesmba.medium.com/using-docker-for-aws-cdk-development-7054086deb3d
+- [ ] https://medium.com/chapter-by-chapter/aws-cdk-serverless-cookbook-ebook-1d4d4e0488c
+- [ ] https://aws.plainenglish.io/speed-up-aws-cdk-deploys-up-to-80-c47afad1c18c
+- [ ] https://towardsthecloud.com/aws-cdk-bootstrap
+- [ ] https://towardsthecloud.com/aws-cdk-custom-role-lambda-function
+- [ ] https://dev.to/sudokar/simplify-aws-appsync-graphql-api-creation-with-strongly-typed-typescript-resolvers-g7b

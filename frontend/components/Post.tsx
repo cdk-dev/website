@@ -27,36 +27,12 @@ function Post({ post }): ReactElement {
               {post.title}
             </h3>
             <p className="mt-3 text-base leading-6 text-gray-500">
-              {post.excerpt}
+              {post.summary}
             </p>
           </a>
         </div>
-        <div>
-          {post.categories.map((category) => (
-            <span
-              key={category}
-              className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium leading-5 bg-indigo-100 text-indigo-800 mr-2"
-            >
-              {category}
-            </span>
-          ))}
-        </div>
         <div className="mt-6 flex items-center">
-          <div className="flex-shrink-0">
-            <a href={post.url}>
-              <img
-                className="h-10 w-10 rounded-full"
-                src={post.author.avatar}
-                alt=""
-              />
-            </a>
-          </div>
-          <div className="ml-3">
-            <p className="text-sm leading-5 font-medium text-gray-900">
-              <a href={post.url} className="hover:underline">
-                {post.author.name}
-              </a>
-            </p>
+          <div className="ml-0">
             <div className="flex text-sm leading-5 text-gray-500">
               added&nbsp;
               <time dateTime={dayjs(post.createdAt).format("YYYY-MM-DD HH:mm")}>

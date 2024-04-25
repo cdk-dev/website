@@ -13,7 +13,7 @@ const resourceFiles = fg.sync(["content/resources/**/index.yml"], {
 })
 
 export const posts = postFiles.map((filePath) => {
-  const post = yaml.safeLoad(fs.readFileSync(filePath))
+  const post = yaml.load(fs.readFileSync(filePath))
   const folder = path.parse(filePath)
 
   if (post.banner) {
@@ -34,7 +34,7 @@ export const posts = postFiles.map((filePath) => {
 })
 
 export const users = authorFiles.map((filePath) => {
-  const user = yaml.safeLoad(fs.readFileSync(filePath))
+  const user = yaml.load(fs.readFileSync(filePath))
   const folder = path.parse(filePath)
 
   user.id = path.basename(folder.dir)
@@ -49,7 +49,7 @@ export const users = authorFiles.map((filePath) => {
 })
 
 export const resources = resourceFiles.map((filePath) => {
-  const resource = yaml.safeLoad(fs.readFileSync(filePath))
+  const resource = yaml.load(fs.readFileSync(filePath))
   const folder = path.parse(filePath)
 
   resource.id = path.basename(folder.dir)

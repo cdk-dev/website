@@ -1,30 +1,22 @@
 'use server'
 
 import { cookieBasedClient } from '@/utils/amplifyServerUtils';
+import { AuthGetCurrentUserServer } from '@/utils/amplifyServerUtils';
 import { z } from 'zod';
 import { revalidateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
 
-// Define a schema for link suggestion using Zod
 const linkSuggestionSchema = z.object({
   url: z.string().url(),
   comment: z.string().min(1)
 });
 
-// Now you should be able to make CRUDL operations with the
-// Data client
-export const fetchPublicPosts = async () => {
-  const { data: posts, errors } = await cookieBasedClient.models.Post.list();
-  console.log({posts});
-  if (errors) {
-    console.error(errors);
-  }
-  return posts;
-};
-
-// Now you should be able to make CRUDL operations with the
-// Data client
 export const fetchPosts = async () => {
+  const currentUser = await AuthGetCurrentUserServer();
+  if (!currentUser) {
+    throw new Error('User is not authenticated');
+  }
+  console.log('currentUser', currentUser);
   const { data: posts, errors } = await cookieBasedClient.models.Post.list();
   console.log({posts});
   if (errors) {
@@ -34,6 +26,10 @@ export const fetchPosts = async () => {
 };
 
 export const addLinkSuggestion = async (formData: FormData) => {
+  const currentUser = await AuthGetCurrentUserServer();
+  if (!currentUser) {
+    throw new Error('User is not authenticated');
+  }
   const parsedData = linkSuggestionSchema.safeParse({
     url: formData.get('url'),
     comment: formData.get('comment'),
@@ -50,5 +46,5 @@ export const addLinkSuggestion = async (formData: FormData) => {
     console.error(errors);
   }
   revalidateTag('posts') // Update cached posts
-  redirect('/') 
+  redirect('/')
 };

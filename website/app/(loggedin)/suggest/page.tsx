@@ -1,6 +1,6 @@
 import { addLinkSuggestion } from '@/actions/actions';
 
-const SuggestPage = () => {
+const SuggestPage = async () => {
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
       <h1 className="text-2xl font-bold mb-4">Submit a Link Suggestion</h1>
@@ -33,4 +33,4 @@ const SuggestPage = () => {
   );
 };
 
-export default SuggestPage;
+export default SuggestPage

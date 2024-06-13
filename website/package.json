@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "amplify:sandbox": "ampx sandbox"
   },
   "dependencies": {
     "@aws-amplify/adapter-nextjs": "^1.2.4",

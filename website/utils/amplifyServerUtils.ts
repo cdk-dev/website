@@ -4,6 +4,7 @@ import outputs from '@/amplify_outputs.json';
 import { type Schema } from '@/amplify/data/resource';
 import { generateServerClientUsingCookies } from '@aws-amplify/adapter-nextjs/data';
 import { cookies } from 'next/headers';
+import { getCurrentUser } from "aws-amplify/auth/server";
 
 export const { runWithAmplifyServerContext } = createServerRunner({
   config: outputs
@@ -12,4 +13,17 @@ export const { runWithAmplifyServerContext } = createServerRunner({
 export const cookieBasedClient = generateServerClientUsingCookies<Schema>({
   config: outputs,
   cookies,
+  authMode: 'identityPool'
 })
+
+export async function AuthGetCurrentUserServer() {
+  try {
+    const currentUser = await runWithAmplifyServerContext({
+      nextServerContext: { cookies },
+      operation: (contextSpec) => getCurrentUser(contextSpec),
+    });
+    return currentUser;
+  } catch (error) {
+    console.error(error);
+  }
+}

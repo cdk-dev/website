@@ -63,3 +63,30 @@ export const addLinkSuggestion = async (formData: FormData) => {
   revalidateTag('posts') // Update cached posts
   redirect('/')
 };
+
+export const fetchResources = async (limit: number = 3) => {
+  const { data: resources, errors } = await cookieBasedClient.models.Resource.list({
+    limit,
+    selectionSet: [
+      'id',
+      'title',
+      'content',
+      'url',
+      'categories',
+      'banner',
+      'createdAt',
+      'updatedAt',
+    ],
+    sortDirection: 'DESC'
+  });
+  if (errors) {
+    console.error(errors);
+  }
+  return resources;
+};
+
+// pending fix https://github.com/aws-amplify/amplify-category-api/issues/2621
+export const fetchMostRecentResources = async (limit: number = 3) => {
+  const resources = await fetchResources(200);
+  return resources.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, limit);
+};

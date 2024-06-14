@@ -8,6 +8,7 @@ import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 
 const userTableName = 'Author-solb3gvnrfc73d74revv2a7cfm-NONE';
 const postTableName = 'Post-solb3gvnrfc73d74revv2a7cfm-NONE';
+const resourceTableName = 'Resource-solb3gvnrfc73d74revv2a7cfm-NONE';
 
 interface User {
   name: string;
@@ -26,14 +27,25 @@ interface Post {
   banner?: string;
 }
 
+interface Resource {
+  title: string;
+  teaser: string;
+  url: string;
+  createdAt: string;
+  categories: string[];
+  banner?: string;
+}
+
 const client = new DynamoDBClient({});
 const ddbDocClient = DynamoDBDocumentClient.from(client);
 
 const usersDir = path.join(process.cwd(), '../frontend/content/users');
 const postsDir = path.join(process.cwd(), '../frontend/content/posts');
+const resourcesDir = path.join(process.cwd(), '../frontend/content/resources');
 
 console.log(`Users directory: ${usersDir}`);
 console.log(`Posts directory: ${postsDir}`);
+console.log(`Resources directory: ${resourcesDir}`);
 
 // Ensure directories exist
 if (!fs.existsSync(usersDir)) {
@@ -43,6 +55,11 @@ if (!fs.existsSync(usersDir)) {
 
 if (!fs.existsSync(postsDir)) {
   console.error(`Posts directory does not exist: ${postsDir}`);
+  process.exit(1);
+}
+
+if (!fs.existsSync(resourcesDir)) {
+  console.error(`Resources directory does not exist: ${resourcesDir}`);
   process.exit(1);
 }
 
@@ -63,9 +80,9 @@ const uploadAvatarToS3 = async (username: string, avatarPath: string) => {
   return key;
 };
 
-const uploadBannerToS3 = async (postFolderName: string, bannerPath: string) => {
+const uploadBannerToS3 = async (folderName: string, bannerPath: string) => {
   const fileContent = fs.readFileSync(bannerPath);
-  const key = `content/banners/${postFolderName}/${path.basename(bannerPath)}`;
+  const key = `content/banners/${folderName}/${path.basename(bannerPath)}`;
   await s3Client.send(new PutObjectCommand({
     Bucket: bucketName,
     Key: key,
@@ -99,8 +116,18 @@ const importData = async () => {
     })
     .sort((a, b) => new Date(a.data.createdAt).getTime() - new Date(b.data.createdAt).getTime());
 
+  const resources: { folderName: string, data: Resource }[] = fs.readdirSync(resourcesDir)
+    .map(dir => ({ folderName: dir, filePath: path.join(resourcesDir, dir, 'index.yml') }))
+    .filter(({ filePath }) => isFile(filePath) && hasCorrectExtension(filePath))
+    .map(({ folderName, filePath }) => {
+      console.log(`Processing resource file: ${filePath}`);
+      return { folderName, data: loadYaml(filePath) as Resource };
+    })
+    .sort((a, b) => new Date(a.data.createdAt).getTime() - new Date(b.data.createdAt).getTime());
+
   const authorMap = new Map();
   const postItems = [];
+  const resourceItems = [];
 
   const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -152,6 +179,33 @@ const importData = async () => {
     }
   }
 
+  for (const { folderName, data: resource } of resources) {
+    await delay(10); // Ensure at least 10ms delay between ULID generations
+    const resourceId = ulid(new Date(resource.createdAt).getTime());
+    let bannerKey = null;
+    if (resource.banner) {
+      const bannerPath = path.join(resourcesDir, folderName, resource.banner);
+      if (fs.existsSync(bannerPath)) {
+        bannerKey = await uploadBannerToS3(folderName, bannerPath);
+      }
+    }
+    resourceItems.push({
+      PutRequest: {
+        Item: {
+          id: resourceId, // Unique ID for the resource
+          title: resource.title,
+          content: resource.teaser,
+          url: resource.url,
+          createdAt: new Date(resource.createdAt).toISOString(), // Use createdAt from the resource YAML
+          categories: resource.categories,
+          updatedAt: new Date().toISOString(),
+          ownerId: 1,
+          banner: bannerKey // Save the S3 key for the banner
+        }
+      }
+    });
+  }
+
   const authorItems = Array.from(authorMap.values()).map(author => ({
     PutRequest: {
       Item: author
@@ -164,7 +218,7 @@ const importData = async () => {
     for (let i = 0; i < items.length; i += BATCH_SIZE) {
       const batch = items.slice(i, i + BATCH_SIZE);
       console.log(`Writing batch to ${tableName} with ${batch.length} items`);
-      await ddbDocClient.send(new BatchWriteCommand({
+      const result = await ddbDocClient.send(new BatchWriteCommand({
         RequestItems: {
           [tableName]: batch
         }
@@ -172,9 +226,10 @@ const importData = async () => {
     }
   };
 
-  // Batch write authors and posts separately
+  // Batch write authors, posts, and resources separately
   await batchWriteItems(userTableName, authorItems);
   await batchWriteItems(postTableName, postItems);
+  await batchWriteItems(resourceTableName, resourceItems);
 };
 
 importData().catch(console.error);

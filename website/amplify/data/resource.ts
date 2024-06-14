@@ -25,6 +25,18 @@ const schema = a.schema({
       allow.guest().to(['read']),
       allow.authenticated('identityPool').to(['read']),
     ]),
+  Resource: a
+    .model({
+      title: a.string().required(),
+      content: a.string().required(),
+      url: a.string().required(),
+      categories: a.string().required().array(),
+      banner: a.string()
+    })
+    .authorization((allow) => [
+      allow.guest().to(['read']),
+      allow.authenticated('identityPool').to(['read']),
+    ]),
   LinkSuggestion: a
     .model({
       url: a.string(),

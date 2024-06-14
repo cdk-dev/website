@@ -8,6 +8,9 @@ import timezone from "dayjs/plugin/timezone"
 import relativeTime from "dayjs/plugin/relativeTime"
 import CreateContent from "@/app/_components/CreateContent"
 import Newsletter from "@/app/_components/Newsletter"
+import { fetchMostRecentResources } from "@/app/_actions/actions"
+import PostImage from "../_components/PostImage"
+import HostnameLink from "../_components/HostnameLink"
 
 dayjs.extend(relativeTime) // For fromNow()
 dayjs.extend(utc) // From Timezone
@@ -15,29 +18,21 @@ dayjs.extend(timezone)
 
 interface ResourceProps {
   resource: {
-    id: number;
+    id: string;
     title: string;
     content: string;
     categories: string[] | null;
-    author: {
-      name: string;
-      avatar: string;
-    };
-    image: string;
+    banner: string | null;
     url: string;
-    teaser: string;
-    hostname: string;
+    createdAt: string;
+    updatedAt: string;
   };
 }
 
 function Resource({ resource }: ResourceProps): ReactElement {
   return (
     <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-      <img
-        className="h-48 w-full object-cover"
-        src={resource.image}
-        alt="foo"
-      />
+      <PostImage postTitle={resource.title} postKey={resource.banner} />
       <div className="flex-1 bg-white p-6 flex flex-col justify-between">
         <div className="flex-1">
           <div className="flex-shrink-0"></div>
@@ -46,7 +41,7 @@ function Resource({ resource }: ResourceProps): ReactElement {
               {resource.title}
             </h3>
             <p className="mt-3 text-base leading-6 text-gray-500">
-              {resource.teaser}
+              {resource.content}
             </p>
             <div className="mt-4">
               {resource.categories?.map((category) => (
@@ -64,7 +59,7 @@ function Resource({ resource }: ResourceProps): ReactElement {
         <div className="mt-6 flex items-center">
           <div className="">
             <div className="flex text-sm leading-5 text-gray-500">
-              <a href={resource.url}>{resource.hostname}</a>
+              <HostnameLink url={resource.url} />
             </div>
           </div>
         </div>
@@ -73,10 +68,8 @@ function Resource({ resource }: ResourceProps): ReactElement {
   )
 }
 
-function Tools(): ReactElement {
-    const resources = [
-        { id: 1, title: "Resource 1", content: "Content 1", categories: ["Category1", "Category2"], author: {name: "Author 1", avatar: "Avatar1.png"}, image: "image1.png", url: "http://example.com", teaser: "Teaser 1", hostname: "example.com" },
-    ]
+async function Tools(): Promise<ReactElement> {
+    const resources = await fetchMostRecentResources(100);
 
   return (
     <>

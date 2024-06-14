@@ -13,11 +13,6 @@ const linkSuggestionSchema = z.object({
 });
 
 export const fetchPosts = async (limit: number = 3) => {
-  const currentUser = await AuthGetCurrentUserServer();
-  if (!currentUser) {
-    throw new Error('User is not authenticated');
-  }
-  console.log('currentUser', currentUser);
   const { data: posts, errors } = await cookieBasedClient.models.Post.list({
     limit,
     selectionSet: [

@@ -90,3 +90,11 @@ export const fetchMostRecentResources = async (limit: number = 3) => {
   const resources = await fetchResources(200);
   return resources.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, limit);
 };
+
+export const subscribeToNewsletter = async (formData: FormData) => {
+  const { data: notification, errors } = await cookieBasedClient.models.Notification.create({
+    email: formData.get('email') as string,
+  });
+
+  console.log({notification, errors});
+};

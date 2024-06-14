@@ -47,7 +47,14 @@ const schema = a.schema({
       allow.owner(),
       allow.group('admins')
     ]),
-
+  Notification: a
+    .model({
+      email: a.string().required(),
+    })
+    .authorization((allow) => [
+      allow.guest().to(['create']),
+      allow.authenticated('identityPool').to(['create']),
+    ]),
 });
 
 export type Schema = ClientSchema<typeof schema>;

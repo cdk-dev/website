@@ -1,14 +1,14 @@
 import React, { ReactElement } from "react"
 
-import Nav from "@/components/Nav"
-import Layout from "@/components/Layout"
+import Nav from "@/app/_components/Nav"
+import Layout from "@/app/_components/Layout"
 
 import dayjs from "dayjs"
 import utc from "dayjs/plugin/utc"
 import timezone from "dayjs/plugin/timezone"
 import relativeTime from "dayjs/plugin/relativeTime"
-import CreateContent from "@/components/CreateContent"
-import Newsletter from "@/components/Newsletter"
+import CreateContent from "@/app/_components/CreateContent"
+import Newsletter from "@/app/_components/Newsletter"
 
 dayjs.extend(relativeTime) // For fromNow()
 dayjs.extend(utc) // From Timezone
@@ -77,7 +77,7 @@ function Resource({ resource }: ResourceProps): ReactElement {
 function Tools(): ReactElement {
     const resources = [
         { id: 1, title: "Resource 1", content: "Content 1", categories: ["Category1", "Category2"], author: {name: "Author 1", avatar: "Avatar1.png"}, image: "image1.png", url: "http://example.com", teaser: "Teaser 1", hostname: "example.com" },
-    ]   
+    ]
 
   return (
     <Layout>

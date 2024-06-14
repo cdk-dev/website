@@ -1,4 +1,4 @@
-import { addLinkSuggestion } from '@/actions/actions';
+import { addLinkSuggestion } from '@/app/_actions/actions';
 
 const SuggestPage = async () => {
   return (

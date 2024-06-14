@@ -1,10 +1,10 @@
-import Hero from "@/components/Hero"
-import Logos from "@/components/Logos"
-import Layout from "@/components/Layout"
-import CreateContent from "@/components/CreateContent"
-import Post from "@/components/Post"
-import Newsletter from "@/components/Newsletter"
-import { fetchMostRecentPosts } from "@/actions/actions"
+import Hero from "@/app/_components/Hero"
+import Logos from "@/app/_components/Logos"
+import Layout from "@/app/_components/Layout"
+import CreateContent from "@/app/_components/CreateContent"
+import Post from "@/app/_components/Post"
+import Newsletter from "@/app/_components/Newsletter"
+import { fetchMostRecentPosts } from "@/app/_actions/actions"
 
 export default async function Home() {
   const posts = await fetchMostRecentPosts(3);

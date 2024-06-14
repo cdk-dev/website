@@ -1,7 +1,7 @@
-import Layout from "@/components/Layout";
-import Nav from "@/components/Nav";
-import CreateContent from "@/components/CreateContent";
-import Newsletter from "@/components/Newsletter";
+import Layout from "@/app/_components/Layout";
+import Nav from "@/app/_components/Nav";
+import CreateContent from "@/app/_components/CreateContent";
+import Newsletter from "@/app/_components/Newsletter";
 import React from "react";
 
 const coc = () => {

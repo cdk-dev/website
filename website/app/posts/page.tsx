@@ -1,11 +1,11 @@
 import React, { ReactElement } from "react"
 
-import Nav from "@/components/Nav"
-import Layout from "@/components/Layout"
-import Post from "@/components/Post"
-import CreateContent from "@/components/CreateContent"
-import Newsletter from "@/components/Newsletter"
-import { fetchMostRecentPosts } from "@/actions/actions"
+import Nav from "@/app/_components/Nav"
+import Layout from "@/app/_components/Layout"
+import Post from "@/app/_components/Post"
+import CreateContent from "@/app/_components/CreateContent"
+import Newsletter from "@/app/_components/Newsletter"
+import { fetchMostRecentPosts } from "@/app/_actions/actions"
 
 async function Posts(): Promise<ReactElement> {
   const posts = await fetchMostRecentPosts(200)

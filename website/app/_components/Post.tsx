@@ -3,6 +3,8 @@ import dayjs from "dayjs"
 import utc from "dayjs/plugin/utc"
 import timezone from "dayjs/plugin/timezone"
 import relativeTime from "dayjs/plugin/relativeTime"
+import Avatar from "./Avatar"
+import PostImage from "./PostImage"
 
 dayjs.extend(relativeTime) // For fromNow()
 dayjs.extend(utc) // From Timezone
@@ -13,10 +15,9 @@ function Post({ post }): ReactElement {
     <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
       <div className="flex-shrink-0">
         <a href={post.url}>
-          <img
-            className="h-48 w-full object-cover"
-            src={post.image}
-            alt="foo"
+          <PostImage
+            postTitle={post.title}
+            postKey={undefined}
           />
         </a>
       </div>
@@ -44,10 +45,8 @@ function Post({ post }): ReactElement {
         <div className="mt-6 flex items-center">
           <div className="flex-shrink-0">
             <a href={post.url}>
-              <img
-                className="h-10 w-10 rounded-full"
-                src={post.author.avatar}
-                alt=""
+              <Avatar
+                avatarKey={post.author.avatar}
               />
             </a>
           </div>

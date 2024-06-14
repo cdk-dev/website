@@ -4,6 +4,7 @@ import yaml from 'js-yaml';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, BatchWriteCommand } from '@aws-sdk/lib-dynamodb';
 import { ulid } from 'ulid';
+import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 
 const userTableName = 'Author-solb3gvnrfc73d74revv2a7cfm-NONE';
 const postTableName = 'Post-solb3gvnrfc73d74revv2a7cfm-NONE';
@@ -46,6 +47,21 @@ if (!fs.existsSync(postsDir)) {
 
 const loadYaml = (filePath: string) => yaml.load(fs.readFileSync(filePath, 'utf8'));
 
+const s3Client = new S3Client({});
+const bucketName = 'amplify-website-sebastian-cdkdevassetsbucket47959b-yuv1gpaorilb';
+
+const uploadAvatarToS3 = async (username: string, avatarPath: string) => {
+  const fileContent = fs.readFileSync(avatarPath);
+  const key = `content/avatars/${username}/${path.basename(avatarPath)}`;
+  await s3Client.send(new PutObjectCommand({
+    Bucket: bucketName,
+    Key: key,
+    Body: fileContent,
+    ContentType: 'image/jpeg' // Adjust based on your image type
+  }));
+  return key;
+};
+
 const importData = async () => {
   const isFile = (filePath: string) => fs.statSync(filePath).isFile();
   const hasCorrectExtension = (filePath: string) => ['.yaml', '.yml'].includes(path.extname(filePath));
@@ -83,13 +99,15 @@ const importData = async () => {
       if (!authorId) {
         await delay(10); // Ensure at least 10ms delay between ULID generations
         authorId = ulid(new Date(author.createdAt).getTime());
+        const avatarKey = await uploadAvatarToS3(authorFolderName, path.join(usersDir, authorFolderName, author.avatar));
         authorMap.set(authorFolderName, {
           id: authorId,
           name: author.name,
           twitter: author.twitter,
           createdAt: new Date(author.createdAt).toISOString(),
           updatedAt: new Date().toISOString(),
-          ownerId: 1
+          ownerId: 1,
+          avatar: avatarKey // Save the S3 key
         });
       }
 

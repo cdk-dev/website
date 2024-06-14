@@ -1,8 +1,8 @@
 import React, { ReactElement } from "react"
 import Image from "next/image"
-import terraform from "@/components/logos/terraform.svg"
-import aws from "@/components/logos/aws.svg"
-import kubernetes from "@/components/logos/kubernetes.svg"
+import terraform from "@/app/_components/logos/terraform.svg"
+import aws from "@/app/_components/logos/aws.svg"
+import kubernetes from "@/app/_components/logos/kubernetes.svg"
 
 function Logos(): ReactElement {
   return (

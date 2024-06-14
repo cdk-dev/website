@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { revalidateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
 
+
 const linkSuggestionSchema = z.object({
   url: z.string().url(),
   comment: z.string().min(1)
@@ -19,6 +20,15 @@ export const fetchPosts = async (limit: number = 3) => {
   console.log('currentUser', currentUser);
   const { data: posts, errors } = await cookieBasedClient.models.Post.list({
     limit,
+    selectionSet: [
+      'id',
+      'title',
+      'content',
+      'categories',
+      'createdAt',
+      'updatedAt',
+      'author.*',
+    ],
     sortDirection: 'DESC'
   });
   if (errors) {
@@ -29,10 +39,9 @@ export const fetchPosts = async (limit: number = 3) => {
 
 // pending fix https://github.com/aws-amplify/amplify-category-api/issues/2621
 export const fetchMostRecentPosts = async (limit: number = 3) => {
-  const posts = await fetchPosts(200)
+  const posts = await fetchPosts(200);
   return posts.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, limit);
 };
-
 
 export const addLinkSuggestion = async (formData: FormData) => {
   const currentUser = await AuthGetCurrentUserServer();

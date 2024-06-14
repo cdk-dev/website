@@ -1,11 +1,13 @@
 'use server'
 
 import { cookieBasedClient } from '@/utils/amplifyServerUtils';
-import { AuthGetCurrentUserServer } from '@/utils/amplifyServerUtils';
+import { AuthGetCurrentUserServer, authSession } from '@/utils/amplifyServerUtils';
 import { z } from 'zod';
 import { revalidateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
+import { SNSClient, SubscribeCommand } from '@aws-sdk/client-sns';
 
+import { custom, auth } from '@/amplify_outputs.json';
 
 const linkSuggestionSchema = z.object({
   url: z.string().url(),
@@ -92,9 +94,30 @@ export const fetchMostRecentResources = async (limit: number = 3) => {
 };
 
 export const subscribeToNewsletter = async (formData: FormData) => {
-  const { data: notification, errors } = await cookieBasedClient.models.Notification.create({
-    email: formData.get('email') as string,
+  const session = await authSession();
+  console.log({session});
+
+  if (!session) {
+    throw new Error('User is not authenticated');
+  }
+
+  const snsClient = new SNSClient({
+    credentials: session.credentials,
+    region: auth.aws_region,
   });
 
-  console.log({notification, errors});
+  const email = formData.get('email') as string;
+
+  try {
+    const command = new SubscribeCommand({
+      Protocol: 'email',
+      TopicArn: custom.subscribersTopicArn,
+      Endpoint: email,
+    });
+
+    const response = await snsClient.send(command);
+    console.log('Subscription successful:', response);
+  } catch (error) {
+    console.error('Error subscribing to SNS:', error);
+  }
 };

@@ -12,6 +12,7 @@
   "dependencies": {
     "@aws-amplify/adapter-nextjs": "^1.2.4",
     "@aws-amplify/ui-react": "^6.1.12",
+    "@aws-sdk/client-sns": "^3.598.0",
     "@tailwindui/react": "^0.1.1",
     "aws-amplify": "^6.3.6",
     "dayjs": "^1.11.11",
@@ -24,6 +25,9 @@
   "devDependencies": {
     "@aws-amplify/backend": "^1.0.3",
     "@aws-amplify/backend-cli": "^1.0.4",
+    "@aws-cdk/aws-pipes-alpha": "^2.146.0-alpha.0",
+    "@aws-cdk/aws-pipes-sources-alpha": "^2.146.0-alpha.0",
+    "@aws-cdk/aws-pipes-targets-alpha": "^2.146.0-alpha.0",
     "@aws-sdk/client-dynamodb": "^3.596.0",
     "@aws-sdk/lib-dynamodb": "^3.596.0",
     "@types/geopattern": "^1.2.9",

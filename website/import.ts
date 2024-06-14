@@ -6,9 +6,10 @@ import { DynamoDBDocumentClient, BatchWriteCommand } from '@aws-sdk/lib-dynamodb
 import { ulid } from 'ulid';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 
-const userTableName = 'Author-solb3gvnrfc73d74revv2a7cfm-NONE';
-const postTableName = 'Post-solb3gvnrfc73d74revv2a7cfm-NONE';
-const resourceTableName = 'Resource-solb3gvnrfc73d74revv2a7cfm-NONE';
+const userTableName = 'Author-eda5azc3cvhhxaq4sw2ugaxl4i-NONE';
+const postTableName = 'Post-eda5azc3cvhhxaq4sw2ugaxl4i-NONE';
+const resourceTableName = 'Resource-eda5azc3cvhhxaq4sw2ugaxl4i-NONE';
+const bucketName = 'amplify-d2vgttdm5hfz44-ne-cdkdevassetsbucket47959b-tuwm0thqxjww';
 
 interface User {
   name: string;
@@ -66,7 +67,6 @@ if (!fs.existsSync(resourcesDir)) {
 const loadYaml = (filePath: string) => yaml.load(fs.readFileSync(filePath, 'utf8'));
 
 const s3Client = new S3Client({});
-const bucketName = 'amplify-website-sebastian-cdkdevassetsbucket47959b-yuv1gpaorilb';
 
 const uploadAvatarToS3 = async (username: string, avatarPath: string) => {
   const fileContent = fs.readFileSync(avatarPath);

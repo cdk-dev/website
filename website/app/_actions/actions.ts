@@ -23,6 +23,7 @@ export const fetchPosts = async (limit: number = 3) => {
     selectionSet: [
       'id',
       'title',
+      'url',
       'content',
       'categories',
       'createdAt',

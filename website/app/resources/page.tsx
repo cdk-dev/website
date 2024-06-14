@@ -1,7 +1,6 @@
 import React, { ReactElement } from "react"
 
 import Nav from "@/app/_components/Nav"
-import Layout from "@/app/_components/Layout"
 
 import dayjs from "dayjs"
 import utc from "dayjs/plugin/utc"
@@ -19,7 +18,7 @@ interface ResourceProps {
     id: number;
     title: string;
     content: string;
-    categories: string[];
+    categories: string[] | null;
     author: {
       name: string;
       avatar: string;
@@ -50,7 +49,7 @@ function Resource({ resource }: ResourceProps): ReactElement {
               {resource.teaser}
             </p>
             <div className="mt-4">
-              {resource.categories.map((category) => (
+              {resource.categories?.map((category) => (
                 <span
                   key={category}
                   className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium leading-5 bg-indigo-100 text-indigo-800 mr-2 mb-1"
@@ -80,7 +79,7 @@ function Tools(): ReactElement {
     ]
 
   return (
-    <Layout>
+    <>
       <Nav title="Resources" />
 
       <div className="py-10">
@@ -111,7 +110,7 @@ function Tools(): ReactElement {
 
       <CreateContent />
       <Newsletter />
-    </Layout>
+    </>
   )
 }
 

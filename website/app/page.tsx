@@ -1,15 +1,16 @@
 import Hero from "@/app/_components/Hero"
 import Logos from "@/app/_components/Logos"
-import Layout from "@/app/_components/Layout"
 import CreateContent from "@/app/_components/CreateContent"
 import Post from "@/app/_components/Post"
 import Newsletter from "@/app/_components/Newsletter"
 import { fetchMostRecentPosts } from "@/app/_actions/actions"
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home() {
   const posts = await fetchMostRecentPosts(3);
   return (
-    <Layout>
+    <>
       <Hero />
       <Logos />
       <div className="relative bg-gray-50 pt-16 pb-4 px-4 sm:px-6 lg:pt-24 lg:pb-6 lg:px-8">
@@ -37,6 +38,6 @@ export default async function Home() {
       </div>
       <CreateContent />
       <Newsletter />
-    </Layout >
+    </>
   )
 }

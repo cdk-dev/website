@@ -3,8 +3,8 @@ import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
 const schema = a.schema({
   Author: a
     .model({
-      name: a.string(),
-      avatar: a.string(),
+      name: a.string().required(),
+      avatar: a.string().required(),
       posts: a.hasMany('Post', 'authorId'),
     })
     .authorization((allow) => [
@@ -13,10 +13,10 @@ const schema = a.schema({
     ]),
   Post: a
     .model({
-      title: a.string(),
-      content: a.string(),
-      url: a.string(),
-      categories: a.string().array(),
+      title: a.string().required(),
+      content: a.string().required(),
+      url: a.string().required(),
+      categories: a.string().required().array(),
       authorId: a.id().required(),
       author: a.belongsTo('Author', 'authorId'),
     })

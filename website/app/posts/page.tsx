@@ -1,17 +1,18 @@
 import React, { ReactElement } from "react"
 
 import Nav from "@/app/_components/Nav"
-import Layout from "@/app/_components/Layout"
 import Post from "@/app/_components/Post"
 import CreateContent from "@/app/_components/CreateContent"
 import Newsletter from "@/app/_components/Newsletter"
 import { fetchMostRecentPosts } from "@/app/_actions/actions"
 
+export const dynamic = 'force-dynamic'
+
 async function Posts(): Promise<ReactElement> {
   const posts = await fetchMostRecentPosts(200)
 
   return (
-    <Layout>
+    <>
       <Nav title="Posts" />
 
       <div className="py-10">
@@ -42,7 +43,7 @@ async function Posts(): Promise<ReactElement> {
 
       <CreateContent />
       <Newsletter />
-    </Layout>
+    </>
   )
 }
 

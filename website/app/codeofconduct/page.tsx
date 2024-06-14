@@ -1,4 +1,3 @@
-import Layout from "@/app/_components/Layout";
 import Nav from "@/app/_components/Nav";
 import CreateContent from "@/app/_components/CreateContent";
 import Newsletter from "@/app/_components/Newsletter";
@@ -6,7 +5,7 @@ import React from "react";
 
 const coc = () => {
   return (
-    <Layout>
+    <>
       <Nav title="Posts" />
 
       <div className="py-10">
@@ -169,7 +168,7 @@ const coc = () => {
 
       <CreateContent />
       <Newsletter />
-    </Layout>
+    </>
   )
 }
 

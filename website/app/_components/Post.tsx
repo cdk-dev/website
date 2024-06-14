@@ -15,9 +15,9 @@ dayjs.extend(timezone)
 interface PostProps {
   post: {
     url: string;
-    title: string;
-    excerpt: string;
-    categories: string[];
+    title: string ;
+    content: string;
+    categories: string[] | null;
     author: {
       avatar: string;
       name: string;
@@ -44,12 +44,12 @@ function Post({ post }: PostProps): ReactElement {
               {post.title}
             </h3>
             <p className="mt-3 text-base leading-6 text-gray-500">
-              {post.excerpt}
+              {post.content}
             </p>
           </Link>
         </div>
         <div>
-          {post.categories.map((category, index) => (
+          {post.categories?.map((category, index) => (
             <span
               key={`${category}-${index}`}
               className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium leading-5 bg-indigo-100 text-indigo-800 mr-2"

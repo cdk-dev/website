@@ -48,7 +48,7 @@ const coc = () => {
                 <li>Focusing on what is best not just for us as individuals, but for the
                   overall community</li>
                 <li>Be respectful of Direct Messaging. Everyone here is a volunteer just trying
-                  to help and getting contacted in DMs can often feel like you're providing free support.</li>
+                  to help and getting contacted in DMs can often feel like you&apos;re providing free support.</li>
               </ul>
               <p className="mb-8">
                 Examples of unacceptable behavior include:
@@ -58,7 +58,7 @@ const coc = () => {
                   advances of any kind</li>
                 <li>Trolling, insulting or derogatory comments, and personal or political attacks</li>
                 <li>Public or private harassment</li>
-                <li>Publishing others' private information, such as a physical or email
+                <li>Publishing others&apos; private information, such as a physical or email
                   address, without their explicit permission</li>
                 <li>Other conduct which could reasonably be considered inappropriate in a
                   professional setting</li>
@@ -152,7 +152,7 @@ const coc = () => {
                 version 2.0, available at <a className="text-blue-400" href="https://www.contributor-covenant.org/version/2/0/code_of_conduct.html">https://www.contributor-covenant.org/version/2/0/code_of_conduct.html</a>.
               </p>
               <p>
-                Community Impact Guidelines were inspired by <a className="text-blue-400" href="https://github.com/mozilla/diversity">Mozilla's code of conduct
+                Community Impact Guidelines were inspired by <a className="text-blue-400" href="https://github.com/mozilla/diversity">Mozilla&apos;s code of conduct
                 enforcement ladder</a>.
               </p>
               <p>

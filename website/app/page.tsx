@@ -22,7 +22,7 @@ export default async function Home() {
               Recent Community Blog Posts
             </h2>
             <p className="mt-3 max-w-2xl mx-auto text-xl leading-7 text-gray-500 sm:mt-4">
-              What's being talked about in the CDK ecosystem.{" "}
+              What&apos;s being talked about in the CDK ecosystem.{" "}
               <a className="italic underline" href="/posts">
                 More...
               </a>

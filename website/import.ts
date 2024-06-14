@@ -23,6 +23,7 @@ interface Post {
   url: string;
   createdAt: string;
   categories: string[];
+  banner?: string;
 }
 
 const client = new DynamoDBClient({});
@@ -62,6 +63,18 @@ const uploadAvatarToS3 = async (username: string, avatarPath: string) => {
   return key;
 };
 
+const uploadBannerToS3 = async (postFolderName: string, bannerPath: string) => {
+  const fileContent = fs.readFileSync(bannerPath);
+  const key = `content/banners/${postFolderName}/${path.basename(bannerPath)}`;
+  await s3Client.send(new PutObjectCommand({
+    Bucket: bucketName,
+    Key: key,
+    Body: fileContent,
+    ContentType: 'image/png' // Adjust based on your image type
+  }));
+  return key;
+};
+
 const importData = async () => {
   const isFile = (filePath: string) => fs.statSync(filePath).isFile();
   const hasCorrectExtension = (filePath: string) => ['.yaml', '.yml'].includes(path.extname(filePath));
@@ -77,21 +90,21 @@ const importData = async () => {
 
   const userMap = new Map(users.map(({ folderName, data }) => [folderName, data]));
 
-  const posts: Post[] = fs.readdirSync(postsDir)
-    .map(dir => path.join(postsDir, dir, 'index.yml'))
-    .filter(file => isFile(file) && hasCorrectExtension(file))
-    .map(file => {
-      console.log(`Processing post file: ${file}`);
-      return loadYaml(file) as Post;
+  const posts: { folderName: string, data: Post }[] = fs.readdirSync(postsDir)
+    .map(dir => ({ folderName: dir, filePath: path.join(postsDir, dir, 'index.yml') }))
+    .filter(({ filePath }) => isFile(filePath) && hasCorrectExtension(filePath))
+    .map(({ folderName, filePath }) => {
+      console.log(`Processing post file: ${filePath}`);
+      return { folderName, data: loadYaml(filePath) as Post };
     })
-    .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+    .sort((a, b) => new Date(a.data.createdAt).getTime() - new Date(b.data.createdAt).getTime());
 
   const authorMap = new Map();
   const postItems = [];
 
   const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-  for (const post of posts) {
+  for (const { folderName: postFolderName, data: post } of posts) {
     const authorFolderName = post.authorIds[0];
     const author = userMap.get(authorFolderName);
     if (author) {
@@ -113,6 +126,13 @@ const importData = async () => {
 
       await delay(10); // Ensure at least 10ms delay between ULID generations
       const postId = ulid(new Date(post.createdAt).getTime());
+      let bannerKey = null;
+      if (post.banner) {
+        const bannerPath = path.join(postsDir, postFolderName, post.banner);
+        if (fs.existsSync(bannerPath)) {
+          bannerKey = await uploadBannerToS3(postFolderName, bannerPath);
+        }
+      }
       postItems.push({
         PutRequest: {
           Item: {
@@ -124,7 +144,8 @@ const importData = async () => {
             createdAt: new Date(post.createdAt).toISOString(), // Use createdAt from the post YAML
             url: post.url, // Use url from the post YAML
             updatedAt: new Date().toISOString(),
-            ownerId: 1
+            ownerId: 1,
+            banner: bannerKey // Save the S3 key for the banner
           }
         }
       });

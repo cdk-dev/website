@@ -18,6 +18,7 @@ export const fetchPosts = async (limit: number = 3) => {
     selectionSet: [
       'id',
       'title',
+      'banner',
       'url',
       'content',
       'categories',

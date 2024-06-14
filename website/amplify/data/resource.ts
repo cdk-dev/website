@@ -18,6 +18,7 @@ const schema = a.schema({
       url: a.string().required(),
       categories: a.string().required().array(),
       authorId: a.id().required(),
+      banner: a.string(),
       author: a.belongsTo('Author', 'authorId'),
     })
     .authorization((allow) => [

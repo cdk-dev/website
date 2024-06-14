@@ -6,7 +6,7 @@ import GeoPattern from "geopattern"
 // Re-render this page every 60 minutes
 export const revalidate = 60 * 60; // in seconds
 
-export default async function PostImage({ postTitle, postKey }: { postTitle: string, postKey: string | undefined }) {
+export default async function PostImage({ postTitle, postKey }: { postTitle: string, postKey: string | null }) {
   try {
     if (!postKey) {
       const pattern = GeoPattern.generate(postTitle)

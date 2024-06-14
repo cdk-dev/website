@@ -6,7 +6,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: '*.s3.eu-central-1.amazonaws.com',
         port: '',
-        pathname: '/content/avatars/**',
+        pathname: '/content/**',
       },
     ],
   },

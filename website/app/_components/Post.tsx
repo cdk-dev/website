@@ -15,7 +15,8 @@ dayjs.extend(timezone)
 interface PostProps {
   post: {
     url: string;
-    title: string ;
+    title: string;
+    banner: string | null;
     content: string;
     categories: string[] | null;
     author: {
@@ -33,7 +34,7 @@ function Post({ post }: PostProps): ReactElement {
         <Link href={post.url}>
           <PostImage
             postTitle={post.title}
-            postKey={undefined}
+            postKey={post.banner}
           />
         </Link>
       </div>

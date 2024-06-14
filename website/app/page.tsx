@@ -4,10 +4,10 @@ import Layout from "@/components/Layout"
 import CreateContent from "@/components/CreateContent"
 import Post from "@/components/Post"
 import Newsletter from "@/components/Newsletter"
-import { fetchPosts } from "@/actions/actions"
+import { fetchMostRecentPosts } from "@/actions/actions"
 
 export default async function Home() {
-  const posts = await fetchPosts();
+  const posts = await fetchMostRecentPosts(3);
   return (
     <Layout>
       <Hero />

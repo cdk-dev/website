@@ -15,6 +15,7 @@ const schema = a.schema({
     .model({
       title: a.string(),
       content: a.string(),
+      url: a.string(),
       categories: a.string().array(),
       authorId: a.id().required(),
       author: a.belongsTo('Author', 'authorId'),
@@ -74,3 +75,4 @@ Fetch records from the database and use them in your frontend component.
 // const { data: posts } = await client.models.Post.list()
 
 // return <ul>{posts.map(post => <li key={post.title}>{post.title} - {post.content}</li>)}</ul>
+

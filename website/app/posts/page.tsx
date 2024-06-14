@@ -5,13 +5,11 @@ import Layout from "@/components/Layout"
 import Post from "@/components/Post"
 import CreateContent from "@/components/CreateContent"
 import Newsletter from "@/components/Newsletter"
+import { fetchMostRecentPosts } from "@/actions/actions"
 
-function Posts(): ReactElement {
-    const posts = [
-        { id: 1, title: "Post 1", content: "Content 1", categories: ["Category1", "Category2"], author: {name: "Author 1", avatar: "Avatar1.png"} },
-        { id: 2, title: "Post 2", content: "Content 2", categories: ["Category3", "Category4"], author: {name: "Author 2", avatar: "Avatar2.png"} },
-        { id: 3, title: "Post 3", content: "Content 3", categories: ["Category5", "Category6"], author: {name: "Author 3", avatar: "Avatar3.png"} },
-      ]
+async function Posts(): Promise<ReactElement> {
+  const posts = await fetchMostRecentPosts(200)
+
   return (
     <Layout>
       <Nav title="Posts" />

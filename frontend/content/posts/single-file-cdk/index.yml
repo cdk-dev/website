@@ -1,9 +1,0 @@
-title: "Simpler single-file AWS CDK deployments"
-excerpt: "I am checking out the AWS CDK to deploy serverless applications. But having used Serverless Framework a lot, I find the AWS CDK very noisy and invasive in some of my projects. It doesn't have to be though."
-authorIds:
-  - matthieu-napoli
-url: https://mnapoli.fr/single-file-cdk/
-createdAt: "2023-01-02 18:00"
-categories:
-  - AWS-CDK
-  - Developer Experience

@@ -1,8 +1,0 @@
-title: "Write TypeScript Lambda functions in AWS CDK - Complete Guide"
-excerpt: "In this post Borislav explains how to bundle your Typescript lambda functions."
-authorIds:
-  - borislav-hadzhiev
-url: https://bobbyhadz.com/blog/aws-cdk-typescript-lambda
-createdAt: "2021-04-21 14:00"
-categories:
-  - AWS-CDK

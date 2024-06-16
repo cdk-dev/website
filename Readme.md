@@ -9,4 +9,4 @@ This is a community driven project for the Cloud Development Kit (CDK) and will 
 
 ## Contributions
 
-We'd love to have more people on board - Just start to create issues or get in involved here: https://github.com/cdk-dev/base
+We'd love to have more people on board - Head over to [cdk.dev](https://cdk.dev) and join our Slack.

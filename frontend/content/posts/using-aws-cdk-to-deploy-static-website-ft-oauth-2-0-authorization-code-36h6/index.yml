@@ -1,8 +1,0 @@
-title: "How to Deploy Static Website with OAuth 2.0 Authorization, CloudFront CDN in 20 Minutes?"
-excerpt: "From my long todo list, I found a topic related to OAuth 2.0 that I have always wanted to do. It's a perfect timing to try and see how to implement a CloudFront Extension solution in AWS CDK."
-authorIds:
-  - ernest-chiang
-url: https://dev.to/dwchiang/using-aws-cdk-to-deploy-static-website-ft-oauth-2-0-authorization-code-36h6
-createdAt: "2021-05-04 19:00"
-categories:
-  - AWS-CDK

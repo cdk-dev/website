@@ -1,8 +1,0 @@
-title: "Using AWS CDK to deploy your Amazon Managed Workflows for Apache Airflow environment"
-excerpt: "What better way to celebrate CDK Day than to return to a previous blog where I wrote about automating the installation and configuration of Amazon Managed Workflows for Apache Airflow (MWAA), and take a look at doing the same thing but this time using AWS CDK."
-authorIds:
-  - ricardo-sueiras
-url: https://blog.beachgeek.co.uk/posts/using-aws-cdk-to-deploy-your-amazon-managed-workflows-for-apache-airflow-environment-12cf
-createdAt: "2021-04-28 19:00"
-categories:
-  - AWS-CDK

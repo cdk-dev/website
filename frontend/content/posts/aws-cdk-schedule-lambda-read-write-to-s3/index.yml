@@ -1,8 +1,0 @@
-title: "AWS CDK: Building a EventBridge scheduled Lambda that reads and writes to s3"
-excerpt: "A getting started guide that builds a servelss app to using EventBridge, Lambda & s3 while introducing how to create, configure, test and deploy a CDK project using Python"
-authorIds:
-  - rehan-haider
-url: https://cloudbytes.dev/articles/aws-cdk-building-a-eventbridge-scheduled-lambda-that-reads-and-writes-to-s3
-createdAt: "2021-04-21 14:00"
-categories:
-  - AWS-CDK, Python

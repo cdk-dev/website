@@ -1,8 +1,0 @@
-title: "Configure OpenID Connect for GitHub in AWS CDK"
-excerpt: "Learn how to build a GitHub OpenID Connect (OIDC) with AWS CDK and create a GitHub Action workflow to authenticate with AWS."
-authorIds:
-  - danny-steenman
-url: https://towardsthecloud.com/aws-cdk-openid-connect-github
-createdAt: "2022-03-10 08:18"
-categories:
-  - AWS-CDK

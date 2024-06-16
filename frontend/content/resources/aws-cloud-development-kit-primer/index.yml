@@ -1,7 +1,0 @@
-title: AWS Cloud Development Kit Primer
-teaser: In this curriculum, you acquire the knowledge and skills to start using AWS Cloud Development Kit (AWS CDK) to deploy cloud resources at scale. You learn about the basic building blocks of the AWS CDK, Apps, Stacks, and Constructs; and you learn how to use them to build an environment in the cloud.
-url: "https://www.aws.training/Details/Curriculum?id=64511"
-createdAt: "2020-09-17 18:00"
-categories:
-  - AWS CDK
-  - Workshop

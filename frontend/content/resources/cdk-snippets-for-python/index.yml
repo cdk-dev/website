@@ -1,9 +1,0 @@
-title: CDK Snippets for Python
-teaser: CDK snippets for Python is a collection of code snippets for vscode (Visual Studio Code) to boost your productivity. This is the only extension at the moment of writing this which supports writing CDK code in Python.
-url: "https://marketplace.visualstudio.com/items?itemName=sameeramin.cdk-snippets-for-python"
-createdAt: "2022-05-18 22:00"
-categories:
-  - Snippets
-  - AWS CDK
-  - Python
-  - vscode

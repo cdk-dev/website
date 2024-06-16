@@ -1,9 +1,0 @@
-title: "5 Ways To Bundle a Lambda Function Within an AWS CDK Construct"
-excerpt: "This post will present you five different ways to bundle your Lambda function within a CDK construct and tells you about the advantages and disadvantages of each option."
-authorIds:
-  - sebastian-hesse
-url: https://www.sebastianhesse.de/2021/01/16/5-ways-to-bundle-a-lambda-function-within-an-aws-cdk-construct/
-createdAt: "2021-01-16 19:00"
-categories:
-  - AWS-CDK
-  - Lambda

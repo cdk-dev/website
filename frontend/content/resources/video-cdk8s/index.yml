@@ -1,8 +1,0 @@
-title: AWS Cloud Containers Conference - CDK for Kubernetes
-teaser: In this video, the creators of cdk8s show you how to define your first cdk8s application, define reusable components called “constructs” and generally say goodbye (and thank you very much) to writing in YAML.
-url: "https://www.youtube.com/watch?v=PdR3SlkwjLM"
-createdAt: "2020-09-17 20:01"
-categories:
-  - cdk8s
-  - Video
-  - Webinar

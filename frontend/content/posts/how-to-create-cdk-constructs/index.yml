@@ -1,9 +1,0 @@
-title: "How to Create CDK Constructs"
-excerpt: "Learn to create a JSII module, build and publish it. Create a secure S3 bucket and publish it to multiple languages"
-authorIds:
-  - matthew-bonig
-url: https://www.matthewbonig.com/2020/01/11/creating-constructs/
-createdAt: "2020-09-18 19:00"
-categories:
-  - AWS-CDK
-  - jsii

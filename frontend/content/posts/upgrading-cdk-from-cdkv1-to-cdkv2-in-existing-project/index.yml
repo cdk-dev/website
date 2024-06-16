@@ -1,9 +1,0 @@
-title: "Upgrading CDK from CDKv1 to CDKv2 in existing project"
-excerpt: "This blog describes the road I took to move from CDK version 1 to version 2."
-authorIds:
-  - yvo-van-zee
-url: https://yvovanzee.nl/cdk-pipelines-and-cloudformation-linting
-createdAt: "2022-01-21 19:00"
-categories:
-  - AWS-CDK
-

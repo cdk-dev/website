@@ -1,9 +1,0 @@
-title: "How to CDK: Trigger an AWS Lambda Function from a DynamoDB Stream Even"
-excerpt: "In this post we are going to use the AWS CDK to build an AWS Lambda Function that triggers from DynamoDB Stream Events."
-authorIds:
-  - alex-kates
-url: https://dev.to/thealexkates/how-to-trigger-an-aws-lambda-from-a-dynamodb-stream-event-d8
-createdAt: "2021-05-14 19:00"
-categories:
-  - AWS-CDK
-

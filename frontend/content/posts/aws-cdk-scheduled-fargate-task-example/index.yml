@@ -1,8 +1,0 @@
-title: "Scheduled Fargate Task example in AWS CDK"
-excerpt: "After reading this blog post, you'll learn how to build a Scheduled Fargate Task with AWS CDK"
-authorIds:
-  - danny-steenman
-url: https://towardsthecloud.com/aws-cdk-scheduled-fargate-task
-createdAt: "2021-10-27 06:04"
-categories:
-  - AWS-CDK

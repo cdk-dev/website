@@ -1,9 +1,0 @@
-title: "Regain control over orphaned resources with CDK"
-excerpt: "Sometimes AWS resources are orphaned. This means the CloudFormation stack is destroyed but the resource is retained. This article show how to adopt these orphans into you CDK project."
-banner: banner.jpg
-authorIds:
-  - jacco-kulman
-url: https://xebia.com/blog/regain-control-over-orphaned-resources-with-cdk/
-createdAt: "2023-03-09 17:18"
-categories:
-  - AWS-CDK

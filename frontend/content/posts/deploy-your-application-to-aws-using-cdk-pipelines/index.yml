@@ -1,9 +1,0 @@
-title: "Deploy your application to AWS using CDK Pipelines"
-excerpt: "Deploy your application to AWS using the best practices from DevOps, like infrastructure as code and CI/CD. For deploying your application to the cloud you will be using AWS CDK Pipelines."
-authorIds:
-  - foobar-serverless
-url: https://www.youtube.com/watch?v=tw9cQyA3B1M
-createdAt: "2021-04-15 12:00"
-categories:
-  - AWS-CDK
-  - Pipelines

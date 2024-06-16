@@ -1,13 +1,13 @@
 'use server'
 
 import { cookieBasedClient } from '@/utils/amplifyServerUtils';
-import { AuthGetCurrentUserServer, authSession } from '@/utils/amplifyServerUtils';
+import { authSession } from '@/utils/amplifyServerUtils';
 import { z } from 'zod';
 import { revalidateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { SNSClient, SubscribeCommand } from '@aws-sdk/client-sns';
 
-import { custom, auth } from '@/amplify_outputs.json';
+import amplify from '@/amplify_outputs.json';
 
 const linkSuggestionSchema = z.object({
   url: z.string().url(),
@@ -101,7 +101,7 @@ export const subscribeToNewsletter = async (formData: FormData) => {
 
   const snsClient = new SNSClient({
     credentials: session.credentials,
-    region: auth.aws_region,
+    region: amplify.auth.aws_region,
   });
 
   const email = formData.get('email') as string;
@@ -109,7 +109,7 @@ export const subscribeToNewsletter = async (formData: FormData) => {
   try {
     const command = new SubscribeCommand({
       Protocol: 'email',
-      TopicArn: custom.subscribersTopicArn,
+      TopicArn: amplify.custom.subscribersTopicArn,
       Endpoint: email,
     });
 

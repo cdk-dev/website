@@ -1,6 +1,7 @@
 title: AWS Firewall Factory
 teaser: Easily improve the security of your web applications with aws firewall factory. Protect your valuable assets with seamless WAF deployment, updates, and staging, all efficiently managed centrally with Firewall Manager.
 url: "https://github.com/globaldatanet/aws-firewall-factory"
+banner: image.png
 authorIds:
   - david-krohn
 createdAt: "2024-03-25 8:00"

@@ -5,11 +5,11 @@ import * as iam from 'aws-cdk-lib/aws-iam';
 import * as logs from 'aws-cdk-lib/aws-logs';
 import { Construct } from 'constructs';
 
-export class ContentSubscribers extends Construct {
-  constructor(scope: Construct, id: string, props: { table: dynamodb.ITable, topic: sns.ITopic }) {
+export class TableNotifications extends Construct {
+  constructor(scope: Construct, id: string, props: { table: dynamodb.ITable, topic: sns.ITopic, message: string }) {
     super(scope, id);
 
-    const { table, topic } = props;
+    const { table, topic, message } = props;
 
     const pipeRole = new iam.Role(this, 'PipeRole', {
       assumedBy: new iam.ServicePrincipal('pipes.amazonaws.com'),
@@ -33,7 +33,7 @@ export class ContentSubscribers extends Construct {
       },
       target: topic.topicArn,
       targetParameters: {
-        inputTemplate: 'A new post with the title "<$.dynamodb.NewImage.title.S>" has been added to https://cdk.dev - check it out now',
+        inputTemplate: message,
       },
       logConfiguration: {
         cloudwatchLogsLogDestination: {

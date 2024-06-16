@@ -2,8 +2,9 @@ import { defineBackend } from '@aws-amplify/backend';
 import { auth } from './auth/resource';
 import { data } from './data/resource';
 import { storage } from './storage/resource';
-import { ContentSubscribers } from './subscribers/resource';
+import { TableNotifications } from './constructs/table-notifications';
 import * as sns from 'aws-cdk-lib/aws-sns';
+import * as snsSubscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as iam from 'aws-cdk-lib/aws-iam';
 
 /**
@@ -23,13 +24,18 @@ dataResources.cfnResources.cfnGraphqlApi.xrayEnabled = true;
 //   table.pointInTimeRecoveryEnabled = true;
 // });
 
+
+// === Subscribers ===
+
 const subscribers = backend.createStack('subscribers')
 const topic = new sns.Topic(subscribers, 'DdbToSnsTopic', {
   displayName: 'New Post on cdk.dev',
 });
-new ContentSubscribers(subscribers, 'ContentSubscribers', {
+
+new TableNotifications(subscribers, 'TableNotifications', {
   table: dataResources.tables['Post'],
-  topic
+  topic,
+  message: 'A new post with the title "<$.dynamodb.NewImage.title.S>" has been added to https://cdk.dev - check it out now'
 })
 
 const policy = new iam.Policy(subscribers, 'SubscribersPolicy', {
@@ -50,4 +56,20 @@ backend.addOutput({
     subscribersTopicArn: topic.topicArn,
   }
 })
+
+// === Link Notifications ===
+
+const links = backend.createStack('links')
+const t = new sns.Topic(links, 'DdbToSnsTopic', {
+  displayName: 'New Link for cdk.dev',
+});
+
+t.addSubscription(new snsSubscriptions.EmailSubscription('sebastian@korfmann.net'));
+
+new TableNotifications(links, 'TableNotifications', {
+  table: dataResources.tables['LinkSuggestion'],
+  topic: t,
+  message: 'A new link with the url "<$.dynamodb.NewImage.url.S>" has been added to https://cdk.dev - check it out now'
+})
+
 export default backend;

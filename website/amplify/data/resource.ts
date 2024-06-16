@@ -39,22 +39,13 @@ const schema = a.schema({
     ]),
   LinkSuggestion: a
     .model({
-      url: a.string(),
+      url: a.string().required(),
       comment: a.string(),
-    })
-    .authorization((allow) => [
-      allow.authenticated().to(['create']),
-      allow.owner(),
-      allow.group('admins')
-    ]),
-  Notification: a
-    .model({
-      email: a.string().required(),
     })
     .authorization((allow) => [
       allow.guest().to(['create']),
       allow.authenticated('identityPool').to(['create']),
-    ]),
+    ])
 });
 
 export type Schema = ClientSchema<typeof schema>;

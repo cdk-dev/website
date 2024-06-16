@@ -11,7 +11,7 @@ import { custom, auth } from '@/amplify_outputs.json';
 
 const linkSuggestionSchema = z.object({
   url: z.string().url(),
-  comment: z.string().min(1)
+  comment: z.string().optional()
 });
 
 export const fetchPosts = async (limit: number = 3) => {
@@ -42,11 +42,7 @@ export const fetchMostRecentPosts = async (limit: number = 3) => {
   return posts.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, limit);
 };
 
-export const addLinkSuggestion = async (formData: FormData) => {
-  const currentUser = await AuthGetCurrentUserServer();
-  if (!currentUser) {
-    throw new Error('User is not authenticated');
-  }
+export const addLinkSuggestion = async (prevState: any, formData: FormData) => {
   const parsedData = linkSuggestionSchema.safeParse({
     url: formData.get('url'),
     comment: formData.get('comment'),
@@ -54,7 +50,9 @@ export const addLinkSuggestion = async (formData: FormData) => {
 
   if (!parsedData.success) {
     console.error(parsedData.error);
-    return null;
+    return {
+      errors: parsedData.error.message
+    };
   }
 
   const { data: linkSuggestion, errors } = await cookieBasedClient.models.LinkSuggestion.create(parsedData.data);

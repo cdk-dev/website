@@ -1,8 +1,0 @@
-title: "AWS CDK Bootstrap: The Why and the How"
-excerpt: "This post will delve deeper into a critical aspect of the cdk bootstrap command, its purpose, usage, and how to keep track of its version."
-authorIds:
-  - danny-steenman
-url: https://towardsthecloud.com/aws-cdk-bootstrap
-createdAt: "2023-07-22 09:21"
-categories:
-  - AWS-CDK

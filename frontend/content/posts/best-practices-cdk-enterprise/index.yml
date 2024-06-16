@@ -1,8 +1,0 @@
-title: "Best practices for developing cloud applications with AWS CDK"
-excerpt: "In this post, we discuss strategies for organizing the development of complex cloud applications with large teams, using the AWS Cloud Development Kit (AWS CDK) as a central technology."
-authorIds:
-  - beard-huijbers
-url: https://aws.amazon.com/blogs/devops/best-practices-for-developing-cloud-applications-with-aws-cdk/
-createdAt: "2021-04-1 14:00"
-categories:
-  - AWS-CDK

@@ -1,8 +1,0 @@
-title: "Deploying your CDK app to different stages and environments"
-excerpt: "For this blog post, I want to show this based on a simple sample application that runs an nginx Webserver using ECS and Fargate and has an ApplicationLoadBalancer as an entry point. Using the ECS patterns library of the CDK, this is only one construct named ApplicationLoadBalancedFargateService and has a few settings like container image, number of containers and potentially fixed domain names."
-authorIds:
-  - thorsten-hoeger
-url: https://taimos.de/blog/deploying-your-cdk-app-to-different-stages-and-environments
-createdAt: "2021-01-29 19:00"
-categories:
-  - AWS-CDK

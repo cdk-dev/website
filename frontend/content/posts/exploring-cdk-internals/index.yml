@@ -1,8 +1,0 @@
-title: "Exploring CDK Internals"
-excerpt: "If you're looking for a better understanding on how CDK works under the hoods, you're in the right place. In this video we will cover some internal aspects of CDK."
-authorIds:
-  - rollback-failed
-url: https://www.youtube.com/watch?v=X8G3G3SnCuI
-createdAt: "2021-04-19 19:00"
-categories:
-  - AWS-CDK

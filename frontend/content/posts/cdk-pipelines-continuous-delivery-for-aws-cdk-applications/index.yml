@@ -1,9 +1,0 @@
-title: "CDK Pipelines: Continuous delivery for AWS CDK applications"
-excerpt: "in this post, we will be deploying the CDK application we built earlier to AWS using CDK pipelines."
-authorIds:
-  - rosius-ndimofor
-url: https://phatrabbitapps.com/cdk-pipelines-continuous-delivery-for-aws-cdk-applications
-createdAt: "2021-05-21 19:00"
-categories:
-  - AWS-CDK
-  - Pipelines

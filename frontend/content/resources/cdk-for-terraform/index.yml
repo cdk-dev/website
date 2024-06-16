@@ -1,9 +1,0 @@
-title: HashiCorp Live CDK for Terraform
-teaser: Join Taylor Dolezal, Anubhav Mishra, and CDK for Terraform contributor Sebastian Korfmann as they provision infrastructure resources in Python and TypeScript using the CDK for Terraform.
-url: "https://www.youtube.com/watch?v=p20N5X8AgUM"
-createdAt: "2020-09-17 20:01"
-categories:
-  - cdktf
-  - Webinar
-  - Typescript
-  - Python

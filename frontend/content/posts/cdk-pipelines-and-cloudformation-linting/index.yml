@@ -1,8 +1,0 @@
-title: "CDK Pipelines and CloudFormation linting"
-excerpt: "Make your CDK Pipeline more secure and enterprise ready with CFN Lint"
-authorIds:
-  - yvo-van-zee
-url: https://yvovanzee.nl/cdk-pipelines-and-cloudformation-linting
-createdAt: "2022-01-16 19:00"
-categories:
-  - AWS-CDK

@@ -1,9 +1,0 @@
-title: "AWS CDK Parallel Deployments"
-excerpt: "CDK stacks can be deployed in parallel by generating a cloud assembly output and then specifying the order explicitly."
-banner: header.png
-authorIds:
-  - rehan-v-d-merwe
-url: https://www.rehanvdm.com/blog/cdk-shorts-2-parallel-deployments/index.html?utm_source=cdk-dev
-createdAt: "2021-08-11 22:00"
-categories:
-  - AWS-CDK

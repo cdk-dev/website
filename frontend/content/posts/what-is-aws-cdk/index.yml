@@ -1,8 +1,0 @@
-title: "What is the AWS CDK? (A beginners guide)"
-excerpt: "In this guide, you'll learn what AWS CDK is, how you can use it to create your own infrastructure as code, and apply the best practices during development."
-authorIds:
-  - danny-steenman
-url: https://towardsthecloud.com/aws-cdk
-createdAt: "2022-07-23 20:11"
-categories:
-  - AWS-CDK

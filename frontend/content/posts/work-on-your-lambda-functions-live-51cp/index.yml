@@ -1,9 +1,0 @@
-title: "Work on your Lambda functions live"
-excerpt: "AWS CDK has been great for us and our readers over on Serverless Stack. But the local development experience for Lambda isn't great. To fix this we created a Live Lambda Development environment in SST. SST makes it easier to build serverless apps by allowing you to work on your Lambda functions locally while connecting to your deployed resources."
-authorIds:
-  - frank-wang
-url: https://dev.to/aws-builders/work-on-your-lambda-functions-live-51cp
-createdAt: "2021-01-26 12:00"
-categories:
-  - AWS-CDK
-  - Serverless

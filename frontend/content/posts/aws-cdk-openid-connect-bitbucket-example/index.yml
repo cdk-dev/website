@@ -1,8 +1,0 @@
-title: "Configure OpenID Connect for Bitbucket in AWS CDK"
-excerpt: "Learn how to build a Bitbucket OpenID Connect (OIDC) with AWS CDK and create a Bitbucket pipeline to authenticate with AWS and deploy CDK stacks."
-authorIds:
-  - danny-steenman
-url: https://towardsthecloud.com/aws-cdk-openid-connect-bitbucket
-createdAt: "2022-03-17 08:35"
-categories:
-  - AWS-CDK

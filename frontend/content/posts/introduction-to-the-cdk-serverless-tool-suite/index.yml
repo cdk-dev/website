@@ -1,8 +1,0 @@
-title: "Introduction to the CDK Serverless tool suite"
-excerpt: "CDK Serverless is a tool suite to facilitate the use of the AWS Cloud Development Kit (CDK) in serverless architectures. It provides project management features to configure your TypeScript CDK app and also higher-level (L3) constructs for different APIs and resources needed for serverless applications."
-authorIds:
-  - thorsten-hoeger
-url: https://www.youtube.com/watch?v=GGc0eg3E9MM
-createdAt: "2021-04-20 19:00"
-categories:
-  - AWS-CDK

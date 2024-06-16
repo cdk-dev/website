@@ -1,9 +1,0 @@
-title: "CDK Pipelines: Continuous delivery for AWS CDK applications"
-excerpt: "Blogpost with step-by-step tutorial to create a pipeline in the AWS CDK"
-authorIds:
-  - rico-huijbers
-url: https://aws.amazon.com/blogs/developer/cdk-pipelines-continuous-delivery-for-aws-cdk-applications
-createdAt: "2020-09-18 19:00"
-categories:
-  - AWS-CDK
-  - Pipelines

@@ -15,6 +15,7 @@ export const handler: Handler = async (
   event: Link,
   context: Context,
 ): Promise<any> => {
+  let browser: Browser | null = null;
   try {
     console.log("event:", event);
     const puppeteer: PuppeteerExtra = require("puppeteer-extra");
@@ -47,7 +48,7 @@ export const handler: Handler = async (
         };
 
     console.log('launch', {launchOptions})
-    const browser: Browser = await puppeteer.launch(launchOptions);
+    browser = await puppeteer.launch(launchOptions);
     console.log('launched')
     const page: Page = await browser.newPage();
     console.log('page')
@@ -76,9 +77,6 @@ export const handler: Handler = async (
       const metaTag = document.querySelector('meta[property="og:image"]');
       return metaTag ? metaTag.getAttribute('content') : null;
     });
-
-    console.log('close')
-    await browser.close();
 
     if (ogImageUrl) {
       const ogImageResponse = await fetch(ogImageUrl);
@@ -132,5 +130,16 @@ export const handler: Handler = async (
       statusCode: 500,
       body: JSON.stringify({ error: e.message }),
     };
+  } finally {
+    if (browser) {
+      try {
+        await Promise.race([
+          browser.close(),
+          new Promise((_, reject) => setTimeout(() => reject(new Error("Browser close timeout")), 10000))
+        ]);
+      } catch (closeError) {
+        console.log("Error closing browser:", closeError);
+      }
+    }
   }
 };

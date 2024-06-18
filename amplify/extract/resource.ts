@@ -1,48 +1,3 @@
-// Prompt Instructions:
-// use the latest version of the AWS CDK
-// the ddb payload looks like this
-// [
-//   {
-//     "eventID": "60f8a40b6e9b225e47fab440921bd144",
-//     "eventName": "INSERT",
-//     "eventVersion": "1.1",
-//     "eventSource": "aws:dynamodb",
-//     "awsRegion": "eu-central-1",
-//     "dynamodb": {
-//       "ApproximateCreationDateTime": 1718738391,
-//       "Keys": {
-//         "id": {
-//           "S": "4b3ebdeb-37b9-42b9-8b59-1c27cb650063"
-//         }
-//       },
-//       "NewImage": {
-//         "createdAt": {
-//           "S": "2024-06-18T19:19:51.123Z"
-//         },
-//         "__typename": {
-//           "S": "LinkSuggestion"
-//         },
-//         "comment": {
-//           "S": ""
-//         },
-//         "id": {
-//           "S": "4b3ebdeb-37b9-42b9-8b59-1c27cb650063"
-//         },
-//         "url": {
-//           "S": "https://hamburg.onruby.de/"
-//         },
-//         "updatedAt": {
-//           "S": "2024-06-18T19:19:51.123Z"
-//         }
-//       },
-//       "SequenceNumber": "24446300000000067178597388",
-//       "SizeBytes": 202,
-//       "StreamViewType": "NEW_AND_OLD_IMAGES"
-//     },
-//     "eventSourceARN": "arn:aws:dynamodb:eu-central-1:951516604408:table/LinkSuggestion-solb3gvnrfc73d74revv2a7cfm-NONE/stream/2024-06-13T12:55:33.458"
-//   }
-// ]
-
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import { Duration, RemovalPolicy } from 'aws-cdk-lib';
 import * as pipes from 'aws-cdk-lib/aws-pipes';
@@ -54,28 +9,13 @@ import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 
-export class ProcessLinks extends Construct {
-  constructor(scope: Construct, id: string, props: { table: dynamodb.ITable }) {
+class ExtractContentLambda extends Construct {
+  public readonly lambdaFunction: lambda.IFunction;
+
+  constructor(scope: Construct, id: string, bucket: s3.IBucket) {
     super(scope, id);
 
-    const { table } = props;
-
-    const pipeRole = new iam.Role(this, 'PipeRole', {
-      assumedBy: new iam.ServicePrincipal('pipes.amazonaws.com'),
-    });
-
-    table.grantStreamRead(pipeRole);
-
-    const logGroup = new logs.LogGroup(this, 'PipeLogGroup', {
-      retention: logs.RetentionDays.ONE_WEEK,
-    });
-
-    const bucket = new s3.Bucket(this, 'AssetsBucket', {
-      removalPolicy: RemovalPolicy.DESTROY,
-      autoDeleteObjects: true,
-    });
-
-    const extractContentLambda = new lambda.DockerImageFunction(this, 'ExtractContentLambda', {
+    this.lambdaFunction = new lambda.DockerImageFunction(this, 'ExtractContentLambda', {
       code: lambda.DockerImageCode.fromImageAsset('amplify/extract/scraper'),
       memorySize: 2048,
       timeout: Duration.seconds(60),
@@ -86,7 +26,15 @@ export class ProcessLinks extends Construct {
       },
     });
 
-    bucket.grantWrite(extractContentLambda);
+    bucket.grantWrite(this.lambdaFunction);
+  }
+}
+
+class ExtractContentStateMachine extends Construct {
+  public readonly stateMachine: sfn.IStateMachine;
+
+  constructor(scope: Construct, id: string, extractContentLambda: lambda.IFunction) {
+    super(scope, id);
 
     const extractContentTask = new tasks.LambdaInvoke(this, 'ExtractContentTask', {
       lambdaFunction: extractContentLambda,
@@ -110,14 +58,13 @@ export class ProcessLinks extends Construct {
       .otherwise(new sfn.Pass(this, 'NoNewImage'));
 
     const mapState = new sfn.Map(this, 'MapState', {
-      inputPath: '$.records', // Process the records array
-      itemsPath: '$', // Each item in the array
+      inputPath: '$.records',
+      itemsPath: '$',
       resultPath: '$.processed',
       maxConcurrency: 1,
     });
 
-    // Set the item processor for the Map state
-    mapState.itemProcessor(checkNewImage);
+    mapState.iterator(checkNewImage);
 
     const transformInput = new sfn.Pass(this, 'TransformInput', {
       resultPath: '$',
@@ -132,7 +79,7 @@ export class ProcessLinks extends Construct {
       retention: logs.RetentionDays.ONE_WEEK,
     });
 
-    const stateMachine = new sfn.StateMachine(this, 'ExtractContentStateMachine', {
+    this.stateMachine = new sfn.StateMachine(this, 'ExtractContentStateMachine', {
       definition,
       timeout: Duration.minutes(5),
       tracingEnabled: true,
@@ -142,8 +89,23 @@ export class ProcessLinks extends Construct {
         level: sfn.LogLevel.ALL,
       },
     });
+  }
+}
 
+class DdbToSfnPipe extends Construct {
+  constructor(scope: Construct, id: string, table: dynamodb.ITable, stateMachine: sfn.IStateMachine) {
+    super(scope, id);
+
+    const pipeRole = new iam.Role(this, 'PipeRole', {
+      assumedBy: new iam.ServicePrincipal('pipes.amazonaws.com'),
+    });
+
+    table.grantStreamRead(pipeRole);
     stateMachine.grantStartExecution(pipeRole);
+
+    const logGroup = new logs.LogGroup(this, 'PipeLogGroup', {
+      retention: logs.RetentionDays.ONE_WEEK,
+    });
 
     new pipes.CfnPipe(this, 'DdbToSfnPipe', {
       roleArn: pipeRole.roleArn,
@@ -166,5 +128,22 @@ export class ProcessLinks extends Construct {
         level: 'INFO',
       },
     });
+  }
+}
+
+export class ProcessLinks extends Construct {
+  constructor(scope: Construct, id: string, props: { table: dynamodb.ITable }) {
+    super(scope, id);
+
+    const { table } = props;
+
+    const bucket = new s3.Bucket(this, 'AssetsBucket', {
+      removalPolicy: RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
+    });
+
+    const extractContentLambda = new ExtractContentLambda(this, 'ExtractContentLambda', bucket);
+    const stateMachine = new ExtractContentStateMachine(this, 'ExtractContentStateMachine', extractContentLambda.lambdaFunction);
+    new DdbToSfnPipe(this, 'DdbToSfnPipe', table, stateMachine.stateMachine);
   }
 }

@@ -9,10 +9,10 @@ import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 
 export class ExtractContentLambda extends Construct {
     public readonly lambdaFunction: lambda.IFunction;
-  
+
     constructor(scope: Construct, id: string, bucket: s3.IBucket) {
       super(scope, id);
-  
+
       this.lambdaFunction = new lambda.DockerImageFunction(this, 'ExtractContentLambda', {
         code: lambda.DockerImageCode.fromImageAsset('amplify/extract/scraper'),
         memorySize: 2048,
@@ -23,17 +23,17 @@ export class ExtractContentLambda extends Construct {
           BUCKET_NAME: bucket.bucketName,
         },
       });
-  
+
       bucket.grantWrite(this.lambdaFunction);
     }
   }
-  
+
 export class ConvertHtmlToMarkdownLambda extends Construct {
     public readonly lambdaFunction: lambda.IFunction;
-  
+
     constructor(scope: Construct, id: string, bucket: s3.IBucket) {
       super(scope, id);
-  
+
       this.lambdaFunction = new NodejsFunction(this, 'ConvertHtmlToMarkdownLambda', {
         runtime: lambda.Runtime.NODEJS_20_X,
         entry: 'amplify/extract/converter/index.ts',
@@ -44,13 +44,14 @@ export class ConvertHtmlToMarkdownLambda extends Construct {
           BUCKET_NAME: bucket.bucketName,
         },
       });
-  
+
       bucket.grantReadWrite(this.lambdaFunction);
     }
   }
 
 export class ExtractContentStateMachine extends Construct {
   public readonly stateMachine: sfn.IStateMachine;
+  public readonly stateMachineArn: string;
 
   constructor(scope: Construct, id: string, bucket: s3.IBucket) {
     super(scope, id);
@@ -75,7 +76,7 @@ export class ExtractContentStateMachine extends Construct {
       },
     });
 
-    const convertHtmlToMarkdownTask = new tasks.LambdaInvoke(this, 'ConvertHtmlToMarkdownTask', {
+    const convertHtmlToMarkdownTask = new tasks.LambdaInvoke(this, 'ConvertHtmlToMarkdown', {
       lambdaFunction: convertHtmlToMarkdownLambda.lambdaFunction,
       outputPath: '$.Payload',
       payload: sfn.TaskInput.fromObject({
@@ -126,5 +127,8 @@ export class ExtractContentStateMachine extends Construct {
         level: sfn.LogLevel.ALL,
       },
     });
+
+    this.stateMachineArn = this.stateMachine.stateMachineArn;
   }
 }
+

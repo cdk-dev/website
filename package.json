@@ -14,7 +14,6 @@
     "@aws-amplify/ui-react": "^6.1.12",
     "@aws-sdk/client-sns": "^3.598.0",
     "@tailwindui/react": "^0.1.1",
-    "@types/turndown": "^5.0.4",
     "aws-amplify": "^6.3.6",
     "dayjs": "^1.11.11",
     "geopattern": "^1.2.3",
@@ -25,14 +24,17 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/turndown": "^5.0.4",
     "@aws-amplify/backend": "^1.0.3",
     "@aws-amplify/backend-cli": "^1.0.4",
     "@aws-cdk/aws-pipes-alpha": "^2.146.0-alpha.0",
     "@aws-cdk/aws-pipes-sources-alpha": "^2.146.0-alpha.0",
     "@aws-cdk/aws-pipes-targets-alpha": "^2.146.0-alpha.0",
+    "@aws-cdk/cli-lib-alpha": "^2.147.0-alpha.0",
     "@aws-sdk/client-dynamodb": "^3.596.0",
     "@aws-sdk/client-sfn": "^3.600.0",
     "@aws-sdk/lib-dynamodb": "^3.596.0",
+    "@types/diff": "^5.2.1",
     "@types/geopattern": "^1.2.9",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20",
@@ -41,6 +43,7 @@
     "aws-cdk": "^2.145.0",
     "aws-cdk-lib": "^2.145.0",
     "constructs": "^10.3.0",
+    "diff": "^5.2.0",
     "esbuild": "^0.21.5",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
@@ -48,6 +51,7 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "tsx": "^4.15.4",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
   }
 }

@@ -63,11 +63,11 @@ export const handler: Handler = async (
     console.log('page content')
 
     // Take viewport screenshot
-    const viewportScreenshot = await page.screenshot({ path: `/tmp/${event.id}_viewport.png` });
+    const viewportScreenshot = await page.screenshot({ encoding: 'binary' });
     console.log('viewport screenshot taken')
 
     // Take full page screenshot
-    const fullPageScreenshot = await page.screenshot({ path: `/tmp/${event.id}_fullpage.png`, fullPage: true });
+    const fullPageScreenshot = await page.screenshot({ encoding: 'binary', fullPage: true });
     console.log('full page screenshot taken')
 
     const content = await page.content();
@@ -140,6 +140,14 @@ export const handler: Handler = async (
       } catch (closeError) {
         console.log("Error closing browser:", closeError);
       }
+    }
+    // Clean up temporary files
+    const fs = require('fs').promises;
+    try {
+      await fs.rm('/tmp', { recursive: true, force: true });
+      await fs.mkdir('/tmp');
+    } catch (cleanupError) {
+      console.log("Error cleaning up temporary files:", cleanupError);
     }
   }
 };

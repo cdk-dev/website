@@ -14,12 +14,14 @@
     "@aws-amplify/ui-react": "^6.1.12",
     "@aws-sdk/client-sns": "^3.598.0",
     "@tailwindui/react": "^0.1.1",
+    "@types/turndown": "^5.0.4",
     "aws-amplify": "^6.3.6",
     "dayjs": "^1.11.11",
     "geopattern": "^1.2.3",
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18",
+    "turndown": "^7.2.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -29,6 +31,7 @@
     "@aws-cdk/aws-pipes-sources-alpha": "^2.146.0-alpha.0",
     "@aws-cdk/aws-pipes-targets-alpha": "^2.146.0-alpha.0",
     "@aws-sdk/client-dynamodb": "^3.596.0",
+    "@aws-sdk/client-sfn": "^3.600.0",
     "@aws-sdk/lib-dynamodb": "^3.596.0",
     "@types/geopattern": "^1.2.9",
     "@types/js-yaml": "^4.0.9",

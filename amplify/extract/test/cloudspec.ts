@@ -1,6 +1,6 @@
-import { App, Stack, CfnOutput } from 'aws-cdk-lib';
+import { App, Stack, CfnOutput, Tags } from 'aws-cdk-lib';
 import { AwsCdkCli } from '@aws-cdk/cli-lib-alpha';
-import { test, beforeAll } from 'vitest';
+import { test, beforeAll, describe, vi } from 'vitest';
 import { HotswapMode } from 'aws-cdk/lib/api/hotswap/common';
 import { RequireApproval } from 'aws-cdk-lib/cloud-assembly-schema';
 import os from 'os';
@@ -52,10 +52,13 @@ export function cloudSpec() {
     createResources: (stack: Stack, setOutputs: (o: { [key: string]: string }) => void) => void,
     timeout: number = 120000
   ) => {
-    beforeAll(async () => {
+    beforeAll(async ({name}) => {
       app = new App();
-      const stackName = `TestProcessLinksStack-${os.userInfo().username}`;
+      const stackName = inferStackName(name);
       stack = new Stack(app, stackName);
+
+      // Add cloudspec tag to all resources in the stack
+      Tags.of(stack).add('cloudspec', 'true');
 
       createResources(stack, (o) => {
         outputs = o;
@@ -69,6 +72,23 @@ export function cloudSpec() {
   const runTest = (name: string, testFn: (outputs: { [key: string]: string }) => Promise<void>, timeout = 600000) => {
     return test(name, () => testFn(outputs), timeout);
   };
+
+  function inferStackName(testName?: string): string {
+    const username = os.userInfo().username;
+    const prefix = 'CloudSpec';
+
+    if (testName) {
+      return `${prefix}-${testName.replace(/\s+/g, '-')}-${username}`;
+    }
+
+    // Check if we're inside a describe block
+    if (describe.name) {
+      // Use the describe block's name as the stack name
+      return `${prefix}-${describe.name.replace(/\s+/g, '-')}-${username}`;
+    }
+
+    return `${prefix}-DefaultTest-${username}`;
+  }
 
   return { setup, test: runTest };
 }

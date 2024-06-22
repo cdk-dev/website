@@ -1,7 +1,7 @@
 import { aws_s3 as s3 } from 'aws-cdk-lib';
 import { ExtractContentStateMachine } from '../sfn';
 import { expect, describe } from 'vitest';
-import { cloudSpec } from './cloudspec-mock';
+import { cloudSpec } from './cloudspec';
 import './customMatcher';
 
 describe('ProcessLinks Integration Test', () => {
@@ -15,7 +15,7 @@ describe('ProcessLinks Integration Test', () => {
       bucketName: bucket.bucketName,
       stateMachineArn: stateMachine.stateMachineArn,
     });
-  }, 60_000);
+  }, 120_000);
 
   cloud.test('should create required files in S3', async (stackOutputs) => {
     const { bucketName, stateMachineArn } = stackOutputs;
@@ -30,7 +30,7 @@ describe('ProcessLinks Integration Test', () => {
           comment: { S: "Test comment" }
         }
       }
-    }], 120000); // 2 minutes timeout
+    }], 60_000);
 
     await expect({ bucketName, key: `${testId}.html` }).toExistInS3();
     await expect({ bucketName, key: `${testId}_viewport.png` }).toExistInS3();

@@ -10,10 +10,13 @@
     "amplify:sandbox": "ampx sandbox"
   },
   "dependencies": {
+    "@ai-sdk/amazon-bedrock": "^0.0.1",
     "@aws-amplify/adapter-nextjs": "^1.2.4",
     "@aws-amplify/ui-react": "^6.1.12",
+    "@aws-sdk/client-bedrock-runtime": "^3.602.0",
     "@aws-sdk/client-sns": "^3.598.0",
     "@tailwindui/react": "^0.1.1",
+    "ai": "^3.2.5",
     "aws-amplify": "^6.3.6",
     "dayjs": "^1.11.11",
     "geopattern": "^1.2.3",
@@ -24,7 +27,6 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/turndown": "^5.0.4",
     "@aws-amplify/backend": "^1.0.3",
     "@aws-amplify/backend-cli": "^1.0.4",
     "@aws-cdk/aws-pipes-alpha": "^2.146.0-alpha.0",
@@ -34,12 +36,15 @@
     "@aws-sdk/client-dynamodb": "^3.596.0",
     "@aws-sdk/client-sfn": "^3.600.0",
     "@aws-sdk/lib-dynamodb": "^3.596.0",
+    "@cloudspec/aws-cdk": "^0.3.0",
+    "@cloudspec/aws-matcher": "^0.3.1",
     "@types/diff": "^5.2.1",
     "@types/geopattern": "^1.2.9",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/turndown": "^5.0.4",
     "aws-cdk": "^2.145.0",
     "aws-cdk-lib": "^2.145.0",
     "constructs": "^10.3.0",

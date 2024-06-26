@@ -55,7 +55,7 @@ export default function RootLayout({
         name="og:image"
         content="og.png"
       ></meta>
-        <PlausibleProvider domain="cdk.dev" trackOutboundLinks={true}  enabled={true} trackLocalhost={true}/>
+        <PlausibleProvider domain="cdk.dev" trackOutboundLinks={true} />
       </head>
       <body className={inter.className}>
         <ConfigureAmplifyClientSide />

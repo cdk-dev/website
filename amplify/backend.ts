@@ -6,6 +6,7 @@ import { TableNotifications } from './constructs/table-notifications';
 import * as sns from 'aws-cdk-lib/aws-sns';
 import * as snsSubscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as iam from 'aws-cdk-lib/aws-iam';
+import { ProcessLinks } from './extract/resource';
 
 /**
  * @see https://docs.amplify.aws/react/build-a-backend/ to add storage, functions, and more
@@ -73,3 +74,10 @@ new TableNotifications(links, 'TableNotifications', {
 })
 
 export default backend;
+
+// === Scraper ===
+
+const scraper = backend.createStack('scraper')
+new ProcessLinks(scraper, 'ProcessLinks', {
+  table: dataResources.tables['LinkSuggestion'],
+})

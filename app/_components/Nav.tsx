@@ -3,7 +3,7 @@
 import React, { ReactElement } from "react"
 import NavLink from "./NavLink"
 import { useState } from "react"
-import { Transition } from "@tailwindui/react"
+import { Transition } from "@headlessui/react"
 import Image from 'next/image'
 import logo from '@/public/cdkdevlogo.svg'
 import Link from 'next/link'
@@ -110,11 +110,9 @@ function Nav({ title }: NavProps): ReactElement {
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
-        {(ref) => (
-          <div
-            ref={ref}
-            className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
-          >
+        <div
+          className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+        >
             <div className="rounded-lg shadow-md">
               <div
                 className="rounded-lg bg-white shadow-xs overflow-hidden"
@@ -192,8 +190,7 @@ function Nav({ title }: NavProps): ReactElement {
                 </div>
               </div>
             </div>
-          </div>
-        )}
+        </div>
       </Transition>
     </>
   )

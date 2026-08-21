@@ -33,8 +33,8 @@ npx tsc --noEmit     # Run TypeScript type checking
 ### Key Architectural Patterns
 
 1. **Data Fetching**: Server actions in `/app/_actions/` fetch content from Bluesky API
-   - `getPosts.ts` - Fetches posts from @cdk.dev Bluesky account
-   - Uses `@atcute/bluesky` client with Zod validation
+   - `actions.ts` - Fetches posts from @cdk.dev Bluesky account
+   - Uses `@atcute/bluesky` client with hand-written TypeScript types
    - Implements caching and pagination
 
 2. **Component Structure**:
@@ -50,7 +50,7 @@ npx tsc --noEmit     # Run TypeScript type checking
 ### Critical Files
 
 - `/app/layout.tsx` - Root layout with metadata, fonts, analytics
-- `/app/_actions/getPosts.ts` - Bluesky API integration logic
+- `/app/_actions/actions.ts` - Bluesky API integration logic
 - `/app/_components/PostList.tsx` - Main content display with pagination
 - `/wrangler.toml` - Cloudflare Workers configuration
 - `/next.config.mjs` - Image domains and optimization settings
@@ -59,7 +59,7 @@ npx tsc --noEmit     # Run TypeScript type checking
 
 ### When modifying posts/content:
 - Posts are fetched from Bluesky API, not stored locally
-- Check `/app/_actions/getPosts.ts` for API integration
+- Check `/app/_actions/actions.ts` for API integration
 - Posts support text, images, and embedded content
 
 ### When updating styles:

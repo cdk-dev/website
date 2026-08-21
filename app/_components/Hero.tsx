@@ -3,7 +3,7 @@
 import React, { ReactElement } from "react"
 import Link from "next/link"
 import { useState } from "react"
-import { Transition } from "@tailwindui/react"
+import { Transition } from "@headlessui/react"
 
 export interface NavProps {
   title?: string
@@ -166,11 +166,9 @@ function Nav({ title }: NavProps): ReactElement {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            {(ref) => (
-              <div
-                ref={ref}
-                className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
-              >
+            <div
+              className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+            >
                 <div className="rounded-lg shadow-md">
                   <div
                     className="rounded-lg bg-white shadow-xs overflow-hidden"
@@ -234,8 +232,7 @@ function Nav({ title }: NavProps): ReactElement {
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+            </div>
           </Transition>
           <main className="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28">
             <div className="text-center">

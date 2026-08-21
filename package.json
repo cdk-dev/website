@@ -7,10 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:worker": "cloudflare",
+    "check": "tsc --noEmit",
+    "build:worker": "opennextjs-cloudflare build",
     "dev:worker": "wrangler dev --port 8771",
-    "preview:worker": "npm run build:worker && npm run dev:worker",
-    "deploy:worker": "npm run build:worker && wrangler deploy"
+    "preview:worker": "opennextjs-cloudflare preview",
+    "deploy:worker": "opennextjs-cloudflare deploy"
   },
   "dependencies": {
     "@atcute/bluesky": "^1.0.8",
@@ -19,31 +20,32 @@
     "@tailwindui/react": "^0.1.1",
     "dayjs": "^1.11.11",
     "geopattern": "^1.2.3",
-    "next": "<15",
-    "react": "<19",
-    "react-dom": "<19",
+    "next": "~15.5.23",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@atcute/bluesky-richtext-builder": "^1.0.2",
-    "@opennextjs/cloudflare": "^0.2.1",
+    "@opennextjs/cloudflare": "^1.20.2",
     "@types/geopattern": "^1.2.9",
     "@types/js-yaml": "^4.0.9",
     "@types/json2csv": "^5.0.7",
     "@types/mime-types": "^2.1.4",
     "@types/node": "^20.17.6",
-    "@types/react": "<19",
-    "@types/react-dom": "<19",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "csv-parse": "^5.5.6",
     "csv-parser": "^3.0.0",
     "esbuild": "^0.21.5",
     "eslint": "^8",
-    "eslint-config-next": "15.0.3",
+    "eslint-config-next": "15.5.23",
     "js-yaml": "^4.1.0",
     "mime-types": "^2.1.35",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "tsx": "^4.15.4",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "wrangler": "^4.125.0"
   }
 }

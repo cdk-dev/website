@@ -1,5 +1,8 @@
-/** @type {import('next').NextConfig} */
+import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare';
 
+initOpenNextCloudflareForDev();
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
     staleTimes: {
@@ -15,8 +18,15 @@ const nextConfig = {
         port: '',
         pathname: '/content/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.bsky.app',
+      },
+      {
+        protocol: 'https',
+        hostname: 'av-cdn.bsky.app',
+      },
     ],
-    domains: ['cdn.bsky.app', 'av-cdn.bsky.app'],
   },
 };
 

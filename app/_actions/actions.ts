@@ -1,7 +1,7 @@
 'use server'
 
-import { XRPC, CredentialManager } from '@atcute/client';
-import '@atcute/bluesky/lexicons';
+import { Client, simpleFetchHandler } from '@atcute/client';
+import type {} from '@atcute/bluesky';
 
 type BlueskyFacet = {
   index: {
@@ -56,8 +56,7 @@ type FeedResponse = {
 };
 
 export const fetchBlueskyPosts = async (limit: number = 20, cursor?: string) => {
-  const manager = new CredentialManager({ service: 'https://public.api.bsky.app' });
-  const rpc = new XRPC({ handler: manager });
+  const rpc = new Client({ handler: simpleFetchHandler({ service: 'https://public.api.bsky.app' }) });
 
   try {
     const response = await rpc.get('app.bsky.feed.getAuthorFeed', {
@@ -67,13 +66,20 @@ export const fetchBlueskyPosts = async (limit: number = 20, cursor?: string) => 
         cursor,
         filter: 'posts_no_replies'
       }
-    }) as { data: FeedResponse };
+    });
 
-    console.log('Fetched posts count:', response.data.feed.length);
-    console.log('Next cursor:', response.data.cursor);
+    if (!response.ok) {
+      console.error('Bluesky API error:', response.data.error, response.data.message);
+      return { posts: [], cursor: undefined };
+    }
+
+    const data = response.data as unknown as FeedResponse;
+
+    console.log('Fetched posts count:', data.feed.length);
+    console.log('Next cursor:', data.cursor);
 
     return {
-      posts: response.data.feed.map((item) => ({
+      posts: data.feed.map((item) => ({
         id: item.post.uri,
         title: '',
         content: item.post.record.text,
@@ -93,7 +99,7 @@ export const fetchBlueskyPosts = async (limit: number = 20, cursor?: string) => 
         embed: item.post.record.embed,
         facets: item.post.record.facets
       })),
-      cursor: response.data.cursor
+      cursor: data.cursor
     };
   } catch (error) {
     console.error('Error fetching Bluesky posts:', error);

@@ -5,18 +5,29 @@ function CreateContent(): ReactElement {
   return (
     <>
       <div className="bg-gray-50">
-        <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-          <h2 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
-            Created or seen other CDK related content?
-            <br />
-            <span className="text-indigo-600">Share it with the community</span>
+        <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+          <h2 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 text-center">
+            Share Your CDK Content
           </h2>
-          <div className="mt-8 flex lg:flex-shrink-0 lg:mt-0">
-            <div className="inline-flex rounded-md shadow">
-              <Link className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out" href="/suggest">
-                Suggest a Link
-              </Link>
-            </div>
+          <p className="mt-4 text-lg text-gray-600">
+            Have you created or discovered interesting CDK content? Share it with the community by tagging @cdk.dev on Bluesky. We&apos;ll quote your post and automatically publish it on this site. You can{' '}
+            <Link
+              href="https://bsky.app/intent/compose?text=Check%20out%20my%20CDK%20content!%20%23aws-cdk%20%2Fcc%20%40cdk.dev"
+              target="_blank"
+              className="text-blue-600 hover:text-blue-800 hover:underline"
+            >
+              start a new post
+            </Link>
+            {' '}or see an example below:
+          </p>
+          <div className="mt-6 p-6 bg-white rounded-lg shadow-sm border border-gray-200">
+            <p className="text-gray-800 font-medium">
+              Just published a new blog post about using CDK to deploy serverless applications! Check it out here: [link]
+              <br/><br/>
+              #aws-cdk #infrastructure
+              <br/>
+              /cc @cdk.dev
+            </p>
           </div>
         </div>
       </div>

@@ -1,121 +1,106 @@
 'use server'
 
-import { cookieBasedClient } from '@/utils/amplifyServerUtils';
-import { authSession } from '@/utils/amplifyServerUtils';
-import { z } from 'zod';
-import { revalidateTag } from 'next/cache';
-import { redirect } from 'next/navigation';
-import { SNSClient, SubscribeCommand } from '@aws-sdk/client-sns';
+import { XRPC, CredentialManager } from '@atcute/client';
+import '@atcute/bluesky/lexicons';
 
-import amplify from '@/amplify_outputs.json';
-
-const linkSuggestionSchema = z.object({
-  url: z.string().url(),
-  comment: z.string().optional()
-});
-
-export const fetchPosts = async (limit: number = 3) => {
-  const { data: posts, errors } = await cookieBasedClient.models.Post.list({
-    limit,
-    selectionSet: [
-      'id',
-      'title',
-      'banner',
-      'url',
-      'content',
-      'categories',
-      'createdAt',
-      'updatedAt',
-      'author.*',
-    ],
-    sortDirection: 'DESC'
-  });
-  if (errors) {
-    console.error(errors);
-  }
-  return posts;
+type BlueskyFacet = {
+  index: {
+    byteStart: number;
+    byteEnd: number;
+  };
+  features: Array<{
+    $type: string;
+    tag?: string;
+    uri?: string;
+  }>;
 };
 
-// pending fix https://github.com/aws-amplify/amplify-category-api/issues/2621
-export const fetchMostRecentPosts = async (limit: number = 3) => {
-  const posts = await fetchPosts(200);
-  return posts.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, limit);
-};
-
-export const addLinkSuggestion = async (prevState: any, formData: FormData) => {
-  const parsedData = linkSuggestionSchema.safeParse({
-    url: formData.get('url'),
-    comment: formData.get('comment'),
-  });
-
-  if (!parsedData.success) {
-    console.error(parsedData.error);
-    return {
-      errors: parsedData.error.message
+type BlueskyFeedItem = {
+  post: {
+    uri: string;
+    record: {
+      text: string;
+      createdAt: string;
+      facets?: BlueskyFacet[];
+      embed?: {
+        $type: string;
+        images?: { alt: string; image: { ref: { $link: string } }; }[];
+        external?: {
+          uri: string;
+          title: string;
+          description: string;
+          thumb?: {
+            $type: string;
+            ref: { $link: string };
+            mimeType: string;
+          };
+        };
+      };
     };
-  }
-
-  const { data: linkSuggestion, errors } = await cookieBasedClient.models.LinkSuggestion.create(parsedData.data);
-  console.log({linkSuggestion});
-  if (errors) {
-    console.error(errors);
-  }
-  revalidateTag('posts') // Update cached posts
-  redirect('/')
+    author: {
+      did: string;
+      handle: string;
+      displayName: string;
+      avatar: string;
+    };
+    replyCount: number;
+    repostCount: number;
+    likeCount: number;
+    quoteCount: number;
+  };
 };
 
-export const fetchResources = async (limit: number = 3) => {
-  const { data: resources, errors } = await cookieBasedClient.models.Resource.list({
-    limit,
-    selectionSet: [
-      'id',
-      'title',
-      'content',
-      'url',
-      'categories',
-      'banner',
-      'createdAt',
-      'updatedAt',
-    ],
-    sortDirection: 'DESC'
-  });
-  if (errors) {
-    console.error(errors);
-  }
-  return resources;
+type FeedResponse = {
+  cursor?: string;
+  feed: BlueskyFeedItem[];
 };
 
-// pending fix https://github.com/aws-amplify/amplify-category-api/issues/2621
-export const fetchMostRecentResources = async (limit: number = 3) => {
-  const resources = await fetchResources(200);
-  return resources.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, limit);
-};
-
-export const subscribeToNewsletter = async (formData: FormData) => {
-  const session = await authSession();
-  console.log({session});
-
-  if (!session) {
-    throw new Error('User is not authenticated');
-  }
-
-  const snsClient = new SNSClient({
-    credentials: session.credentials,
-    region: amplify.auth.aws_region,
-  });
-
-  const email = formData.get('email') as string;
+export const fetchBlueskyPosts = async (limit: number = 20, cursor?: string) => {
+  const manager = new CredentialManager({ service: 'https://public.api.bsky.app' });
+  const rpc = new XRPC({ handler: manager });
 
   try {
-    const command = new SubscribeCommand({
-      Protocol: 'email',
-      TopicArn: amplify.custom.subscribersTopicArn,
-      Endpoint: email,
-    });
+    const response = await rpc.get('app.bsky.feed.getAuthorFeed', {
+      params: {
+        actor: 'cdk.dev',
+        limit: Math.min(limit, 100),
+        cursor,
+        filter: 'posts_no_replies'
+      }
+    }) as { data: FeedResponse };
 
-    const response = await snsClient.send(command);
-    console.log('Subscription successful:', response);
+    console.log('Fetched posts count:', response.data.feed.length);
+    console.log('Next cursor:', response.data.cursor);
+
+    return {
+      posts: response.data.feed.map((item) => ({
+        id: item.post.uri,
+        title: '',
+        content: item.post.record.text,
+        createdAt: item.post.record.createdAt,
+        author: {
+          did: item.post.author.did,
+          name: item.post.author.displayName,
+          avatar: item.post.author.avatar,
+          handle: item.post.author.handle
+        },
+        engagement: {
+          replies: item.post.replyCount,
+          reposts: item.post.repostCount,
+          likes: item.post.likeCount,
+          quotes: item.post.quoteCount
+        },
+        embed: item.post.record.embed,
+        facets: item.post.record.facets
+      })),
+      cursor: response.data.cursor
+    };
   } catch (error) {
-    console.error('Error subscribing to SNS:', error);
+    console.error('Error fetching Bluesky posts:', error);
+    return { posts: [], cursor: undefined };
   }
+};
+
+export const fetchMostRecentPosts = async (limit: number = 20, cursor?: string) => {
+  return fetchBlueskyPosts(limit, cursor);
 };

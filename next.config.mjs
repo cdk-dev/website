@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
-import { withPlausibleProxy } from 'next-plausible'
 
 const nextConfig = {
+  experimental: {
+    staleTimes: {
+      dynamic: 30,
+      static: 180,
+    },
+  },
   images: {
     remotePatterns: [
       {
@@ -11,7 +16,8 @@ const nextConfig = {
         pathname: '/content/**',
       },
     ],
+    domains: ['cdn.bsky.app', 'av-cdn.bsky.app'],
   },
 };
 
-export default withPlausibleProxy()(nextConfig);
+export default nextConfig;

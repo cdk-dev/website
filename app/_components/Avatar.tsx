@@ -1,31 +1,22 @@
-import { getUrl } from 'aws-amplify/storage/server';
-import Image from 'next/image';
-import { runWithAmplifyServerContext } from '@/utils/amplifyServerUtils';
+import Image from 'next/image'
+import { ReactElement } from 'react'
 
-// Re-render this page every 60 minutes
-export const revalidate = 60 * 60; // in seconds
+interface AvatarProps {
+  avatarKey: string;
+}
 
-export default async function Avatar({ avatarKey }: { avatarKey: string }) {
-  try {
-    const avatarUrl = await runWithAmplifyServerContext({
-      nextServerContext: null,
-      operation: (contextSpec) =>
-        getUrl(contextSpec, {
-          path: avatarKey
-        })
-    });
-
-    return (
+function Avatar({ avatarKey }: AvatarProps): ReactElement {
+  return (
+    <span className="inline-block h-10 w-10 rounded-full overflow-hidden">
       <Image
-        src={avatarUrl.url.toString()}
-        alt="Avatar Image"
-        className="h-10 w-10 rounded-full"
+        className="h-full w-full object-cover"
+        src={avatarKey}
+        alt="Author avatar"
         width={40}
         height={40}
       />
-    );
-  } catch (error) {
-    console.error(error);
-    return <p>Something went wrong...</p>;
-  }
+    </span>
+  )
 }
+
+export default Avatar

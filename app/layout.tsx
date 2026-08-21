@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ConfigureAmplifyClientSide from "./amplify";
 import Footer from "./_components/Footer";
-import PlausibleProvider from 'next-plausible'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -55,10 +53,8 @@ export default function RootLayout({
         name="og:image"
         content="og.png"
       ></meta>
-        <PlausibleProvider domain="cdk.dev" trackOutboundLinks={true} />
       </head>
       <body className={inter.className}>
-        <ConfigureAmplifyClientSide />
         {children}
         <Footer />
       </body>

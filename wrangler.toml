@@ -1,0 +1,16 @@
+main = ".worker-next/index.mjs"
+name = "cdk-dev"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+assets = { directory = ".worker-next/assets", binding = "ASSETS" }
+
+[[kv_namespaces]]
+binding = "NEXT_CACHE_WORKERS_KV"
+id = "9496fe5fee1b4f9cb87fc9c57fd1f658"
+
+[observability]
+enabled = true
+
+[[routes]]
+pattern = "cdk.dev"
+custom_domain = true

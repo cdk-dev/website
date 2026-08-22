@@ -1,7 +1,15 @@
-/** @type {import('next').NextConfig} */
-import { withPlausibleProxy } from 'next-plausible'
+import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare';
 
+initOpenNextCloudflareForDev();
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    staleTimes: {
+      dynamic: 30,
+      static: 180,
+    },
+  },
   images: {
     remotePatterns: [
       {
@@ -10,8 +18,16 @@ const nextConfig = {
         port: '',
         pathname: '/content/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.bsky.app',
+      },
+      {
+        protocol: 'https',
+        hostname: 'av-cdn.bsky.app',
+      },
     ],
   },
 };
 
-export default withPlausibleProxy()(nextConfig);
+export default nextConfig;

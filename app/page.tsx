@@ -6,9 +6,10 @@ import Newsletter from "@/app/_components/Newsletter"
 import { fetchMostRecentPosts } from "@/app/_actions/actions"
 
 export const dynamic = 'force-dynamic'
+export const revalidate = 180
 
 export default async function Home() {
-  const posts = await fetchMostRecentPosts(3);
+  const { posts } = await fetchMostRecentPosts(3);
   return (
     <>
       <Hero />
@@ -30,8 +31,8 @@ export default async function Home() {
             </p>
           </div>
           <div className="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
-            {posts.map((post) => (
-              <Post key={post.title} post={post} />
+            {Array.isArray(posts) && posts.map((post) => (
+              <Post key={post.id} post={post} />
             ))}
           </div>
         </div>

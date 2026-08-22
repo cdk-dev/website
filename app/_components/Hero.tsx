@@ -3,7 +3,7 @@
 import React, { ReactElement } from "react"
 import Link from "next/link"
 import { useState } from "react"
-import { Transition } from "@tailwindui/react"
+import { Transition } from "@headlessui/react"
 
 export interface NavProps {
   title?: string
@@ -95,13 +95,13 @@ function Nav({ title }: NavProps): ReactElement {
             <nav className="relative flex items-center justify-between sm:h-10 md:justify-center">
               <div className="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
                 <div className="flex items-center justify-between w-full md:w-auto">
-                  <a href="/" aria-label="Home">
+                  <Link href="/" aria-label="Home">
                     <img
                       className="h-8 w-auto sm:h-10"
                       src="/cdkdevlogo.svg"
                       alt="cdk.dev"
                     />
-                  </a>
+                  </Link>
                   <div className="-mr-2 flex items-center md:hidden">
                     <button
                       type="button"
@@ -129,24 +129,18 @@ function Nav({ title }: NavProps): ReactElement {
                 </div>
               </div>
               <div className="hidden md:flex md:space-x-10">
-                <a
+                <Link
                   href="/posts"
                   className="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >
                   Posts
-                </a>
-                <a
-                  href="/resources"
-                  className="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
-                >
-                  Resources
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/codeofconduct"
                   className="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >
                   Code of Conduct
-                </a>
+                </Link>
                 <a
                   href="https://github.com/cdk-dev"
                   className="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
@@ -172,11 +166,9 @@ function Nav({ title }: NavProps): ReactElement {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            {(ref) => (
-              <div
-                ref={ref}
-                className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
-              >
+            <div
+              className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+            >
                 <div className="rounded-lg shadow-md">
                   <div
                     className="rounded-lg bg-white shadow-xs overflow-hidden"
@@ -216,20 +208,13 @@ function Nav({ title }: NavProps): ReactElement {
                       </div>
                     </div>
                     <div className="px-2 pt-2 pb-3">
-                      <a
+                      <Link
                         href="/posts"
                         className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                         role="menuitem"
                       >
                         Posts
-                      </a>
-                      <a
-                        href="/resources"
-                        className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
-                        role="menuitem"
-                      >
-                        Resources
-                      </a>
+                      </Link>
                       <a
                         href="https://github.com/cdk-dev"
                         className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
@@ -247,8 +232,7 @@ function Nav({ title }: NavProps): ReactElement {
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+            </div>
           </Transition>
           <main className="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28">
             <div className="text-center">

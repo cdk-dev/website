@@ -1,0 +1,20 @@
+main = ".open-next/worker.js"
+name = "cdk-dev"
+compatibility_date = "2026-07-01"
+compatibility_flags = ["nodejs_compat"]
+assets = { directory = ".open-next/assets", binding = "ASSETS" }
+
+[[kv_namespaces]]
+binding = "NEXT_INC_CACHE_KV"
+id = "9496fe5fee1b4f9cb87fc9c57fd1f658"
+
+[[services]]
+binding = "WORKER_SELF_REFERENCE"
+service = "cdk-dev"
+
+[observability]
+enabled = true
+
+[[routes]]
+pattern = "cdk.dev"
+custom_domain = true

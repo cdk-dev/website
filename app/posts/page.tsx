@@ -1,15 +1,16 @@
 import React, { ReactElement } from "react"
 
 import Nav from "@/app/_components/Nav"
-import Post from "@/app/_components/Post"
 import CreateContent from "@/app/_components/CreateContent"
 import Newsletter from "@/app/_components/Newsletter"
 import { fetchMostRecentPosts } from "@/app/_actions/actions"
+import PostList from "@/app/_components/PostList"
 
 export const dynamic = 'force-dynamic'
+export const revalidate = 180
 
 async function Posts(): Promise<ReactElement> {
-  const posts = await fetchMostRecentPosts(200)
+  const initialData = await fetchMostRecentPosts(12)
 
   return (
     <>
@@ -32,11 +33,10 @@ async function Posts(): Promise<ReactElement> {
               </p>
             </div>
 
-            <div className="mt-0 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
-              {posts.map((post) => (
-                <Post key={post.id} post={post} />
-              ))}
-            </div>
+            <PostList
+              initialPosts={initialData.posts}
+              initialCursor={initialData.cursor}
+            />
           </div>
         </main>
       </div>

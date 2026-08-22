@@ -2,6 +2,7 @@ import Nav from "@/app/_components/Nav";
 import CreateContent from "@/app/_components/CreateContent";
 import Newsletter from "@/app/_components/Newsletter";
 import React from "react";
+import Link from "next/link";
 
 const coc = () => {
   return (
@@ -147,7 +148,7 @@ const coc = () => {
               </p>
               <h2 className="text-2xl font-bold">Attribution</h2>
               <p>
-                This Code of Conduct is adapted from the <a href="/">Contributor Covenant</a>,
+                This Code of Conduct is adapted from the <Link href="/">Contributor Covenant</Link>,
                 version 2.0, available at <a className="text-blue-400" href="https://www.contributor-covenant.org/version/2/0/code_of_conduct.html">https://www.contributor-covenant.org/version/2/0/code_of_conduct.html</a>.
               </p>
               <p>

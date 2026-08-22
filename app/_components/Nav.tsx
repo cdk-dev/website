@@ -3,9 +3,10 @@
 import React, { ReactElement } from "react"
 import NavLink from "./NavLink"
 import { useState } from "react"
-import { Transition } from "@tailwindui/react"
+import { Transition } from "@headlessui/react"
 import Image from 'next/image'
 import logo from '@/public/cdkdevlogo.svg'
+import Link from 'next/link'
 
 export interface NavProps {
   title?: string
@@ -22,18 +23,17 @@ function Nav({ title }: NavProps): ReactElement {
           <div className="flex justify-between h-16">
             <div className="flex">
               <div className="flex-shrink-0 flex items-center">
-                <a href="/" aria-label="Home">
+                <Link href="/" aria-label="Home">
                   <Image
                     className="h-8 w-auto sm:h-10"
                     src={logo}
                     alt="cdk.dev"
                   />
-                </a>
+                </Link>
               </div>
               <div className="hidden sm:ml-6 sm:flex">
                 <NavLink href="/" linkName="Home" />
                 <NavLink href="/posts" linkName="Posts" />
-                <NavLink href="/resources" linkName="Resources" />
                 <NavLink href="/codeofconduct" linkName="Code of Conduct" />
                 <NavLink href="https://github.com/cdk-dev" linkName="Github" />
                 <NavLink href="https://cdkday.com" linkName="CDK Day" />
@@ -110,11 +110,9 @@ function Nav({ title }: NavProps): ReactElement {
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
-        {(ref) => (
-          <div
-            ref={ref}
-            className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
-          >
+        <div
+          className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+        >
             <div className="rounded-lg shadow-md">
               <div
                 className="rounded-lg bg-white shadow-xs overflow-hidden"
@@ -154,34 +152,27 @@ function Nav({ title }: NavProps): ReactElement {
                   </div>
                 </div>
                 <div className="px-2 pt-2 pb-3">
-                  <a
+                  <Link
                     href="/"
                     className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                     role="menuitem"
                   >
                     Home
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/posts"
                     className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                     role="menuitem"
                   >
                     Posts
-                  </a>
-                  <a
-                    href="/resources"
-                    className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
-                    role="menuitem"
-                  >
-                    Resources
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/codeofconduct"
                     className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                     role="menuitem"
                   >
                     Code of Conduct
-                  </a>
+                  </Link>
                   <a
                     href="https://github.com/cdk-dev"
                     className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
@@ -199,8 +190,7 @@ function Nav({ title }: NavProps): ReactElement {
                 </div>
               </div>
             </div>
-          </div>
-        )}
+        </div>
       </Transition>
     </>
   )

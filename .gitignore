@@ -41,3 +41,5 @@ amplify_outputs*
 amplifyconfiguration*
 
 /cdk.out
+.wrangler
+.open-next

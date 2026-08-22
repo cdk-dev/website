@@ -10,3 +10,5 @@ This is a community driven project for the Cloud Development Kit (CDK) and will 
 ## Contributions
 
 We'd love to have more people on board - Head over to [cdk.dev](https://cdk.dev) and join our Slack.
+
+<!-- Deployed automatically via Cloudflare Workers Builds on push to main -->
